@@ -28,7 +28,7 @@ class PortfolioRepository
         foreach ($images as $image){
 //            $filename = $request->title_ru.'.'.$request->file('images')->getClientOriginalExtension();
 
-            $path = $image->public_path('usoft/my_uploads/');
+            $path = '/public/usoft/my_uploads/';
             $img = new Image([
                 'path' => $path,
                 'filename' => basename($path)
@@ -69,7 +69,7 @@ class PortfolioRepository
             foreach ($images as $image){
 //            $filename = $request->title_ru.'.'.$request->file('images')->getClientOriginalExtension();
 
-                $path = $image->public_path('usoft/my_uploads/');
+                $path = '/public/usoft/my_uploads/';
                 $img = new Image([
                     'path' => $path,
                     'filename' => basename($path)
