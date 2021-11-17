@@ -54,26 +54,29 @@ class PortfolioRepository
             'link' => $request->link
         ]);
 
-        $polymorph = Image::where('imageable_id', $id);
-        $polymorph->delete();
+        if ($request->hasFile('images'))
+        {
+            $polymorph = Image::where('imageable_id', $id);
+            $polymorph->delete();
 
 
 
-        $images = $request->file('images');
+            $images = $request->file('images');
 //        $store->images()->create([
 //            'filename' => $filename,
 //        ]);
 
-        foreach ($images as $image){
+            foreach ($images as $image){
 //            $filename = $request->title_ru.'.'.$request->file('images')->getClientOriginalExtension();
 
-            $path = $image->store('uploads');
-            $img = new Image([
-                'path' => $path,
-                'filename' => basename($path)
-            ]);
+                $path = $image->store('uploads');
+                $img = new Image([
+                    'path' => $path,
+                    'filename' => basename($path)
+                ]);
 
-            $update->images()->save($img);
+                $update->images()->save($img);
+            }
         }
 
         return $update;

@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="icon" href="/public/usoft/images/g10.svg">
+    <link rel="icon" href="/usoft/images/g10.svg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -18,7 +18,7 @@
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&family=Rubik:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="/public/usoft/css/style.css">
+    <link rel="stylesheet" href="/usoft/css/style.css">
     <title>Usoft</title>
 </head>
 
@@ -40,7 +40,7 @@
 <div class="container">
     <header class="header">
         <nav class="navbar">
-            <a href="{{route('main')}}" class="nav-logo"><img src="/public/usoft/images/logo-black.svg" class="w-100" alt=""></a>
+            <a href="{{route('main')}}" class="nav-logo"><img src="/usoft/images/logo-black.svg" class="w-100" alt=""></a>
             <ul class="nav-menu">
                 <li class="nav-item">
                     <a href="{{route('main')}}" class="nav-link">{{ __('menu.home') }}</a>
@@ -168,7 +168,7 @@
     <div class="container">
         <div class="footer__inner">
             <div class="footer__item">
-                <div class="footer__logo"><img src="/public/usoft/images/logo-black.svg" alt=""></div>
+                <div class="footer__logo"><img src="/usoft/images/logo-black.svg" alt=""></div>
                 <div class="footer__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fames.</div>
                 <div class="footer__icon">
                     <a href="{{$contact->facebook}}"><i class="fab fa-facebook-f"></i></a>
@@ -192,7 +192,7 @@
             <div class="footer__item footer__item--phone">
                 <div class="footer__title">{{__('usoft.contact_title')}}</div>
                 <div class="footer__contet">
-                    <a href="#"><img src="/public/usoft/images/footer/1.svg" alt=""></a>
+                    <a href="#"><img src="/usoft/images/footer/1.svg" alt=""></a>
                     <div class="footer__phone">
 
                         <a href="tel:{{$contact->phone}}">{{$contact->phone}}</a>
@@ -201,7 +201,7 @@
                     </div>
                 </div>
                 <div class="footer__contet">
-                    <a href="#"><img src="/public/usoft/images/footer/2.svg" alt=""></a>
+                    <a href="#"><img src="/usoft/images/footer/2.svg" alt=""></a>
                     <div class="footer__phone">
                         <a href="https://goo.gl/maps/TBa6QBmXKyEKb25p8" target="blank">
                             @if(app()->getLocale() == 'uz')
@@ -236,9 +236,9 @@
         integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
         crossorigin="anonymous"></script>
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-<script src="/public/usoft/Js/jquery.maskedinput.min.js"></script>
+<script src="/usoft/Js/jquery.maskedinput.min.js"></script>
 
-<script src="/public/usoft/Js/app.js"></script>
+<script src="/usoft/Js/app.js"></script>
 </body>
 
 </html>

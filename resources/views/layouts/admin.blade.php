@@ -10,36 +10,36 @@
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Usoft Dashboard</title>
-    <link rel="apple-touch-icon" href="/public/vuexy/app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="/public/vuexy/app-assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="/vuexy/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/vuexy/app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/vendors/css/vendors.min.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/vendors/css/charts/apexcharts.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/vendors/css/extensions/tether-theme-arrows.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/vendors/css/extensions/tether.min.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/vendors/css/extensions/shepherd-theme-default.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/vendors/css/charts/apexcharts.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/vendors/css/extensions/tether-theme-arrows.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/vendors/css/extensions/tether.min.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/vendors/css/extensions/shepherd-theme-default.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/themes/semi-dark-layout.css">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/core/colors/palette-gradient.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/pages/dashboard-analytics.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/pages/card-analytics.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/plugins/tour/tour.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/pages/dashboard-analytics.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/pages/card-analytics.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/plugins/tour/tour.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/assets/css/style.css">
     <style>
         .tippy-popper{
             display: none!important;
@@ -110,42 +110,42 @@
                             </li>
                             <li class="scrollable-container media-list"><a class="cart-item" href="app-ecommerce-details.html">
                                     <div class="media">
-                                        <div class="media-left d-flex justify-content-center align-items-center"><img src="/public/vuexy/app-assets/images/pages/eCommerce/4.png" width="75" alt="Cart Item"></div>
+                                        <div class="media-left d-flex justify-content-center align-items-center"><img src="/vuexy/app-assets/images/pages/eCommerce/4.png" width="75" alt="Cart Item"></div>
                                         <div class="media-body"><span class="item-title text-truncate text-bold-500 d-block mb-50">Apple - Apple Watch Series 1 42mm Space Gray Aluminum Case Black Sport Band - Space Gray Aluminum</span><span class="item-desc font-small-2 text-truncate d-block"> Durable, lightweight aluminum cases in silver, space gray,gold, and rose gold. Sport Band in a variety of colors. All the features of the original Apple Watch, plus a new dual-core processor for faster performance. All models run watchOS 3. Requires an iPhone 5 or later to run this device.</span>
                                             <div class="d-flex justify-content-between align-items-center mt-1"><span class="align-middle d-block">1 x $299</span><i class="remove-cart-item feather icon-x danger font-medium-1"></i></div>
                                         </div>
                                     </div>
                                 </a><a class="cart-item" href="app-ecommerce-details.html">
                                     <div class="media">
-                                        <div class="media-left d-flex justify-content-center align-items-center"><img class="mt-1 pl-50" src="/public/vuexy/app-assets/images/pages/eCommerce/dell-inspirion.jpg" width="100" alt="Cart Item"></div>
+                                        <div class="media-left d-flex justify-content-center align-items-center"><img class="mt-1 pl-50" src="/vuexy/app-assets/images/pages/eCommerce/dell-inspirion.jpg" width="100" alt="Cart Item"></div>
                                         <div class="media-body"><span class="item-title text-truncate text-bold-500 d-block mb-50">Apple - Macbook® (Latest Model) - 12" Display - Intel Core M5 - 8GB Memory - 512GB Flash Storage - Space Gray</span><span class="item-desc font-small-2 text-truncate d-block"> MacBook delivers a full-size experience in the lightest and most compact Mac notebook ever. With a full-size keyboard, force-sensing trackpad, 12-inch Retina display,1 sixth-generation Intel Core M processor, multifunctional USB-C port, and now up to 10 hours of battery life,2 MacBook features big thinking in an impossibly compact form.</span>
                                             <div class="d-flex justify-content-between align-items-center mt-1"><span class="align-middle d-block">1 x $1599.99</span><i class="remove-cart-item feather icon-x danger font-medium-1"></i></div>
                                         </div>
                                     </div>
                                 </a><a class="cart-item" href="app-ecommerce-details.html">
                                     <div class="media">
-                                        <div class="media-left d-flex justify-content-center align-items-center"><img src="/public/vuexy/app-assets/images/pages/eCommerce/7.png" width="88" alt="Cart Item"></div>
+                                        <div class="media-left d-flex justify-content-center align-items-center"><img src="/vuexy/app-assets/images/pages/eCommerce/7.png" width="88" alt="Cart Item"></div>
                                         <div class="media-body"><span class="item-title text-truncate text-bold-500 d-block mb-50">Sony - PlayStation 4 Pro Console</span><span class="item-desc font-small-2 text-truncate d-block"> PS4 Pro Dynamic 4K Gaming & 4K Entertainment* PS4 Pro gets you closer to your game. Heighten your experiences. Enrich your adventures. Let the super-charged PS4 Pro lead the way.** GREATNESS AWAITS</span>
                                             <div class="d-flex justify-content-between align-items-center mt-1"><span class="align-middle d-block">1 x $399.99</span><i class="remove-cart-item feather icon-x danger font-medium-1"></i></div>
                                         </div>
                                     </div>
                                 </a><a class="cart-item" href="app-ecommerce-details.html">
                                     <div class="media">
-                                        <div class="media-left d-flex justify-content-center align-items-center"><img src="/public/vuexy/app-assets/images/pages/eCommerce/10.png" width="75" alt="Cart Item"></div>
+                                        <div class="media-left d-flex justify-content-center align-items-center"><img src="/vuexy/app-assets/images/pages/eCommerce/10.png" width="75" alt="Cart Item"></div>
                                         <div class="media-body"><span class="item-title text-truncate text-bold-500 d-block mb-50">Beats by Dr. Dre - Geek Squad Certified Refurbished Beats Studio Wireless On-Ear Headphones - Red</span><span class="item-desc font-small-2 text-truncate d-block"> Rock out to your favorite songs with these Beats by Dr. Dre Beats Studio Wireless GS-MH8K2AM/A headphones that feature a Beats Acoustic Engine and DSP software for enhanced clarity. ANC (Adaptive Noise Cancellation) allows you to focus on your tunes.</span>
                                             <div class="d-flex justify-content-between align-items-center mt-1"><span class="align-middle d-block">1 x $379.99</span><i class="remove-cart-item feather icon-x danger font-medium-1"></i></div>
                                         </div>
                                     </div>
                                 </a><a class="cart-item" href="app-ecommerce-details.html">
                                     <div class="media">
-                                        <div class="media-left d-flex justify-content-center align-items-center"><img class="mt-1 pl-50" src="/public/vuexy/app-assets/images/pages/eCommerce/sony-75class-tv.jpg" width="100" alt="Cart Item"></div>
+                                        <div class="media-left d-flex justify-content-center align-items-center"><img class="mt-1 pl-50" src="/vuexy/app-assets/images/pages/eCommerce/sony-75class-tv.jpg" width="100" alt="Cart Item"></div>
                                         <div class="media-body"><span class="item-title text-truncate text-bold-500 d-block mb-50">Sony - 75" Class (74.5" diag) - LED - 2160p - Smart - 3D - 4K Ultra HD TV with High Dynamic Range - Black</span><span class="item-desc font-small-2 text-truncate d-block"> This Sony 4K HDR TV boasts 4K technology for vibrant hues. Its X940D series features a bold 75-inch screen and slim design. Wires remain hidden, and the unit is easily wall mounted. This television has a 4K Processor X1 and 4K X-Reality PRO for crisp video. This Sony 4K HDR TV is easy to control via voice commands.</span>
                                             <div class="d-flex justify-content-between align-items-center mt-1"><span class="align-middle d-block">1 x $4499.99</span><i class="remove-cart-item feather icon-x danger font-medium-1"></i></div>
                                         </div>
                                     </div>
                                 </a><a class="cart-item" href="app-ecommerce-details.html">
                                     <div class="media">
-                                        <div class="media-left d-flex justify-content-center align-items-center"><img class="mt-1 pl-50" src="/public/vuexy/app-assets/images/pages/eCommerce/canon-camera.jpg" width="70" alt="Cart Item"></div>
+                                        <div class="media-left d-flex justify-content-center align-items-center"><img class="mt-1 pl-50" src="/vuexy/app-assets/images/pages/eCommerce/canon-camera.jpg" width="70" alt="Cart Item"></div>
                                         <div class="media-body"><span class="item-title text-truncate text-bold-500 d-block mb-50">Nikon - D810 DSLR Camera with AF-S NIKKOR 24-120mm f/4G ED VR Zoom Lens - Black</span><span class="item-desc font-small-2 text-truncate d-block"> Shoot arresting photos and 1080p high-definition videos with this Nikon D810 DSLR camera, which features a 36.3-megapixel CMOS sensor and a powerful EXPEED 4 processor for clear, detailed images. The AF-S NIKKOR 24-120mm lens offers shooting versatility. Memory card sold separately.</span>
                                             <div class="d-flex justify-content-between align-items-center mt-1"><span class="align-middle d-block">1 x $4099.99</span><i class="remove-cart-item feather icon-x danger font-medium-1"></i></div>
                                         </div>
@@ -208,7 +208,7 @@
                     </li>
                     @foreach(\App\Models\User::where('id',1)->get() as $user)
                     <li class="dropdown dropdown-user nav-item"><a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                            <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">{{$user->name}}</span><span class="user-status">Админ</span></div><span><img class="round" src="/public/vuexy/app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
+                            <div class="user-nav d-sm-flex d-none"><span class="user-name text-bold-600">{{$user->name}}</span><span class="user-status">Админ</span></div><span><img class="round" src="/vuexy/app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"></span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="{{route('profile.edit',1)}}">
@@ -246,7 +246,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100" href="#">
             <div class="d-flex">
-                <div class="mr-50"><img src="/public/vuexy/app-assets/images/icons/xls.png" alt="png" height="32"></div>
+                <div class="mr-50"><img src="/vuexy/app-assets/images/icons/xls.png" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">Two new item submitted</p><small class="text-muted">Marketing Manager</small>
                 </div>
@@ -254,7 +254,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100" href="#">
             <div class="d-flex">
-                <div class="mr-50"><img src="/public/vuexy/app-assets/images/icons/jpg.png" alt="png" height="32"></div>
+                <div class="mr-50"><img src="/vuexy/app-assets/images/icons/jpg.png" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">52 JPG file Generated</p><small class="text-muted">FontEnd Developer</small>
                 </div>
@@ -262,7 +262,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100" href="#">
             <div class="d-flex">
-                <div class="mr-50"><img src="/public/vuexy/app-assets/images/icons/pdf.png" alt="png" height="32"></div>
+                <div class="mr-50"><img src="/vuexy/app-assets/images/icons/pdf.png" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">25 PDF File Uploaded</p><small class="text-muted">Digital Marketing Manager</small>
                 </div>
@@ -270,7 +270,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between w-100" href="#">
             <div class="d-flex">
-                <div class="mr-50"><img src="/public/vuexy/app-assets/images/icons/doc.png" alt="png" height="32"></div>
+                <div class="mr-50"><img src="/vuexy/app-assets/images/icons/doc.png" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">Anna_Strong.doc</p><small class="text-muted">Web Designer</small>
                 </div>
@@ -281,7 +281,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="#">
             <div class="d-flex align-items-center">
-                <div class="avatar mr-50"><img src="/public/vuexy/app-assets/images/portrait/small/avatar-s-8.jpg" alt="png" height="32"></div>
+                <div class="avatar mr-50"><img src="/vuexy/app-assets/images/portrait/small/avatar-s-8.jpg" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">John Doe</p><small class="text-muted">UI designer</small>
                 </div>
@@ -289,7 +289,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="#">
             <div class="d-flex align-items-center">
-                <div class="avatar mr-50"><img src="/public/vuexy/app-assets/images/portrait/small/avatar-s-1.jpg" alt="png" height="32"></div>
+                <div class="avatar mr-50"><img src="/vuexy/app-assets/images/portrait/small/avatar-s-1.jpg" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">Michal Clark</p><small class="text-muted">FontEnd Developer</small>
                 </div>
@@ -297,7 +297,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="#">
             <div class="d-flex align-items-center">
-                <div class="avatar mr-50"><img src="/public/vuexy/app-assets/images/portrait/small/avatar-s-14.jpg" alt="png" height="32"></div>
+                <div class="avatar mr-50"><img src="/vuexy/app-assets/images/portrait/small/avatar-s-14.jpg" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">Milena Gibson</p><small class="text-muted">Digital Marketing Manager</small>
                 </div>
@@ -305,7 +305,7 @@
         </a></li>
     <li class="auto-suggestion d-flex align-items-center cursor-pointer"><a class="d-flex align-items-center justify-content-between py-50 w-100" href="#">
             <div class="d-flex align-items-center">
-                <div class="avatar mr-50"><img src="/public/vuexy/app-assets/images/portrait/small/avatar-s-6.jpg" alt="png" height="32"></div>
+                <div class="avatar mr-50"><img src="/vuexy/app-assets/images/portrait/small/avatar-s-6.jpg" alt="png" height="32"></div>
                 <div class="search-data">
                     <p class="search-data-title mb-0">Anna Strong</p><small class="text-muted">Web Designer</small>
                 </div>
@@ -680,23 +680,23 @@
 
 
 <!-- BEGIN: Vendor JS-->
-<script src="/public/vuexy/app-assets/vendors/js/vendors.min.js"></script>
+<script src="/vuexy/app-assets/vendors/js/vendors.min.js"></script>
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="/public/vuexy/app-assets/vendors/js/charts/apexcharts.min.js"></script>
-<script src="/public/vuexy/app-assets/vendors/js/extensions/tether.min.js"></script>
-<script src="/public/vuexy/app-assets/vendors/js/extensions/shepherd.min.js"></script>
+<script src="/vuexy/app-assets/vendors/js/charts/apexcharts.min.js"></script>
+<script src="/vuexy/app-assets/vendors/js/extensions/tether.min.js"></script>
+<script src="/vuexy/app-assets/vendors/js/extensions/shepherd.min.js"></script>
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
-<script src="/public/vuexy/app-assets/js/core/app-menu.js"></script>
-<script src="/public/vuexy/app-assets/js/core/app.js"></script>
-<script src="/public/vuexy/app-assets/js/scripts/components.js"></script>
+<script src="/vuexy/app-assets/js/core/app-menu.js"></script>
+<script src="/vuexy/app-assets/js/core/app.js"></script>
+<script src="/vuexy/app-assets/js/scripts/components.js"></script>
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
-<script src="/public/vuexy/app-assets/js/scripts/pages/dashboard-analytics.js"></script>
+<script src="/vuexy/app-assets/js/scripts/pages/dashboard-analytics.js"></script>
 <!-- END: Page JS-->
 
 </body>

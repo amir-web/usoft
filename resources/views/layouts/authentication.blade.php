@@ -10,30 +10,30 @@
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>Login Page - Vuexy - Bootstrap HTML admin template</title>
-    <link rel="apple-touch-icon" href="/public/vuexy/app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="/public/vuexy/app-assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="/vuexy/app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/vuexy/app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/vendors/css/vendors.min.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/vendors/css/vendors.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/colors.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/components.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/components.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/themes/semi-dark-layout.css">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/core/menu/menu-types/horizontal-menu.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/core/colors/palette-gradient.css">
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/app-assets/css/pages/authentication.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/core/menu/menu-types/horizontal-menu.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/css/pages/authentication.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="/public/vuexy/assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/vuexy/assets/css/style.css">
     <!-- END: Custom CSS-->
 
 </head>
@@ -63,7 +63,7 @@
                                 </div>
                             @endif
                             <div class="col-lg-6 d-lg-block d-none text-center align-self-center px-1 py-0">
-                                <img src="/public/vuexy/app-assets/images/pages/login.png" alt="branding logo">
+                                <img src="/vuexy/app-assets/images/pages/login.png" alt="branding logo">
                             </div>
                             <div class="col-lg-6 col-12 p-0">
                                 <div class="card rounded-0 mb-0 px-2">
@@ -138,17 +138,17 @@
 
 
 <!-- BEGIN: Vendor JS-->
-<script src="/public/vuexy/app-assets/vendors/js/vendors.min.js"></script>
+<script src="/vuexy/app-assets/vendors/js/vendors.min.js"></script>
 <!-- BEGIN Vendor JS-->
 
 <!-- BEGIN: Page Vendor JS-->
-<script src="/public/vuexy/app-assets/vendors/js/ui/jquery.sticky.js"></script>
+<script src="/vuexy/app-assets/vendors/js/ui/jquery.sticky.js"></script>
 <!-- END: Page Vendor JS-->
 
 <!-- BEGIN: Theme JS-->
-<script src="/public/vuexy/app-assets/js/core/app-menu.js"></script>
-<script src="/public/vuexy/app-assets/js/core/app.js"></script>
-<script src="/public/vuexy/app-assets/js/scripts/components.js"></script>
+<script src="/vuexy/app-assets/js/core/app-menu.js"></script>
+<script src="/vuexy/app-assets/js/core/app.js"></script>
+<script src="/vuexy/app-assets/js/scripts/components.js"></script>
 <!-- END: Theme JS-->
 
 <!-- BEGIN: Page JS-->
