@@ -17,7 +17,7 @@
                                             <div class="new__title">
                                                 {{__('main.slide1')}}
                                             </div>
-                                            <img class="new__img" src="/public/usoft/images/btn/1.svg" alt="">
+                                            <img class="new__img" src="/usoft/images/btn/1.svg" alt="">
                                         </a>
 
                                     </div>
@@ -28,7 +28,7 @@
                                             <div class="new__title">
                                                 {{__('main.slide2')}}
                                             </div>
-                                            <img class="new__img" src="/public/usoft/images/btn/cuate.svg" alt="">
+                                            <img class="new__img" src="/usoft/images/btn/cuate.svg" alt="">
                                         </a>
 
                                     </div>
@@ -39,7 +39,7 @@
                                             <div class="new__title">
                                                 {{__('main.slide3')}}
                                             </div>
-                                            <img class="new__img" src="/public/usoft/images/btn/mobile.svg" alt="">
+                                            <img class="new__img" src="/usoft/images/btn/mobile.svg" alt="">
                                         </a>
 
                                     </div>
@@ -55,7 +55,7 @@
                                  <div class="new__title">
                                     Разработка веб сайтов
                                  </div>
-                                 <img class="new__img" src="/public/usoft/images/btn/1.svg" alt="">
+                                 <img class="new__img" src="/usoft/images/btn/1.svg" alt="">
                               </a>
 
                            </div> -->
@@ -65,7 +65,7 @@
                     </div>
                 </div>
                 <div class="intro__img col-6">
-                    <img src="/public/usoft/images/intro.svg" alt="">
+                    <img src="/usoft/images/intro.svg" alt="">
                 </div>
 
             </div><!-- intro -->
@@ -78,21 +78,21 @@
 
         <div class="team__inner row justify-content-md-center">
             <div class="team__item col-lg-4 col-md-6 col-12 ">
-                <div class="team__img"><img src="/public/usoft/images/team/1.svg" alt=""></div>
+                <div class="team__img"><img src="/usoft/images/team/1.svg" alt=""></div>
                 <div class="team__title">{{__('main.cat_title1')}}</div>
                 <div class="team__text">
                     {{__('main.cat_desc1')}}
                 </div>
             </div>
             <div class="team__item col-lg-4 col-md-6 col-12">
-                <div class="team__img"><img src="/public/usoft/images/team/2.svg" alt=""></div>
+                <div class="team__img"><img src="/usoft/images/team/2.svg" alt=""></div>
                 <div class="team__title">{{__('main.cat_title2')}}</div>
                 <div class="team__text">
                     {{__('main.cat_desc2')}}
                 </div>
             </div>
             <div class="team__item col-lg-4 col-md-6 col-12">
-                <div class="team__img"><img src="/public/usoft/images/team/3.svg" alt=""></div>
+                <div class="team__img"><img src="/usoft/images/team/3.svg" alt=""></div>
                 <div class="team__title">{{__('main.cat_title3')}}</div>
                 <div class="team__text">
                     {{__('main.cat_desc3')}}
@@ -112,7 +112,7 @@
         <div class="works row">
             <div class=" col-12 col-sm-6">
                 <div class="works__item">
-                    <div class="works__img"><img src="/public/usoft/images/works/1.svg" alt=""></div>
+                    <div class="works__img"><img src="/usoft/images/works/1.svg" alt=""></div>
                     <div class="works__content">
                         <div class="works__title">{{__('main.on_title1')}}</div>
                         <div class="works__text">
@@ -125,7 +125,7 @@
 
             <div class=" col-12 col-sm-6">
                 <div class="works__item">
-                    <div class="works__img"><img src="/public/usoft/images/works/2.svg" alt=""></div>
+                    <div class="works__img"><img src="/usoft/images/works/2.svg" alt=""></div>
                     <div class="works__content">
                         <div class="works__title">{{__('main.on_title2')}}</div>
                         <div class="works__text">
@@ -138,7 +138,7 @@
 
             <div class=" col-12 col-sm-6">
                 <div class="works__item">
-                    <div class="works__img"><img src="/public/usoft/images/works/3.svg" alt=""></div>
+                    <div class="works__img"><img src="/usoft/images/works/3.svg" alt=""></div>
                     <div class="works__content">
                         <div class="works__title">{{__('main.on_title3')}}</div>
                         <div class="works__text">
@@ -151,7 +151,7 @@
 
             <div class=" col-12 col-sm-6">
                 <div class="works__item">
-                    <div class="works__img"><img src="/public/usoft/images/works/4.svg" alt=""></div>
+                    <div class="works__img"><img src="/usoft/images/works/4.svg" alt=""></div>
                     <div class="works__content">
                         <div class="works__title">{{__('main.on_title4')}}</div>
                         <div class="works__text">
@@ -190,7 +190,7 @@
             <div class=" col-sm-4 px-3 mb-sm-0 mb-4">
                 <div class="portfolio__inner">
                     <div class="portfolio__img">
-                        <img src="/public/usoft/images/portfolio/1.jpg" alt="">
+                        <img src="/usoft/images/portfolio/1.jpg" alt="">
                     </div>
                     <div class="portfolio__text">
                         <a href="{{route('show_portfolio', 1)}}"> 24seven.uz</a>
@@ -202,7 +202,7 @@
                     <div class=" col-6 px-3 pb-3">
                         <div class="portfolio__inner">
                             <div class="portfolio__img">
-                                <img src="/public/usoft/images/projects/1.jpg" alt="">
+                                <img src="/usoft/images/projects/1.jpg" alt="">
                             </div>
                             <div class="portfolio__text">
                                 <a href="{{route('show_portfolio', 2)}}"> alutex.uz</a>
@@ -212,7 +212,7 @@
                     <div class=" col-6 px-3 pb-3">
                         <div class="portfolio__inner">
                             <div class="portfolio__img">
-                                <img src="/public/usoft/images/projects/2.jpg" alt="">
+                                <img src="/usoft/images/projects/2.jpg" alt="">
                             </div>
                             <div class="portfolio__text">
                                 <a href="{{route('show_portfolio', 1)}}"> 24seven.uz</a>
@@ -222,7 +222,7 @@
                     <div class="col-12 pt-3">
                         <div class="portfolio__inner">
                             <div class="portfolio__img">
-                                <img src="/public/usoft/images/portfolio/4.png" alt="">
+                                <img src="/usoft/images/portfolio/4.png" alt="">
                             </div>
                             <div class="portfolio__text">
                                 <a href="{{route('show_portfolio', 2)}}"> alutex.uz</a>
@@ -241,14 +241,14 @@
         <div class="section__title">{{__('main.ser_title')}}</div>
         <div class="team__inner row justify-content-md-center">
             <a href="{{route('website')}}" class="team__item col-lg-4 col-md-6 col-12 ">
-                <div class="team__img"><img src="/public/usoft/images/team/1.svg" alt=""></div>
+                <div class="team__img"><img src="/usoft/images/team/1.svg" alt=""></div>
                 <div class="team__title">{{__('main.ser_title1')}}</div>
                 <div class="team__text">
                     {{__('main.ser_desc1')}}
                 </div>
             </a>
             <a href="{{route('mobile_app')}}" class="team__item col-lg-4 col-md-6 col-12">
-                <div class="team__img"><img src="/public/usoft/images/team/2.svg" alt=""></div>
+                <div class="team__img"><img src="/usoft/images/team/2.svg" alt=""></div>
                 <div class="team__title">
                     {{__('main.ser_title2')}}
                 </div>
@@ -257,7 +257,7 @@
                 </div>
             </a>
             <a href="{{route('automation')}}" class="team__item col-lg-4 col-md-6 col-12">
-                <div class="team__img"><img src="/public/usoft/images/team/3.svg" alt=""></div>
+                <div class="team__img"><img src="/usoft/images/team/3.svg" alt=""></div>
                 <div class="team__title">{{__('main.ser_title3')}}</div>
                 <div class="team__text">
                     {{__('main.ser_desc3')}}

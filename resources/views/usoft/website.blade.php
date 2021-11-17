@@ -27,7 +27,7 @@
 
                 </div>
                 <div class="intro__img   col-6">
-                    <img class="w-100" src="/public/usoft/images/MacBook Pro.png" alt="">
+                    <img class="w-100" src="/usoft/images/MacBook Pro.png" alt="">
                 </div>
 
             </div><!-- intro -->
@@ -53,31 +53,31 @@
         <div class="container">
             <div class="section__icon row justify-content-md-center ">
                 <div class="section__item col-lg-2 col-md-3 col-6">
-                    <a href="#"><img src="/public/usoft/images/services/apple.png" alt=""></a>
+                    <a href="#"><img src="/usoft/images/services/apple.png" alt=""></a>
                     <p>
                         ios
                     </p>
                 </div>
                 <div class="section__item col-lg-2 col-md-3 col-6">
-                    <a href="#"><img src="/public/usoft/images/services/android.png" alt=""></a>
+                    <a href="#"><img src="/usoft/images/services/android.png" alt=""></a>
                     <p>
                         android
                     </p>
                 </div>
                 <div class="section__item col-lg-2 col-md-3 col-6">
-                    <a href="#"><img src="/public/usoft/images/services/react.png" alt=""></a>
+                    <a href="#"><img src="/usoft/images/services/react.png" alt=""></a>
                     <p>
                         react native
                     </p>
                 </div>
                 <div class="section__item col-lg-2 col-md-3 col-6">
-                    <a href="#"><img src="/public/usoft/images/services/coffe.png" alt=""></a>
+                    <a href="#"><img src="/usoft/images/services/coffe.png" alt=""></a>
                     <p>
                         hybrid app
                     </p>
                 </div>
                 <div class="section__item col-lg-2 col-md-3 col-6">
-                    <a href="#"><img src="/public/usoft/images/services/connectdevelop.png" alt=""></a>
+                    <a href="#"><img src="/usoft/images/services/connectdevelop.png" alt=""></a>
                     <p>
                         cross-platform
                     </p>
@@ -104,14 +104,14 @@
                         <div class=" col-md-4 col-8  px-3 pb-3">
                             <div class="portfolio__inner">
                                 <div class="portfolio__img">
-                                    <img src="/public/usoft/images/portfolio/2.png" alt="">
+                                    <img src="/usoft/images/portfolio/2.png" alt="">
                                 </div>
                             </div>
                         </div>
                         <div class=" col-md-4 col-8  px-3 pb-3">
                             <div class="portfolio__inner">
                                 <div class="portfolio__img">
-                                    <img src="/public/usoft/images/projects/1.jpg" alt="">
+                                    <img src="/usoft/images/projects/1.jpg" alt="">
                                 </div>
                                 <div class="portfolio__text">
                                     <a href="{{route('show_portfolio', 2)}}">alutex.uz</a>
@@ -121,7 +121,7 @@
                         <div class=" col-md-4 col-8  px-3 pb-3">
                             <div class="portfolio__inner">
                                 <div class="portfolio__img">
-                                    <img src="/public/usoft/images/portfolio/3.png" alt="">
+                                    <img src="/usoft/images/portfolio/3.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -142,14 +142,14 @@
 
             <div class="team__inner row justify-content-md-center">
                 <a href="webdevelopment.html" class="team__item col-lg-4 col-md-6 col-12 ">
-                    <div class="team__img"><img src="/public/usoft/images/team/1.svg" alt=""></div>
+                    <div class="team__img"><img src="/usoft/images/team/1.svg" alt=""></div>
                     <div class="team__title">{{__('main.ser_title1')}}</div>
                     <div class="team__text">
                         {{__('main.ser_desc1')}}
                     </div>
                 </a>
                 <a href="Mobiledevelopment.html" class="team__item col-lg-4 col-md-6 col-12">
-                    <div class="team__img"><img src="/public/usoft/images/team/2.svg" alt=""></div>
+                    <div class="team__img"><img src="/usoft/images/team/2.svg" alt=""></div>
                     <div class="team__title">
                         {{__('main.ser_title2')}}
                     </div>
@@ -158,7 +158,7 @@
                     </div>
                 </a>
                 <a href="businessAutomation.html" class="team__item col-lg-4 col-md-6 col-12">
-                    <div class="team__img"><img src="/public/usoft/images/team/3.svg" alt=""></div>
+                    <div class="team__img"><img src="/usoft/images/team/3.svg" alt=""></div>
                     <div class="team__title">{{__('main.ser_title3')}}</div>
                     <div class="team__text">
                         {{__('main.ser_desc3')}}

@@ -90,7 +90,7 @@
 
     <div class="container">
         <div class="row">
-            <a href="{{$portfolio->link}}" target="blank"><img class="alutex__img col-md-12" src="/public/storage/uploads/{{$portfolio->images[1]->filename}}" alt=""></a>
+            <a href="{{$portfolio->link}}" target="blank"><img class="alutex__img col-md-12" src="/storage/uploads/{{$portfolio->images[1]->filename}}" alt=""></a>
 
         </div>
     </div>

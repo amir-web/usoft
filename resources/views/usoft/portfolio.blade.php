@@ -13,7 +13,7 @@
 
                 </div>
                 <div class="intro__img col-6">
-                    <img src="/public/usoft/images/services/1.svg" alt="">
+                    <img src="/usoft/images/services/1.svg" alt="">
                 </div>
 
             </div><!-- intro -->

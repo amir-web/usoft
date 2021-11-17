@@ -20,7 +20,7 @@
 
                 </div>
                 <div class="intro__img intro__img--mobile col-6">
-                    <img src="/public/usoft/images/cuate.svg" alt="">
+                    <img src="/usoft/images/cuate.svg" alt="">
                 </div>
 
             </div><!-- intro -->
