@@ -18,6 +18,6 @@ class Portfolio extends Model
 
     public function getImage()
     {
-        return isset($this->images()->first()->filename) ? '/public/usoft/my_uploads' . $this->images()->first()->filename : '#';
+        return isset($this->images()->first()->filename) ? '/storage/uploads/' . $this->images()->first()->filename : '#';
     }
 }

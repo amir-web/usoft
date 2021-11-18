@@ -28,7 +28,7 @@ class PortfolioRepository
         foreach ($images as $image){
 //            $filename = $request->title_ru.'.'.$request->file('images')->getClientOriginalExtension();
 
-            $path = '/public/usoft/my_uploads/';
+            $path = $image->store('uploads');
             $img = new Image([
                 'path' => $path,
                 'filename' => basename($path)
@@ -43,7 +43,7 @@ class PortfolioRepository
     public function update($request, $id){
         $update = Portfolio::find($id);
         foreach ($update->images as $img){
-            unlink('/public/usoft/my_uploads/'.$img->filename);
+            unlink(public_path('storage/uploads/'.$img->filename));
         }
 
         $update->update([
@@ -69,7 +69,7 @@ class PortfolioRepository
             foreach ($images as $image){
 //            $filename = $request->title_ru.'.'.$request->file('images')->getClientOriginalExtension();
 
-                $path = '/public/usoft/my_uploads/';
+                $path = $image->store('uploads');
                 $img = new Image([
                     'path' => $path,
                     'filename' => basename($path)
