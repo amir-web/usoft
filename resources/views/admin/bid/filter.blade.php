@@ -75,6 +75,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <button class="btn btn-primary">Фильтровать</button>
+                                                    <a class="btn btn-danger ml-1 waves-effect waves-light" href="{{route('bid.index')}}">Сброс фильтра</a>
                                                 </div>
                                             </form>
                                         </div>

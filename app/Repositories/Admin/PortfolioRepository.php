@@ -124,7 +124,7 @@ class PortfolioRepository
             $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image2')->first();
             if (is_file('storage/uploads/'.$polymorph->filename)) unlink(public_path('storage/uploads/'.$polymorph->filename));
 
-            $path = $image1->store('uploads');
+            $path = $image2->store('uploads');
             $polymorph->update([
                 'filename' => basename($path)
             ]);
@@ -134,7 +134,7 @@ class PortfolioRepository
             $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image3')->first();
             if (is_file('storage/uploads/'.$polymorph->filename)) unlink(public_path('storage/uploads/'.$polymorph->filename));
 
-            $path = $image1->store('uploads');
+            $path = $image3->store('uploads');
             $polymorph->update([
                 'filename' => basename($path)
             ]);

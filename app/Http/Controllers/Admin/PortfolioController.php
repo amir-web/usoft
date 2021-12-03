@@ -77,7 +77,10 @@ class PortfolioController extends Controller
     public function edit($id)
     {
         $edit= Portfolio::find($id);
-        return view('admin.portfolio.edit', compact('edit'));
+        $img1 = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image1')->first();
+        $img2 = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image2')->first();
+        $img3 = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image3')->first();
+        return view('admin.portfolio.edit', compact('edit', 'img1', 'img2', 'img3'));
     }
 
     /**
