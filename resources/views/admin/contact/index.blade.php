@@ -109,7 +109,7 @@
                         </div>
                         <div class="card-content">
                             <div class="card-body">
-                                <form class="form" action="{{route('contact.update', $contact->id)}}" method="post">
+                                <form class="form" action="{{route('contact.update', 1)}}" method="post">
                                     @csrf
                                     @method('PUT')
                                     <div class="form-body">
@@ -160,6 +160,24 @@
                                                 <div class="form-label-group">
                                                     <input type="text" id="email-id-column" class="form-control" name="instagram" placeholder="Ссылка" value="{{$contact->instagram}}">
                                                     <label for="email-id-column">Instagram</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-label-group">
+                                                    <input type="text" id="email-id-column" class="form-control" name="mode_ru" placeholder="Режим работы" value="{{$contact->mode_ru}}">
+                                                    <label for="email-id-column">Режим работы Ru</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-label-group">
+                                                    <input type="text" id="email-id-column" class="form-control" name="mode_uz" placeholder="Режим работы" value="{{$contact->mode_uz}}">
+                                                    <label for="email-id-column">Режим работы Uz</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-label-group">
+                                                    <input type="text" id="email-id-column" class="form-control" name="location" placeholder="Локация" value="{{$contact->location}}">
+                                                    <label for="email-id-column">Локация</label>
                                                 </div>
                                             </div>
                                             <div class="col-12">

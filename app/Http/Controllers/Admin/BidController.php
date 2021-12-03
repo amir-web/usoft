@@ -15,7 +15,12 @@ class BidController extends Controller
      */
     public function index()
     {
-        $bid = Bid::paginate(9);
+        if (request('id_sort', 'desc') == 'desc'){
+            $bid = Bid::orderBy('id', 'desc')->paginate(9);
+        }
+        if (request('id_sort', 'desc') == 'asc'){
+            $bid = Bid::orderBy('id', 'asc')->paginate(9);
+        }
         return view('admin.bid.index', compact('bid'));
     }
 
@@ -72,12 +77,21 @@ class BidController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $bid = Bid::find($id);
+        /*$bid = Bid::find($id);
         $bid->update([
             'status' => $request->status
         ]);
-        $bid->save();
-        return redirect(route('bid.index'));
+        $bid->save();*/
+        if ($request->ajax()){
+            $bid = Bid::find($request->id);
+            $bid->update([
+                'status' => $request->val
+            ]);
+            return response()->json([
+                'status' => 200
+            ]);
+        }
+        //return redirect(route('bid.index'));
     }
 
     /**
@@ -91,5 +105,47 @@ class BidController extends Controller
         $bid = Bid::find($id);
         $bid->delete();
         return redirect(route('bid.index'));
+    }
+
+    public function filter_bid(Request $request){
+       // dd($request->all());
+        if (!$request->date_start == '' && !$request->date_end == ''){
+            $result = Bid::whereBetween('created_at', [$request->date_start, date('Y-m-d 23:59:59', strtotime($request->date_end))])
+                ->Where('status', $request->status)->orderBy('created_at', 'desc')
+                ->paginate(9)->withQueryString();
+        }else{
+            $result = Bid::
+                Where('status', $request->status)->orderBy('created_at', 'desc')
+                ->paginate(9)->withQueryString();
+        }
+
+        if ($request->sort == 'id_desc'){
+            $result = Bid::whereBetween('created_at', [$request->date_start, date('Y-m-d 23:59:59', strtotime($request->date_end))])
+                ->Where('status', $request->status)->orderBy('id', 'desc')
+                ->paginate(9)->withQueryString();
+            return view('admin.bid.filter', compact('result'));
+        }
+        if ($request->sort == 'id_asc'){
+            $result = Bid::whereBetween('created_at', [$request->date_start, date('Y-m-d 23:59:59', strtotime($request->date_end))])
+                ->Where('status', $request->status)->orderBy('id', 'asc')
+                ->paginate(9)->withQueryString();
+            return view('admin.bid.filter', compact('result'));
+        }
+        if ($request->sort == 'name_desc'){
+            $result = Bid::whereBetween('created_at', [$request->date_start, date('Y-m-d 23:59:59', strtotime($request->date_end))])
+                ->Where('status', $request->status)->orderBy('name', 'desc')
+                ->paginate(9)->withQueryString();
+            return view('admin.bid.filter', compact('result'));
+        }
+        if ($request->sort == 'name_asc'){
+            $result = Bid::whereBetween('created_at', [$request->date_start, date('Y-m-d 23:59:59', strtotime($request->date_end))])
+                ->Where('status', $request->status)->orderBy('name', 'asc')
+                ->paginate(9)->withQueryString();
+            return view('admin.bid.filter', compact('result'));
+        }
+
+
+
+        return view('admin.bid.filter', compact('result'));
     }
 }

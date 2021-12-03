@@ -5,7 +5,7 @@
         'name_label' => 'ISMINGIZ:',
         'name_input' => 'Ism',
         'number_label' => 'TELEFON RAQAMINGIZ:',
-        'number_input' => '+998 99 999 99 99',
+        'number_input' => 'Telefon raqamingizni kiriting',
         'button' => 'Yuborish',
 
 

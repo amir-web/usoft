@@ -37,24 +37,60 @@
                             <div class="sec_con_title">Название на узбекском</div>
                             <h4 class="card-title">{{$show->title_uz}}</h4><br>
 
-                            <div class="sec_con_title">Описание на русском</div>
+                            <div class="sec_con_title">Подготовка к проекту на русском</div>
                             <div>
-                                {{$show->description_ru}}
+                                {!! $show->tab1_ru !!}
                             </div>
                             <br>
-                            <div class="sec_con_title">Описание на узбекском</div>
+                            <div class="sec_con_title">Подготовка к проекту на узбекском</div>
                             <div>
-                                {{$show->description_uz}}
+                                {!! $show->tab1_uz !!}
                             </div>
+                            <br>
+                            <div class="sec_con_title">Принцип работы на русском</div>
+                            <div>
+                                {!! $show->tab2_ru !!}
+                            </div>
+                            <br>
+                            <div class="sec_con_title">Принцип работы на узбекском</div>
+                            <div>
+                                {!! $show->tab2_uz !!}
+                            </div>
+                            <br>
+                            <div class="sec_con_title">С UI/UX дизайн на русском</div>
+                            <div>
+                                {!! $show->tab3_ru !!}
+                            </div>
+                            <br>
+                            <div class="sec_con_title">С UI/UX дизайн на узбекском</div>
+                            <div>
+                                {!! $show->tab3_uz !!}
+                            </div>
+                            <br>
+                            <div class="sec_con_title">Категория</div>
+                            <div>{{$show->category}}</div>
                             <br>
                             <div class="sec_con_title">Ссылка</div>
                             <a href="{{$show->link}}">{{$show->title_ru}}</a>
                         </div>
 
                         <div class="row">
-                            @foreach($images as $image)
+                            @foreach($image1 as $item)
                             <div class="col-4">
-                                <img class="card-img-bottom img-fluid" src="/public/storage/uploads/{{$image->filename}}" alt="Card image cap">
+                                <div class="sec_con_title">Картинка 1</div>
+                                <img class="card-img-bottom img-fluid" src="/storage/uploads/{{$item->filename}}" alt="Card image cap">
+                            </div>
+                            @endforeach
+                            @foreach($image2 as $item)
+                            <div class="col-4">
+                                <div class="sec_con_title">Картинка 2</div>
+                                <img class="card-img-bottom img-fluid" src="/storage/uploads/{{$item->filename}}" alt="Card image cap">
+                            </div>
+                            @endforeach
+                            @foreach($image3 as $item)
+                            <div class="col-4">
+                                <div class="sec_con_title">Картинка 3</div>
+                                <img class="card-img-bottom img-fluid" src="/storage/uploads/{{$item->filename}}" alt="Card image cap">
                             </div>
                             @endforeach
                         </div>

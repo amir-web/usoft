@@ -26,10 +26,13 @@ class PortfolioRequest extends FormRequest
         return [
             'title_ru' => 'required',
             'title_uz' => 'required',
-            'description_ru' => 'required',
-            'description_uz' => 'required',
+            'tab1_ru' => 'required',
+            'tab1_uz' => 'required',
+            'tab2_ru' => 'required',
+            'tab2_uz' => 'required',
+            'tab3_ru' => 'required',
+            'tab3_uz' => 'required',
             'link' => 'required',
-            'image' => 'image:jpg,jpeg,png'
         ];
     }
 }

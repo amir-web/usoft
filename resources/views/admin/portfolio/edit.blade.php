@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 @section('content')
+    <script src="https://cdn.ckeditor.com/ckeditor5/31.0.0/classic/ckeditor.js"></script>
+
     <div class="content-header row">
         <div class="content-header-left col-md-12 col-12 mb-12">
             <div class="row breadcrumbs-top">
@@ -29,7 +31,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form action="{{route('portfolio.update', $edit->id)}}" method="post" class="form form-vertical" enctype="multipart/form-data">
+                            <form action="{{route('portfolio.update', $edit->id)}}" id="portfolio_edit" method="post" class="form form-vertical" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <div class="form-body">
@@ -50,18 +52,53 @@
                                                 @endif
                                             </div>
                                             <div class="form-group">
-                                                <label for="first-name-vertical">Описание на русском</label>
-                                                <textarea class="form-control" name="description_ru" placeholder="Описание на русском">{{$edit->description_ru}}</textarea>
-                                                @if($errors->has('description_ru'))
-                                                    <span class="text-danger error-text">{{$errors->first('description_ru')}}</span>
+                                                <label for="first-name-vertical">Подготовка к проекту на русском</label>
+                                                <textarea class="form-control" id="tab1_ru" name="tab1_ru" placeholder="Подготовка к проекту на русском" rows="10" cols="50">{{$edit->tab1_ru}}</textarea>
+                                                @if($errors->has('tab1_ru'))
+                                                    <span class="text-danger error-text">{{$errors->first('tab1_ru')}}</span>
                                                 @endif
                                             </div>
                                             <div class="form-group">
-                                                <label for="first-name-vertical">Описание на узбекском</label>
-                                                <textarea class="form-control" name="description_uz" placeholder="Описание на узбекском">{{$edit->description_uz}}</textarea>
-                                                @if($errors->has('description_uz'))
-                                                    <span class="text-danger error-text">{{$errors->first('description_uz')}}</span>
+                                                <label for="first-name-vertical">Подготовка к проекту на узбекском</label>
+                                                <textarea class="form-control" id="tab1_uz" name="tab1_uz" placeholder="Подготовка к проекту на узбекском" rows="10" cols="50">{{$edit->tab1_uz}}</textarea>
+                                                @if($errors->has('tab1_uz'))
+                                                    <span class="text-danger error-text">{{$errors->first('tab1_uz')}}</span>
                                                 @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Принцип работы на русском</label>
+                                                <textarea class="form-control" id="tab2_ru" name="tab2_ru" placeholder="Принцип работы на русском" rows="10" cols="50">{{$edit->tab2_ru}}</textarea>
+                                                @if($errors->has('tab2_ru'))
+                                                    <span class="text-danger error-text">{{$errors->first('tab2_ru')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Принцип работы на узбекском</label>
+                                                <textarea class="form-control" id="tab2_uz" name="tab2_uz" placeholder="Принцип работы на узбекском" rows="10" cols="50">{{$edit->tab2_uz}}</textarea>
+                                                @if($errors->has('tab2_uz'))
+                                                    <span class="text-danger error-text">{{$errors->first('tab2_uz')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">С UI/UX дизайн на русском</label>
+                                                <textarea class="form-control" id="tab3_ru" name="tab3_ru" placeholder="С UI/UX дизайн на русском" rows="10" cols="50">{{$edit->tab3_ru}}</textarea>
+                                                @if($errors->has('tab3_ru'))
+                                                    <span class="text-danger error-text">{{$errors->first('tab3_ru')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">С UI/UX дизайн на узбекском</label>
+                                                <textarea class="form-control" id="tab3_uz" name="tab3_uz" placeholder="С UI/UX дизайн на узбекском" rows="10" cols="50">{{$edit->tab3_uz}}</textarea>
+                                                @if($errors->has('tab3_uz'))
+                                                    <span class="text-danger error-text">{{$errors->first('tab3_uz')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <select  class="form-control" name="category" form="portfolio_edit">
+                                                    <option value="Разработка мобильных приложений" @if ($edit->category == "Разработка мобильных приложений") selected @endif>Разработка мобильных приложений</option>
+                                                    <option value="Веб-разработка" @if ($edit->category == "Веб-разработка") selected @endif>Веб-разработка</option>
+                                                    <option value="Дизайн" @if ($edit->category == "Дизайн") selected @endif>Дизайн</option>
+                                                </select>
                                             </div>
                                             <div class="form-group">
                                                 <label for="first-name-vertical">Ссылка</label>
@@ -70,12 +107,34 @@
                                                     <span class="text-danger error-text">{{$errors->first('link')}}</span>
                                                 @endif
                                             </div>
-                                            <div class="form-group">
-                                                <label for="first-name-vertical">Изображение</label>
-                                                <input type="file" class="form-control-file" name="images[]" id="basicInputFile" multiple>
-                                                @if($errors->has('images'))
-                                                    <span class="text-danger error-text">{{$errors->first('images')}}</span>
-                                                @endif
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <div class="form-group">
+                                                        <label for="first-name-vertical">Изображение 1</label>
+                                                        <input type="file" class="form-control-file" name="image1" id="basicInputFile">
+                                                        @if($errors->has('image1'))
+                                                            <span class="text-danger error-text">{{$errors->first('image1')}}</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="form-group">
+                                                        <label for="first-name-vertical">Изображение 2</label>
+                                                        <input type="file" class="form-control-file" name="image2" id="basicInputFile" multiple>
+                                                        @if($errors->has('image2'))
+                                                            <span class="text-danger error-text">{{$errors->first('image2')}}</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                <div class="col-4">
+                                                    <div class="form-group">
+                                                        <label for="first-name-vertical">Изображение 3</label>
+                                                        <input type="file" class="form-control-file" name="image3" id="basicInputFile" multiple>
+                                                        @if($errors->has('image3'))
+                                                            <span class="text-danger error-text">{{$errors->first('image3')}}</span>
+                                                        @endif
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -92,4 +151,43 @@
         <!-- Borderless table end -->
 
     </div>
+
+
+    <script>
+        ClassicEditor
+            .create( document.querySelector( '#tab1_ru' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        ClassicEditor
+            .create( document.querySelector( '#tab1_uz' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        ClassicEditor
+            .create( document.querySelector( '#tab2_ru' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        ClassicEditor
+            .create( document.querySelector( '#tab2_uz' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        ClassicEditor
+            .create( document.querySelector( '#tab3_ru' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+
+        ClassicEditor
+            .create( document.querySelector( '#tab3_uz' ) )
+            .catch( error => {
+                console.error( error );
+            } );
+    </script>
 @endsection

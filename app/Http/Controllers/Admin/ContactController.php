@@ -71,18 +71,21 @@ class ContactController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $contact = Contact::find($id);
         $contact->update([
             'address_ru' => $request->address_ru,
             'address_uz' => $request->address_uz,
-            'email' => $request->email,
             'phone' => $request->phone,
             'mobile' => $request->mobile,
+            'email' => $request->email,
             'facebook' => $request->facebook,
             'linkedIn' => $request->linkedIn,
             'instagram' => $request->instagram,
+            'location' => $request->location,
+            'mode_ru' => $request->mode_ru,
+            'mode_uz' => $request->mode_uz,
         ]);
-        $contact->save();
         return redirect(route('contact.index'));
     }
 

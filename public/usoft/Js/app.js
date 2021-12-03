@@ -44,8 +44,17 @@ var swiper = new Swiper(".mySwiper", {
   },
 }); */
 
+$(document).ready(function ($) {
+  $.mask.definitions['9'] = '';
+  $.mask.definitions['n'] = '[0-9]';
+  $(function () {
+      $(".phone-number-input").mask("+998 nn nnn nn nn");
+  });
+})
 
-$('.phone-number-input').mask('+999 (99) 999 99 99');
+// $('.phone-number-input').mask('+(789) 99 999 9999');
+
+ 
 
 const header = document.querySelector('.header');
 
@@ -61,101 +70,102 @@ window.addEventListener('scroll', function () {
 
 
 $('.bid').on('click', function () {
-    let name = $('#name').val()
-    let number = $('#number').val()
-    let url = $('.bid').data("url");
+  let name = $('#name').val()
+  let number = $('#number').val()
+  let url = $('.bid').data("url");
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
 
-    $.ajax({
-        url: url,
-        data: {name: name, number: number},
-        type: 'POST',
-        dataType: "json",
-        success: function (res) {
-            if (res.status === 400){
-                let name_error = res.errors['name']
-                let number_error = res.errors['number']
+  $.ajax({
+    url: url,
+    data: { name: name, number: number },
+    type: 'POST',
+    dataType: "json",
+    success: function (res) {
+      if (res.status === 400) {
+        let name_error = res.errors['name']
+        let number_error = res.errors['number']
 
-                $('#name_error').html(name_error)
-                $('#number_error').html(number_error)
+        $('#name_error').html(name_error)
+        $('#number_error').html(number_error)
 
-                $('#name_error').fadeIn();
-                $('#number_error').fadeIn();
-            }
-            if (res.status === 200){
-                $('#exampleModalToggle2').fadeIn();
-                $('#name_error').fadeOut();
-                $('#number_error').fadeOut();
-                $('#name').val('')
-                $('#number').val('')
-                $('.none').fadeIn();
-                $('.modal_form_cc').fadeOut();
-                $('.modal-backdrop').fadeOut();
-            }
-        }
-    });
+        $('#name_error').fadeIn();
+        $('#number_error').fadeIn();
+      }
+      if (res.status === 200) {
+        $('#exampleModalToggle2').fadeIn();
+        $('#name_error').fadeOut();
+        $('#number_error').fadeOut();
+        $('#name').val('')
+        $('#number').val('')
+        $('.none').fadeIn();
+        $('.modal_form_cc').fadeOut();
+        $('.modal-backdrop').fadeOut();
+      }
+    }
+  });
 });
 
 $('.m_close').on('click', function () {
-    $('.none').fadeOut();
+  $('.none').fadeOut();
 })
 
 $('#app__btn').on('click', function () {
-    $('.usoft_modal_form').fadeIn()
+  $('.usoft_modal_form').fadeIn()
 })
 
 $('#order_btn').on('click', function () {
-    $('.usoft_modal_form').fadeIn()
+  $('.usoft_modal_form').fadeIn()
 })
 
 $('#modal_close_button').on('click', function () {
-    $('.usoft_modal_form').fadeOut()
+  $('.usoft_modal_form').fadeOut()
 })
 
 
-$('.mbtn').on('click',function () {
-    let name = $('#modal_name').val()
-    let number = $('#modal_number').val()
-    let url = $('.mbtn').data("url");
+$('.mbtn').on('click', function () {
+  let name = $('#modal_name').val()
+  let number = $('#modal_number').val()
+  let url = $('.mbtn').data("url");
 
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
 
-    $.ajax({
-        url: url,
-        data: {name: name, number: number},
-        type: 'POST',
-        dataType: "json",
-        success: function (res) {
-            if (res.status === 400){
-                let name_error = res.errors['name']
-                let number_error = res.errors['number']
+  $.ajax({
+    url: url,
+    data: { name: name, number: number },
+    type: 'POST',
+    dataType: "json",
+    success: function (res) {
+      if (res.status === 400) {
+        let name_error = res.errors['name']
+        let number_error = res.errors['number']
 
-                $('#name_modal_error').html(name_error)
-                $('#number_modal_error').html(number_error)
+        $('#name_modal_error').html(name_error)
+        $('#number_modal_error').html(number_error)
 
-                $('#name_modal_error').fadeIn();
-                $('#number_modal_error').fadeIn();
-            }
-            if (res.status === 200){
-                $('#exampleModalToggle2').fadeIn();
-                $('#name_modal_error').fadeOut();
-                $('#number_modal_error').fadeOut();
-                $('#modal_name').val('');
-                $('#modal_number').val('');
-                $('.none').fadeIn();
-                $('.modal_form_cc').fadeOut();
-                $('.modal-backdrop').fadeOut();
-                $('.usoft_modal_form').fadeOut();
-            }
-        }
-    });
+        $('#name_modal_error').fadeIn();
+        $('#number_modal_error').fadeIn();
+      }
+      if (res.status === 200) {
+        $('#exampleModalToggle2').fadeIn();
+        $('#name_modal_error').fadeOut();
+        $('#number_modal_error').fadeOut();
+        $('#modal_name').val('');
+        $('#modal_number').val('');
+        $('.none').fadeIn();
+        $('.modal_form_cc').fadeOut();
+        $('.modal-backdrop').fadeOut();
+        $('.usoft_modal_form').fadeOut();
+      }
+    }
+  });
 })
+

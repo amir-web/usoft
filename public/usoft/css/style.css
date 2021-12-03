@@ -460,15 +460,16 @@ ul.breadcrumb {
 .servisec__btn {
    display: flex;
    margin-bottom: 40px;
+    border-bottom: none!important;
 }
 .servisec__btn__item--red {
    font-size: 16px;
    line-height: 1.1;
    text-decoration: none;
    color: #FF725E;
-   border: 1px solid #FF725E;
+   border: 1px solid #FF725E!important;
    padding: 13px 32px;
-   border-radius: 30px;
+   border-radius: 30px!important;
    margin-right: 30px;
    transition: .3s linear;
 }
@@ -484,9 +485,9 @@ ul.breadcrumb {
    line-height: 1.1;
    text-decoration: none;
    color: #FFC727;
-   border: 1px solid #FFC727;
+   border: 1px solid #FFC727!important;
    padding: 13px 32px;
-   border-radius: 30px;
+   border-radius: 30px!important;
    margin-right: 30px;
    transition: .3s linear;
 }
@@ -500,9 +501,9 @@ ul.breadcrumb {
    line-height: 1.1;
    text-decoration: none;
    color: #BA68C8;
-   border: 1px solid #BA68C8;
+   border: 1px solid #BA68C8!important;
    padding: 13px 32px;
-   border-radius: 30px;
+   border-radius: 30px!important;
    margin-right: 30px;
    transition: .3s linear;
 }
@@ -911,7 +912,7 @@ ul.breadcrumb {
 }
 .intro__title {
    font-size: 44px;
-   line-height: 1.5;
+   line-height: 1.2;
    font-weight: 500;
    color: #0B132A;
    margin-bottom: 24px;
@@ -1179,7 +1180,7 @@ ul.breadcrumb {
 .portfolio .row img
 {
    width: 100%;
-   height: 100%;
+   height: 300px;
    object-fit: cover;
    border-radius: 10px;
 }
@@ -1476,8 +1477,14 @@ ul.breadcrumb {
 .nav-tabs {
    margin-bottom: 20px;
 }
-
+.nav-tabs .nav-link:hover {
+   border-radius: 20px;
+}
+.nav-tabs .nav-link {
+   margin-right: 10px;
+}
 .nav-tabs .nav-link.active {
+   border-radius: 20px;
    color: #dd6a57;
    border-color: #ad6359 #ad6359 #fff;
 }
@@ -1847,6 +1854,7 @@ ul.breadcrumb {
 .usoft_modal_form .form_block h3{
     font-size: 25px;
     margin-bottom: 20px;
+    padding-top: 20px;
 }
 
 .usoft_modal_form .form_block .form{
@@ -1909,4 +1917,33 @@ ul.breadcrumb {
     .modal_close {
         transform: translateY(-30px);
     }
+
+    .nav-tabs .nav-link {
+        width: 100%;
+        margin-bottom: 10px;
+    }
 }
+
+
+.nav-tabs {
+    border-bottom: none!important;
+}
+
+.nav-tabs .nav-link.active {
+   border-radius: 20px;
+    color: white!important;
+    background: #FF725E!important;
+    border: 1px solid #FF725E!important;
+}
+
+#filter_bid{
+    display: flex;
+}
+
+@media screen and (max-width: 450px){
+    .portfolio .row img
+    {
+        height: 150px;
+    }
+}
+

@@ -17,9 +17,14 @@ class CreatePortfoliosTable extends Migration
             $table->id();
             $table->string('title_ru');
             $table->string('title_uz');
-            $table->text('description_ru');
-            $table->text('description_uz');
+            $table->text('tab1_ru');
+            $table->text('tab1_uz');
+            $table->text('tab2_ru');
+            $table->text('tab2_uz');
+            $table->text('tab3_ru');
+            $table->text('tab3_uz');
             $table->string('link');
+            $table->string('category')->nullable();
             $table->timestamps();
         });
     }

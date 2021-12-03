@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\UsoftController;
 use Illuminate\Support\Facades\Route;
@@ -10,6 +11,10 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\BannerController;
 use App\Http\Controllers\Admin\BidController;
 use App\Http\Controllers\Admin\PortfolioController;
+use App\Http\Controllers\Admin\WebDevelopmentController;
+use App\Http\Controllers\Admin\BenefitController;
+use App\Http\Controllers\Admin\ServiceController;
+use App\Http\Controllers\Admin\PortfolioCategoryController;
 use App\Http\Controllers\UserController;
 
 /*
@@ -26,6 +31,7 @@ use App\Http\Controllers\UserController;
 Route::middleware(['set.locale'])->group(function (){
     Route::get('/', [UsoftController::class, 'main'])->name('main');
     Route::get('/service', [UsoftController::class, 'service'])->name('service');
+    Route::get('service-show/{id}', [UsoftController::class, 'service_show'])->name('service_show');
     Route::get('/about', [UsoftController::class, 'about'])->name('about');
     Route::get('/portfolio', [UsoftController::class, 'portfolio'])->name('portfolio');
     Route::get('/contact', [UsoftController::class, 'contact'])->name('contact');
@@ -48,6 +54,17 @@ Route::prefix('admin')->middleware('admin')->group(function (){
     Route::resource('banner', BannerController::class);*/
     Route::resource('bid', BidController::class);
     Route::resource('portfolio', PortfolioController::class);
+    Route::post('/portfolio-main-item', [PortfolioController::class, 'main_item'])->name('portfolio.main_item');
     Route::resource('profile', ProfileController::class);
+    Route::resource('web-development', WebDevelopmentController::class);
+    Route::post('/website-main-item', [WebDevelopmentController::class, 'main_item'])->name('web.main_item');
+    Route::resource('benefit', BenefitController::class);
+    Route::post('/benefit-main-item', [BenefitController::class, 'main_item'])->name('benefit.main_item');
+    Route::resource('service', ServiceController::class);
+    Route::post('/service-main-item', [ServiceController::class, 'main_item'])->name('service.main_item');
     Route::get('logout', [ProfileController::class, 'logout'])->name('logout');
+    Route::get('filter-bid', [BidController::class, 'filter_bid'])->name
+    ('bid_filter');
+    Route::resource('portfolio-category', PortfolioCategoryController::class);
+    Route::resource('about', AboutController::class);
 });

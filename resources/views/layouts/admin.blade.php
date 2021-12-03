@@ -9,6 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>Usoft Dashboard</title>
     <link rel="apple-touch-icon" href="/vuexy/app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="/vuexy/app-assets/images/ico/favicon.ico">
@@ -93,14 +94,6 @@
                         <div class="dropdown-menu" aria-labelledby="dropdown-flag"><a class="dropdown-item" href="#" data-language="en"><i class="flag-icon flag-icon-us"></i> English</a><a class="dropdown-item" href="#" data-language="fr"><i class="flag-icon flag-icon-fr"></i> French</a><a class="dropdown-item" href="#" data-language="de"><i class="flag-icon flag-icon-de"></i> German</a><a class="dropdown-item" href="#" data-language="pt"><i class="flag-icon flag-icon-pt"></i> Portuguese</a></div>
                     </li>--}}
                     <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-expand"><i class="ficon feather icon-maximize"></i></a></li>
-                    <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon feather icon-search"></i></a>
-                        <div class="search-input">
-                            <div class="search-input-icon"><i class="feather icon-search primary"></i></div>
-                            <input class="input" type="text" placeholder="Explore Vuexy..." tabindex="-1" data-search="template-list">
-                            <div class="search-input-close"><i class="feather icon-x"></i></div>
-                            <ul class="search-list search-list-main"></ul>
-                        </div>
-                    </li>
                     {{--<li class="dropdown dropdown-notification nav-item"><a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon feather icon-shopping-cart"></i><span class="badge badge-pill badge-primary badge-up cart-item-count">6</span></a>
                         <ul class="dropdown-menu dropdown-menu-media dropdown-cart dropdown-menu-right">
                             <li class="dropdown-menu-header">
@@ -324,7 +317,7 @@
 <div class="main-menu menu-fixed menu-light menu-accordion menu-shadow" data-scroll-to-active="true">
     <div class="navbar-header">
         <ul class="nav navbar-nav flex-row">
-            <li class="nav-item mr-auto"><a class="navbar-brand" href="{{route('index')}}">
+            <li class="nav-item mr-auto"><a class="navbar-brand" href="{{route('bid.index')}}">
                     <h2 style="color: #111!important;" class="brand-text mb-0">USOFT</h2>
                 </a></li>
             <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pr-0" data-toggle="collapse"><i class="feather icon-x d-block d-xl-none font-medium-4 primary toggle-icon"></i><i class="toggle-icon feather icon-disc font-medium-4 d-none d-xl-block collapse-toggle-icon primary" data-ticon="icon-disc"></i></a></li>
@@ -333,7 +326,7 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item {{request()->path() == 'admin/bid' ? 'active' : ''}}">
+            <li class=" nav-item {{request()->is('') == 'admin/bid' ? 'active' : ''}}">
                 <a href="{{route('bid.index')}}">
                     <i class="feather icon-users"></i>
                     <span class="menu-title">Заявки</span>
@@ -342,9 +335,39 @@
                     @endif
                 </a>
             </li>
-            <li class=" nav-item {{request()->path() == 'admin/portfolio' ? 'active' : ''}}">
-                <a href="{{route('portfolio.index')}}"><i class="feather icon-layout"></i><span class="menu-title">Портфолио</span></a>
+            {{--<li class=" nav-item {{request()->path() == 'admin/portfolio-category' ? 'active' : ''}}">
+                <a href="{{route('portfolio-category.index')}}"><i class="feather icon-list"></i><span class="menu-title">Категории</span></a>
+            </li>--}}
+            <li class="nav-item has-sub">
+
+                <a href="#"><i class="feather icon-credit-card"></i>
+                    <span class="menu-title" data-i18n="Ecommerce">Главная</span></a>
+                <ul class="menu-content">
+                    <li class="nav-item {{request()->is('admin/portfolio*') ? 'active' : ''}}">
+                        <a href="{{route('portfolio.index')}}"><i class="feather icon-circle"></i><span class="menu-title">Портфолио</span></a>
+                    </li>
+                    <li class="nav-item {{request()->is('admin/web-development*') ? 'active' : ''}}">
+                        <a href="{{route('web-development.index')}}"><i class="feather icon-circle"></i><span class="menu-title">Разработка сайтов</span></a>
+                    </li>
+                    <li class="nav-item {{request()->is('admin/benefit*') ? 'active' : ''}}">
+                        <a href="{{route('benefit.index')}}"><i class="feather icon-circle"></i><span class="menu-title">Только у нас</span></a>
+                    </li>
+                    <li class="nav-item {{request()->is('admin/service*') ? 'active' : ''}}">
+                        <a href="{{route('service.index')}}"><i class="feather icon-circle"></i><span class="menu-title">Наши услуги</span></a>
+                    </li>
+                </ul>
             </li>
+            <li class="nav-item has-sub">
+
+                <a href="#"><i class="feather icon-credit-card"></i>
+                    <span class="menu-title" data-i18n="Ecommerce">О компании</span></a>
+                <ul class="menu-content">
+                    <li class="nav-item {{request()->is('admin/about*') ? 'active' : ''}}">
+                        <a href="{{route('about.index')}}"><i class="feather icon-circle"></i><span class="menu-title">О компании</span></a>
+                    </li>
+                </ul>
+            </li>
+
             <li class=" nav-item {{request()->path() == 'admin/contact' ? 'active' : ''}}">
                 <a href="{{route('contact.index')}}"><i class="feather icon-phone"></i><span class="menu-title">Контактные данные</span></a>
             </li>
@@ -697,6 +720,7 @@
 
 <!-- BEGIN: Page JS-->
 <script src="/vuexy/app-assets/js/scripts/pages/dashboard-analytics.js"></script>
+<script src="/vuexy/app-assets/js/scripts/my_script.js"></script>
 <!-- END: Page JS-->
 
 </body>

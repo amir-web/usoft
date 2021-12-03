@@ -12,7 +12,8 @@ return [
     'foot_link1' => 'Veb-sayt ishlab chiqish',
     'foot_link2' => 'Mobil ilovalarni ishlab chiqish',
     'foot_link3' => 'Biznesni avtomatlashtirish',
-    'contact_title' => 'Bizning kontaktlarimiz'
+    'contact_title' => 'Bizning kontaktlarimiz',
+    'phone_placeholder' => 'Telefon raqamingizni kiriting',
 
 
 ];

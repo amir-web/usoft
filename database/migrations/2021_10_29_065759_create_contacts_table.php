@@ -23,6 +23,9 @@ class CreateContactsTable extends Migration
             $table->string('facebook');
             $table->string('linkedIn');
             $table->string('instagram');
+            $table->text('location');
+            $table->text('mode_ru');
+            $table->text('mode_uz');
             $table->timestamps();
         });
     }

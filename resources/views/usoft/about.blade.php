@@ -4,72 +4,88 @@
         <div class="container">
             <div class="intro">
                 <div class="intro__content col-7">
-                    <div class="intro__title">O Usoft </div>
+                    <div class="intro__title">
+                        @if(app()->getLocale() == 'ru')
+                            {{$about->title_ru}}
+                        @elseif(app()->getLocale() == 'uz')
+                            {{$about->title_uz}}
+                        @else
+                            {{$about->title_ru}}
+                        @endif
+                    </div>
                     <div class="intro__text col-12">
-                        <p>
-                        <h6 class="intro__text--title">
-                            USOFT is a leading tech company specializing in
-                            providing IT services for corporate customers
-                            around the globe.
-                        </h6>
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur condimentum pretium id ac
-                            vestibulum scelerisque aliquam dui neque. In rhoncus libero scelerisque erat id gravida arcu
-                            egestas lacus. Hac nunc phasellus nunc amet, sit. Diam eget sed ultricies molestie.
-
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur condimentum pretium id ac
-                            vestibulum scelerisque aliquam dui neque. In rhoncus libero scelerisque erat id gravida arcu
-                            egestas lacus. Hac nunc phasellus nunc amet, sit. Diam eget sed ultricies molestie.
-
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam mauris tincidunt non, ipsum augue
-                            accumsan, condimentum sit. Netus turpis viverra nam eget ipsum volutpat ante luctus. Eleifend
-                            tortor vel massa nunc elit viverra.
-                        </p>
+                        @if(app()->getLocale() == 'ru')
+                            {!! $about->description_ru !!}
+                        @elseif(app()->getLocale() == 'uz')
+                            {!! $about->description_uz !!}
+                        @else
+                            {!! $about->description_ru !!}
+                        @endif
                     </div>
                 </div>
                 <div class="intro__img  col-5">
-                    <img src="/usoft/images/page2.png" alt="">
+                    <img src="{{$about->getImage()}}" alt="">
                 </div>
 
             </div><!-- intro -->
         </div><!-- container -->
     </section>
-    <section class="section intro--section ">
+    <section class="section">
         <div class="container">
-            <div class="section__title">{{__('service.title')}}</div>
+            <div class="section__title">
+                @if(app()->getLocale() == 'ru')
+                    {{$section_service_title->title_ru}}
+                @elseif(app()->getLocale() == 'uz')
+                    {{$section_service_title->title_uz}}
+                @else
+                    {{$section_service_title->title_ru}}
+                @endif
+            </div>
             <div class="team__inner row justify-content-md-center">
-                <a href="{{route('website')}}" class="team__item col-lg-4 col-md-6 col-12 ">
-                    <div class="team__img"><img src="/usoft/images/team/1.svg" alt=""></div>
-                    <div class="team__title">{{__('service.title1')}}</div>
-                    <div class="team__text">
-                        {{__('service.desc1')}}
-                    </div>
-                </a>
-                <a href="{{route('mobile_app')}}" class="team__item col-lg-4 col-md-6 col-12">
+                @foreach($section_service as $item)
+                    <a href="{{route('service_show', $item->id)}}" class="team__item col-lg-4 col-md-6 col-12 ">
+                        <div class="team__img"><img src="{{$item->getImage()}}" alt=""></div>
+                        <div class="team__title">
+                            @if(app()->getLocale() == 'ru')
+                                {{$item->title_ru}}
+                            @elseif(app()->getLocale() == 'uz')
+                                {{$item->title_uz}}
+                            @else
+                                {{$item->title_ru}}
+                            @endif
+                        </div>
+                        <div class="team__text">
+                            @if(app()->getLocale() == 'ru')
+                                {{$item->description_ru}}
+                            @elseif(app()->getLocale() == 'uz')
+                                {{$item->description_uz}}
+                            @else
+                                {{$item->description_ru}}
+                            @endif
+                        </div>
+                    </a>
+                @endforeach
+                {{--<a href="{{route('mobile_app')}}" class="team__item col-lg-4 col-md-6 col-12">
                     <div class="team__img"><img src="/usoft/images/team/2.svg" alt=""></div>
                     <div class="team__title">
-                        {{__('service.title2')}}
+                        {{__('main.ser_title2')}}
                     </div>
                     <div class="team__text">
-                        {{__('service.desc2')}}
+                        {{__('main.ser_desc2')}}
                     </div>
                 </a>
                 <a href="{{route('automation')}}" class="team__item col-lg-4 col-md-6 col-12">
                     <div class="team__img"><img src="/usoft/images/team/3.svg" alt=""></div>
-                    <div class="team__title">{{__('service.title3')}}</div>
+                    <div class="team__title">{{__('main.ser_title3')}}</div>
                     <div class="team__text">
-                        {{__('service.desc3')}}
+                        {{__('main.ser_desc3')}}
                     </div>
-                </a>
+                </a>--}}
             </div>
 
-        </div><!-- CONTAINER -->
-    </section>
+        </div><!-- container -->
+
+    </section><!-- section -->
 
 
 

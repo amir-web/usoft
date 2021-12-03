@@ -57,11 +57,11 @@
                                         <td>{{$item->number}}</td>
                                         <td>{{$item->status}}</td>
                                         <td style="display: flex">
-                                            <a href="{{route('client.edit', $item->id)}}" class="btn btn-warning mr-1 mb-1 waves-effect waves-light">Изменить статус</a>
+                                            <a href="{{route('client.edit', $item->id)}}" class="btn btn-icon btn-sm btn-warning mr-1 mb-1 waves-effect waves-light"><i class="feather icon-edit icon-edit"></i></a>
                                             <form action="{{route('client.destroy',$item->id)}}" method="post">
                                                 @csrf
                                                 @method('delete')
-                                                <button type="submit" class="btn btn-danger mr-1 mb-1 waves-effect waves-light">Удалить</button>
+                                                <button type="submit" class="btn btn-icon btn-sm btn-danger mr-1 mb-1 waves-effect waves-light"><i class="feather icon-trash-2"></i></button>
                                             </form>
                                         </td>
                                     </tr>

@@ -14,13 +14,60 @@ class PortfolioRepository
         $store = Portfolio::create([
             'title_ru' => $request->title_ru,
             'title_uz' => $request->title_uz,
-            'description_ru' => $request->description_ru,
-            'description_uz' => $request->description_uz,
-            'link' => $request->link
+            'tab1_ru' => $request->tab1_ru,
+            'tab1_uz' => $request->tab1_uz,
+            'tab2_ru' => $request->tab2_ru,
+            'tab2_uz' => $request->tab2_uz,
+            'tab3_ru' => $request->tab3_ru,
+            'tab3_uz' => $request->tab3_uz,
+            'link' => $request->link,
+            'category' => $request->category,
         ]);
 
+        $image1 = $request->file('image1');
+        $image2 = $request->file('image2');
+        $image3 = $request->file('image3');
+
+        if ($request->hasFile('image1')){
+
+            $path = $image1->store('uploads');
+            $img = new Image([
+                'path' => $path,
+                'position' => 'image1',
+                'filename' => basename($path),
+            ]);
+
+            $store->images()->save($img);
+        }
+
+        if ($request->hasFile('image2')){
+
+            $path = $image2->store('uploads');
+            $img = new Image([
+                'path' => $path,
+                'position' => 'image2',
+                'filename' => basename($path),
+            ]);
+
+            $store->images()->save($img);
+        }
+
+        if ($request->hasFile('image3')){
+
+            $path = $image3->store('uploads');
+            $img = new Image([
+                'path' => $path,
+                'position' => 'image3',
+                'filename' => basename($path),
+            ]);
+
+            $store->images()->save($img);
+        }
+
         //path = $image->storeAs('uploads',$request->title_ru.'.'.$image->getClientOriginalExtension());
-        $images = $request->file('images');
+
+
+        /*$images = $request->file('images');
 //        $store->images()->create([
 //            'filename' => $filename,
 //        ]);
@@ -28,35 +75,80 @@ class PortfolioRepository
         foreach ($images as $image){
 //            $filename = $request->title_ru.'.'.$request->file('images')->getClientOriginalExtension();
 
-            $path = '/public/usoft/my_uploads/';
+            $path = $image->store('uploads');
             $img = new Image([
                 'path' => $path,
                 'filename' => basename($path)
             ]);
 
             $store->images()->save($img);
-        }
+        }*/
 
         return $store;
     }
 
     public function update($request, $id){
         $update = Portfolio::find($id);
-        foreach ($update->images as $img){
-            unlink('/public/usoft/my_uploads/'.$img->filename);
-        }
+        /*foreach ($update->images as $img){
+            unlink(public_path('storage/uploads/'.$img->filename));
+        }*/
 
         $update->update([
             'title_ru' => $request->title_ru,
             'title_uz' => $request->title_uz,
-            'description_ru' => $request->description_ru,
-            'description_uz' => $request->description_uz,
-            'link' => $request->link
+            'tab1_ru' => $request->tab1_ru,
+            'tab1_uz' => $request->tab1_uz,
+            'tab2_ru' => $request->tab2_ru,
+            'tab2_uz' => $request->tab2_uz,
+            'tab3_ru' => $request->tab3_ru,
+            'tab3_uz' => $request->tab3_uz,
+            'link' => $request->link,
+            'category' => $request->category,
         ]);
 
-        if ($request->hasFile('images'))
+        $image1 = $request->file('image1');
+        $image2 = $request->file('image2');
+        $image3 = $request->file('image3');
+
+        if ($request->hasFile('image1')){
+            $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image1');
+            foreach ($polymorph as $item){
+                unlink(public_path('storage/uploads/'.$item->filename));
+            }
+
+            $path = $image1->store('uploads');
+            $polymorph->update([
+                'filename' => basename($path)
+            ]);
+        }
+
+        if ($request->hasFile('image2')){
+            $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image2');
+            foreach ($polymorph as $item){
+                unlink(public_path('storage/uploads/'.$item->filename));
+            }
+
+            $path = $image2->store('uploads');
+            $polymorph->update([
+                'filename' => basename($path)
+            ]);
+        }
+
+        if ($request->hasFile('image3')){
+            $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image3');
+            foreach ($polymorph as $item){
+                unlink(public_path('storage/uploads/'.$item->filename));
+            }
+
+            $path = $image3->store('uploads');
+            $polymorph->update([
+                'filename' => basename($path)
+            ]);
+        }
+
+        /*if ($request->hasFile('images'))
         {
-            $polymorph = Image::where('imageable_id', $id);
+            $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id);
             $polymorph->delete();
 
 
@@ -69,7 +161,7 @@ class PortfolioRepository
             foreach ($images as $image){
 //            $filename = $request->title_ru.'.'.$request->file('images')->getClientOriginalExtension();
 
-                $path = '/public/usoft/my_uploads/';
+                $path = $image->store('uploads');
                 $img = new Image([
                     'path' => $path,
                     'filename' => basename($path)
@@ -77,7 +169,7 @@ class PortfolioRepository
 
                 $update->images()->save($img);
             }
-        }
+        }*/
 
         return $update;
     }
@@ -88,7 +180,7 @@ class PortfolioRepository
             unlink(public_path('storage/uploads/'.$img->filename));
         }
 
-        $polymorph = Image::where('imageable_id', $id);
+        $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id);
         $polymorph->delete();
         $delete->images()->delete();
         $delete->delete();

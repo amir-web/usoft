@@ -10,7 +10,7 @@ class UserController extends Controller
     public function login(Request $request){
         if ($request->isMethod('post')){
             if (Auth::attempt($request->only('email', 'password'))) {
-                return redirect()->route('index');
+                return redirect()->route('bid.index');
             }
 
             return redirect()->back()->with('error', 'Неправильный логин или пароль!');

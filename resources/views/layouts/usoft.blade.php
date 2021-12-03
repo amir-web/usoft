@@ -80,7 +80,7 @@
             </div>
             <div class="dropdown">
                 <ul class="lang">
-                    <li><a @if(app()->getLocale() == 'ru')
+                    <li><a @if(app()->getLocale() != 'uz')
                            class="active_lang"
                            @endif href="{{route('locale', 'ru')}}">Ru</a></li>
                     <li><a>|</a></li>
@@ -113,7 +113,7 @@
             </div>
             <div class="field_group">
                 <label>{{__('modal_form.number_label')}}</label>
-                <input type="text" id="modal_number" placeholder="{{__('modal_form.number_input')}}" class="phone-number-input">
+               <input type="text" id="modal_number" placeholder="{{__('modal_form.number_input')}}" class="phone-number-input">
                 <span style="color: red!important;font-size: 14px; display: none" id="number_modal_error" class="text-danger error-text"></span>
             </div>
             <button data-url="{{route('bid_modal')}}" class="mbtn">{{__('modal_form.button')}}</button>
@@ -149,7 +149,7 @@
                             </div>
                             <div class="form__group">
                                 <span style="color: red!important;font-size: 14px; display: none" id="number_error" class="text-danger error-text"></span>
-                                <input placeholder="+998 (XX) XXX XX XX" type="text" name="number" id="number" class="form__input phone-number-input">
+                                <input placeholder="{{ __('usoft.phone_placeholder') }}" type="text" name="number" id="number" class="form__input phone-number-input">
 
                                 <button data-url="{{route('bid')}}" class="form__button bid col-12"
                                         type="button">{{ __('buttons.order_dev') }}</button>
@@ -171,9 +171,18 @@
                 <div class="footer__logo"><img src="/usoft/images/logo-black.svg" alt=""></div>
                 <div class="footer__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fames.</div>
                 <div class="footer__icon">
+                    @if(!$contact->facebook == '')
                     <a href="{{$contact->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                    @else
+                    @endif
+                    @if(!$contact->linkedIn == '')
                     <a href="{{$contact->linkedIn}}"><i class="fab fa-linkedin-in"></i></a>
+                    @else
+                    @endif
+                    @if(!$contact->instagram == '')
                     <a href="{{$contact->instagram}}"><i class="fab fa-instagram"></i></a>
+                    @else
+                    @endif
                 </div>
             </div>
             <div class="footer__item">

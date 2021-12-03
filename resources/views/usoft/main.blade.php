@@ -13,7 +13,7 @@
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
                                     <div class="new__btn">
-                                        <a href="{{route('website')}}" class="new__item">
+                                        <a href="{{route('service_show',3)}}" class="new__item">
                                             <div class="new__title">
                                                 {{__('main.slide1')}}
                                             </div>
@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="new__btn">
-                                        <a href="{{route('automation')}}" class="new__item">
+                                        <a href="{{route('service_show',4)}}" class="new__item">
                                             <div class="new__title">
                                                 {{__('main.slide2')}}
                                             </div>
@@ -35,7 +35,7 @@
                                 </div>
                                 <div class="swiper-slide">
                                     <div class="new__btn">
-                                        <a href="{{route('mobile_app')}}" class="new__item">
+                                        <a href="{{route('service_show',6)}}" class="new__item">
                                             <div class="new__title">
                                                 {{__('main.slide3')}}
                                             </div>
@@ -74,17 +74,41 @@
 
 <section class="section section__bottom">
     <div class="container">
-        <div class="section__title">{{__('main.cat_sec_title')}}</div>
+        <div class="section__title">
+            @if(app()->getLocale() == 'ru')
+                {{$section_website_title->title_ru}}
+            @elseif(app()->getLocale() == 'uz')
+                {{$section_website_title->title_uz}}
+            @else
+                {{$section_website_title->title_ru}}
+            @endif
+        </div>
 
         <div class="team__inner row justify-content-md-center">
+            @foreach($section_website as $item)
             <div class="team__item col-lg-4 col-md-6 col-12 ">
-                <div class="team__img"><img src="/usoft/images/team/1.svg" alt=""></div>
-                <div class="team__title">{{__('main.cat_title1')}}</div>
+                <div class="team__img"><img src="{{$item->getImage()}}" alt=""></div>
+                <div class="team__title">
+                    @if(app()->getLocale() == 'ru')
+                        {{$item->title_ru}}
+                    @elseif(app()->getLocale() == 'uz')
+                        {{$item->title_uz}}
+                    @else
+                        {{$item->title_ru}}
+                    @endif
+                </div>
                 <div class="team__text">
-                    {{__('main.cat_desc1')}}
+                    @if(app()->getLocale() == 'ru')
+                        {{$item->description_ru}}
+                    @elseif(app()->getLocale() == 'uz')
+                        {{$item->description_uz}}
+                    @else
+                        {{$item->description_ru}}
+                    @endif
                 </div>
             </div>
-            <div class="team__item col-lg-4 col-md-6 col-12">
+            @endforeach
+            {{--<div class="team__item col-lg-4 col-md-6 col-12">
                 <div class="team__img"><img src="/usoft/images/team/2.svg" alt=""></div>
                 <div class="team__title">{{__('main.cat_title2')}}</div>
                 <div class="team__text">
@@ -97,33 +121,55 @@
                 <div class="team__text">
                     {{__('main.cat_desc3')}}
                 </div>
-            </div>
+            </div>--}}
         </div>
     </div><!-- CONTAINER -->
 </section>
 <section class="order__btn">
     <button id="order_btn" class="app__btn app__btn--red   col-md-6 col-sm-12 col-xs-10 ">{{__('website.button')}} </button>
 </section>
-
 <section class="section section__top">
     <div class="container">
-        <div class="section__title">{{__('main.only_sec_title')}}</div>
+        <div class="section__title">
+            @if(app()->getLocale() == 'ru')
+                {{$section_benefit_title->title_ru}}
+            @elseif(app()->getLocale() == 'uz')
+                {{$section_benefit_title->title_uz}}
+            @else
+                {{$section_benefit_title->title_ru}}
+            @endif
+        </div>
 
         <div class="works row">
+            @foreach($section_benefit as $item)
             <div class=" col-12 col-sm-6">
                 <div class="works__item">
-                    <div class="works__img"><img src="/usoft/images/works/1.svg" alt=""></div>
+                    <div class="works__img"><img src="{{$item->getImage()}}" alt=""></div>
                     <div class="works__content">
-                        <div class="works__title">{{__('main.on_title1')}}</div>
+                        <div class="works__title">
+                            @if(app()->getLocale() == 'ru')
+                                {{$item->title_ru}}
+                            @elseif(app()->getLocale() == 'uz')
+                                {{$item->title_uz}}
+                            @else
+                                {{$item->title_ru}}
+                            @endif
+                        </div>
                         <div class="works__text">
-                            {{__('main.on_desc1')}}
+                            @if(app()->getLocale() == 'ru')
+                                {{$item->description_ru}}
+                            @elseif(app()->getLocale() == 'uz')
+                                {{$item->description_uz}}
+                            @else
+                                {{$item->description_ru}}
+                            @endif
                         </div>
                     </div>
                 </div>
 
             </div>
-
-            <div class=" col-12 col-sm-6">
+            @endforeach
+            {{--<div class=" col-12 col-sm-6">
                 <div class="works__item">
                     <div class="works__img"><img src="/usoft/images/works/2.svg" alt=""></div>
                     <div class="works__content">
@@ -159,95 +205,172 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--}}
         </div><!-- works -->
     </div><!-- container -->
 </section>
 
 <section class="section">
     <div class="container">
-        <div class="section__title">{{ __('main.port_title') }}</div>
+        <div class="section__title">
+            @if(app()->getLocale() == 'ru')
+                {{$section_portfolio->title_ru}}
+            @elseif(app()->getLocale() == 'uz')
+                {{$section_portfolio->title_uz}}
+            @else
+                {{$section_portfolio->title_ru}}
+            @endif
+        </div>
         <div class="section__text">
-            {{ __('main.port_desc') }}
+            @if(app()->getLocale() == 'ru')
+                {{$section_portfolio->tab1_ru}}
+            @elseif(app()->getLocale() == 'uz')
+                {{$section_portfolio->tab1_uz}}
+            @else
+                {{$section_portfolio->tab1_ru}}
+            @endif
         </div>
     </div>
 </section>
 
-<section>
-    <div class="container">
-        <div class="servisec__btn">
-            <a href="#" class="servisec__btn__item--red ">{{ __('buttons.mobile_app') }}</a>
 
-            <a href="#" class="servisec__btn__item--yellow ">{{ __('buttons.web_dev') }}</a>
-            <a href="#" class="servisec__btn__item--orchid ">{{ __('buttons.design') }}</a>
-        </div>
-    </div>
-</section>
+
 
 <section class="portfolio">
     <div class="container">
-        <div class="row">
-            <div class=" col-sm-4 px-3 mb-sm-0 mb-4">
-                <div class="portfolio__inner">
-                    <div class="portfolio__img">
-                        <img src="/usoft/images/portfolio/1.jpg" alt="">
-                    </div>
-                    <div class="portfolio__text">
-                        <a href="{{route('show_portfolio', 1)}}"> 24seven.uz</a>
+        <nav>
+            <div class="nav nav-tabs servisec__btn" id="nav-tab" role="tablist">
+                <button class="nav-link active servisec__btn__item--red" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">{{ __('buttons.web_dev') }}</button>
+                <button class="nav-link servisec__btn__item--yellow" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">{{ __('buttons.mobile_app') }}</button>
+                <button class="nav-link servisec__btn__item--orchid" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">{{ __('buttons.design') }}</button>
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row h-100">
+                            @foreach($web_items as $web)
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-6 p-3">
+                                <div class="portfolio__inner">
+                                    <div class="portfolio__img">
+                                        <img class="pi" src="{{$web->getImage()}}" alt="">
+                                    </div>
+                                    <div class="portfolio__text">
+                                        <a href="{{route('show_portfolio', $web->id)}}">
+                                            @if(app()->getLocale() == 'ru')
+                                                {{$web->title_ru}}
+                                            @elseif(app()->getLocale() == 'uz')
+                                                {{$web->title_uz}}
+                                            @else
+                                                {{$web->title_ru}}
+                                            @endif
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            @endforeach
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-sm-8">
-                <div class="row h-100">
-                    <div class=" col-6 px-3 pb-3">
-                        <div class="portfolio__inner">
-                            <div class="portfolio__img">
-                                <img src="/usoft/images/projects/1.jpg" alt="">
-                            </div>
-                            <div class="portfolio__text">
-                                <a href="{{route('show_portfolio', 2)}}"> alutex.uz</a>
-                            </div>
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row h-100">
+                            @foreach($mob_items as $mob)
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-6 p-3">
+                                    <div class="portfolio__inner">
+                                        <div class="portfolio__img">
+                                            <img class="pi" src="{{$mob->getImage()}}" alt="">
+                                        </div>
+                                        <div class="portfolio__text">
+                                            <a href="{{route('show_portfolio', $mob->id)}}">
+                                                @if(app()->getLocale() == 'ru')
+                                                    {{$mob->title_ru}}
+                                                @elseif(app()->getLocale() == 'uz')
+                                                    {{$mob->title_uz}}
+                                                @else
+                                                    {{$mob->title_ru}}
+                                                @endif
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
-                    <div class=" col-6 px-3 pb-3">
-                        <div class="portfolio__inner">
-                            <div class="portfolio__img">
-                                <img src="/usoft/images/projects/2.jpg" alt="">
-                            </div>
-                            <div class="portfolio__text">
-                                <a href="{{route('show_portfolio', 1)}}"> 24seven.uz</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 pt-3">
-                        <div class="portfolio__inner">
-                            <div class="portfolio__img">
-                                <img src="/usoft/images/portfolio/4.png" alt="">
-                            </div>
-                            <div class="portfolio__text">
-                                <a href="{{route('show_portfolio', 2)}}"> alutex.uz</a>
-                            </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="row h-100">
+                            @foreach($dis_items as $dis)
+                                <div class="col-lg-4 col-md-6 col-sm-6 col-6 p-3">
+                                    <div class="portfolio__inner">
+                                        <div class="portfolio__img">
+                                            <img class="pi" src="{{$dis->getImage()}}" alt="">
+                                        </div>
+                                        <div class="portfolio__text">
+                                            <a href="{{route('show_portfolio', $dis->id)}}">
+                                                @if(app()->getLocale() == 'ru')
+                                                    {{$dis->title_ru}}
+                                                @elseif(app()->getLocale() == 'uz')
+                                                    {{$dis->title_uz}}
+                                                @else
+                                                    {{$dis->title_ru}}
+                                                @endif
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div><!-- container -->
+    </div>
 </section><!-- portfolio -->
 
 
 <section class="section">
     <div class="container">
-        <div class="section__title">{{__('main.ser_title')}}</div>
+        <div class="section__title">
+            @if(app()->getLocale() == 'ru')
+                {{$section_service_title->title_ru}}
+            @elseif(app()->getLocale() == 'uz')
+                {{$section_service_title->title_uz}}
+            @else
+                {{$section_service_title->title_ru}}
+            @endif
+        </div>
         <div class="team__inner row justify-content-md-center">
-            <a href="{{route('website')}}" class="team__item col-lg-4 col-md-6 col-12 ">
-                <div class="team__img"><img src="/usoft/images/team/1.svg" alt=""></div>
-                <div class="team__title">{{__('main.ser_title1')}}</div>
+            @foreach($section_service as $item)
+            <a href="{{route('service_show', $item->id)}}" class="team__item col-lg-4 col-md-6 col-12 ">
+                <div class="team__img"><img src="{{$item->getImage()}}" alt=""></div>
+                <div class="team__title">
+                    @if(app()->getLocale() == 'ru')
+                        {{$item->title_ru}}
+                    @elseif(app()->getLocale() == 'uz')
+                        {{$item->title_uz}}
+                    @else
+                        {{$item->title_ru}}
+                    @endif
+                </div>
                 <div class="team__text">
-                    {{__('main.ser_desc1')}}
+                    @if(app()->getLocale() == 'ru')
+                        {{$item->description_ru}}
+                    @elseif(app()->getLocale() == 'uz')
+                        {{$item->description_uz}}
+                    @else
+                        {{$item->description_ru}}
+                    @endif
                 </div>
             </a>
-            <a href="{{route('mobile_app')}}" class="team__item col-lg-4 col-md-6 col-12">
+            @endforeach
+            {{--<a href="{{route('mobile_app')}}" class="team__item col-lg-4 col-md-6 col-12">
                 <div class="team__img"><img src="/usoft/images/team/2.svg" alt=""></div>
                 <div class="team__title">
                     {{__('main.ser_title2')}}
@@ -262,7 +385,7 @@
                 <div class="team__text">
                     {{__('main.ser_desc3')}}
                 </div>
-            </a>
+            </a>--}}
         </div>
 
     </div><!-- container -->
