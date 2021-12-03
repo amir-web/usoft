@@ -1180,13 +1180,13 @@ ul.breadcrumb {
 .portfolio .row img
 {
    width: 100%;
-   height: 300px;
+   height: 266px;
    object-fit: cover;
-   border-radius: 10px;
+   border-radius: 22px;
 }
 .portfolio__inner {
    background-color: #FF725E;
-   border-radius: 10px;
+   border-radius: 22px;
    position: relative;
 }
 
@@ -1213,7 +1213,7 @@ ul.breadcrumb {
 
 
 .portfolio__img {
-   border-radius: 10px;
+   border-radius: 22px;
 
    background: linear-gradient(to bottom,
     #f38181, #fce38a);

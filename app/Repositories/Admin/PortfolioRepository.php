@@ -90,7 +90,7 @@ class PortfolioRepository
     public function update($request, $id){
         $update = Portfolio::find($id);
         foreach ($update->images as $img){
-            unlink(public_path('storage/uploads/'.$img->filename));
+            if (is_file('storage/uploads/'.$img->filename)) unlink(public_path('storage/uploads/'.$img->filename));
         }
 
         $update->update([
@@ -111,10 +111,8 @@ class PortfolioRepository
         $image3 = $request->file('image3');
 
         if ($request->hasFile('image1')){
-            $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image1');
-            foreach ($polymorph as $item){
-                unlink(public_path('storage/uploads/'.$item->filename));
-            }
+            $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image1')->first();
+            if (is_file('storage/uploads/'.$polymorph->filename)) unlink(public_path('storage/uploads/'.$polymorph->filename));
 
             $path = $image1->store('uploads');
             $polymorph->update([
@@ -123,24 +121,20 @@ class PortfolioRepository
         }
 
         if ($request->hasFile('image2')){
-            $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image2');
-            foreach ($polymorph as $item){
-                unlink(public_path('storage/uploads/'.$item->filename));
-            }
+            $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image2')->first();
+            if (is_file('storage/uploads/'.$polymorph->filename)) unlink(public_path('storage/uploads/'.$polymorph->filename));
 
-            $path = $image2->store('uploads');
+            $path = $image1->store('uploads');
             $polymorph->update([
                 'filename' => basename($path)
             ]);
         }
 
         if ($request->hasFile('image3')){
-            $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image3');
-            foreach ($polymorph as $item){
-                unlink(public_path('storage/uploads/'.$item->filename));
-            }
+            $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image3')->first();
+            if (is_file('storage/uploads/'.$polymorph->filename)) unlink(public_path('storage/uploads/'.$polymorph->filename));
 
-            $path = $image3->store('uploads');
+            $path = $image1->store('uploads');
             $polymorph->update([
                 'filename' => basename($path)
             ]);
