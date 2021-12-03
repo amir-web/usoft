@@ -89,9 +89,9 @@ class PortfolioRepository
 
     public function update($request, $id){
         $update = Portfolio::find($id);
-        /*foreach ($update->images as $img){
+        foreach ($update->images as $img){
             unlink(public_path('storage/uploads/'.$img->filename));
-        }*/
+        }
 
         $update->update([
             'title_ru' => $request->title_ru,
