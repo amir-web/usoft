@@ -357,16 +357,17 @@
                     </li>
                 </ul>
             </li>
-            <li class="nav-item has-sub">
+            <li class="nav-item {{request()->is('admin/about*') ? 'active' : ''}}">
+                <a href="{{route('about.index')}}"><i class="feather icon-credit-card"></i><span class="menu-title">О компании</span></a>
+            </li>
+           {{-- <li class="nav-item has-sub">
 
                 <a href="#"><i class="feather icon-credit-card"></i>
                     <span class="menu-title" data-i18n="Ecommerce">О компании</span></a>
                 <ul class="menu-content">
-                    <li class="nav-item {{request()->is('admin/about*') ? 'active' : ''}}">
-                        <a href="{{route('about.index')}}"><i class="feather icon-circle"></i><span class="menu-title">О компании</span></a>
-                    </li>
+
                 </ul>
-            </li>
+            </li>--}}
 
             <li class=" nav-item {{request()->path() == 'admin/contact' ? 'active' : ''}}">
                 <a href="{{route('contact.index')}}"><i class="feather icon-phone"></i><span class="menu-title">Контактные данные</span></a>

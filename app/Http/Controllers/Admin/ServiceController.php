@@ -101,7 +101,9 @@ class ServiceController extends Controller
     public function edit($id)
     {
         $edit = Service::find($id);
-        return view('admin.service.edit' , compact('edit'));
+        $img1 = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image1')->first();
+        $img2 = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image2')->first();
+        return view('admin.service.edit' , compact('edit', 'img1', 'img2'));
     }
 
     /**
@@ -128,9 +130,11 @@ class ServiceController extends Controller
         $image2 = $request->file('image2');
 
         if ($request->hasFile('image1')){
-            $polymorph = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image1');
-            foreach ($polymorph as $item){
-                unlink(public_path('storage/uploads/'.$item->filename));
+            $polymorph = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image1')->first();
+            if (is_file('storage/uploads/'.$polymorph->filename)) {
+                foreach ($polymorph as $item){
+                    unlink(public_path('storage/uploads/' . $item->filename));
+                }
             }
 
             $path = $image1->store('uploads');
@@ -139,10 +143,12 @@ class ServiceController extends Controller
             ]);
         }
 
-        if ($request->hasFile('image1')){
-            $polymorph = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image2');
-            foreach ($polymorph as $item){
-                unlink(public_path('storage/uploads/'.$item->filename));
+        if ($request->hasFile('image2')){
+            $polymorph = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image2')->first();
+            if (is_file('storage/uploads/'.$polymorph->filename)) {
+                foreach ($polymorph as $item){
+                    unlink(public_path('storage/uploads/' . $item->filename));
+                }
             }
 
             $path = $image2->store('uploads');

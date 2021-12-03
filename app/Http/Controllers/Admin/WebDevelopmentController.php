@@ -82,7 +82,8 @@ class WebDevelopmentController extends Controller
     public function edit($id)
     {
         $edit = WebDevelopment::find($id);
-        return view('admin.web_development.edit' , compact('edit'));
+        $img = Image::where('imageable_type','=','App\Models\WebDevelopment')->where('imageable_id', $id)->first();
+        return view('admin.web_development.edit' , compact('edit', 'img'));
     }
 
     /**
@@ -104,14 +105,14 @@ class WebDevelopmentController extends Controller
             'description_uz' => $request->description_uz,
         ]);
 
+        $image = $request->file('image');
+
         if ($request->hasFile('image')){
-            $polymorph = Image::where('imageable_type','=','App\Models\WebDevelopment')->where('imageable_id',$id);
-            foreach ($update->image as $item){
-                unlink('storage/uploads/'.$item->filename);
+            $polymorph = Image::where('imageable_type','=','App\Models\WebDevelopment')->where('imageable_id', $id)->first();
+            if (is_file('storage/uploads/'.$polymorph->filename)) {
+                unlink(public_path('storage/uploads/' . $polymorph->filename));
             }
 
-
-            $image = $request->file('image');
             $path = $image->store('uploads');
             $polymorph->update([
                 'filename' => basename($path)

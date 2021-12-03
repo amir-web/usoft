@@ -63,7 +63,7 @@
                                                     <input class="form-control" id="first-name-column" name="date_end" type="date" placeholder="конец">
                                                 </div>
                                                 <div class="form-group" name="status">
-                                                    <select  class="form-control" name="status" form="filter_bid">
+                                                    <select style="padding-right: 35px;"  class="form-control" name="status" form="filter_bid">
                                                         <option value="Новый клиент">Новый клиент</option>
                                                         <option value="в обработке">в обработке</option>
                                                         <option value="закрыто">закрыто</option>
@@ -88,10 +88,40 @@
                                 <table class="table table-borderless mb-0">
                                     <thead>
                                     <tr>
-                                        <th>№</th>
-                                        <th>Имя</th>
+                                        <th>
+                                            @if(request('sort', 'desc') != 'id_asc')
+                                                <a style="color: #626262;" href="{{ request()->fullUrlWithQuery(['sort' => 'id_asc']) }}">
+                                                    № <i class="feather icon-arrow-down"></i>
+                                                </a>
+                                            @elseif(request('sort', 'desc') != 'id_desc')
+                                                <a style="color: #626262;" href="{{ request()->fullUrlWithQuery(['sort' => 'id_desc']) }}">
+                                                    № <i class="feather icon-arrow-up"></i>
+                                                </a>
+                                            @endif
+                                        </th>
+                                        <th>
+                                            @if(request('sort', 'desc') != 'name_asc')
+                                                <a style="color: #626262;" href="{{ request()->fullUrlWithQuery(['sort' => 'name_asc']) }}">
+                                                    Имя <i class="feather icon-arrow-down"></i>
+                                                </a>
+                                            @elseif(request('sort', 'desc') != 'name_desc')
+                                                <a style="color: #626262;" href="{{ request()->fullUrlWithQuery(['sort' => 'name_desc']) }}">
+                                                    Имя <i class="feather icon-arrow-up"></i>
+                                                </a>
+                                            @endif
+                                        </th>
                                         <th>Телефон</th>
-                                        <th>Дата и Время</th>
+                                        <th>
+                                            @if(request('sort', 'desc') != 'date_asc')
+                                                <a style="color: #626262;" href="{{ request()->fullUrlWithQuery(['sort' => 'date_asc']) }}">
+                                                    Дата и Время <i class="feather icon-arrow-down"></i>
+                                                </a>
+                                            @elseif(request('sort', 'desc') != 'date_desc')
+                                                <a style="color: #626262;" href="{{ request()->fullUrlWithQuery(['sort' => 'date_desc']) }}">
+                                                    Дата и Время <i class="feather icon-arrow-up"></i>
+                                                </a>
+                                            @endif
+                                        </th>
                                         <th>Статус</th>
                                         <th>Действия</th>
                                     </tr>
@@ -104,7 +134,7 @@
                                             <td>{{$item->number}}</td>
                                             <td>{{$item->created_at->format('d m Y | H:i')}}</td>
                                             <td>
-                                                <select data-html="{{$item->id}}" data-url="{{route('bid.update', $item->id)}}" class="client_status form-control" id="basicSelect">
+                                                <select style="padding-right: 35px;" data-html="{{$item->id}}" data-url="{{route('bid.update', $item->id)}}" class="client_status form-control" id="basicSelect">
                                                     <option value="Новый клиент" @if ($item->status == "Новый клиент") selected @endif>Новый клиент</option>
                                                     <option value="в обработке" @if ($item->status == "в обработке") selected @endif>в обработке</option>
                                                     <option value="закрыто" @if ($item->status == "закрыто") selected @endif>закрыто</option>

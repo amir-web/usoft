@@ -64,10 +64,14 @@
                                                 @endif
                                             </div>
                                             <div class="form-group">
-                                                <label for="first-name-vertical">Изображение</label>
-                                                <input type="file" class="form-control-file" name="image" id="basicInputFile">
+                                                <div><label for="first-name-vertical">Изображение</label></div>
+                                                <div>
+                                                    <img width="150" height="100"
+                                                         style="object-fit: cover; margin-bottom: 10px;" src="/storage/uploads/{{$img->filename}}" alt="">
+                                                </div>
+                                                <input type="file" class="form-control-file" name="image" id="basicInputFile" multiple>
                                                 @if($errors->has('image'))
-                                                    <span class="text-danger error-text">{{$errors->first('images')}}</span>
+                                                    <span class="text-danger error-text">{{$errors->first('image')}}</span>
                                                 @endif
                                             </div>
                                         </div>

@@ -67,7 +67,7 @@
                                                     <input class="form-control" id="first-name-column" name="date_end" type="date" placeholder="конец" value="{{$_GET['date_end']}}">
                                                 </div>
                                                 <div class="form-group" name="status">
-                                                    <select  class="form-control" name="status" form="filter_bid">
+                                                    <select style="padding-right: 35px;" class="form-control" name="status" form="filter_bid">
                                                         <option @if($_GET['status'] == 'Новый клиент')selected @endif value="Новый клиент">Новый клиент</option>
                                                         <option @if($_GET['status'] == 'в обработке')selected @endif value="в обработке">в обработке</option>
                                                         <option @if($_GET['status'] == 'закрыто')selected @endif value="закрыто">закрыто</option>
@@ -117,7 +117,17 @@
                                             @endif
                                         </th>
                                         <th>Телефон</th>
-                                        <th>Дата и Время</th>
+                                        <th>
+                                            @if(request('sort', 'desc') != 'date_asc')
+                                                <a style="color: #626262;" href="{{ request()->fullUrlWithQuery(['sort' => 'date_asc']) }}">
+                                                    Дата и Время <i class="feather icon-arrow-down"></i>
+                                                </a>
+                                            @elseif(request('sort', 'desc') != 'date_desc')
+                                                <a style="color: #626262;" href="{{ request()->fullUrlWithQuery(['sort' => 'date_desc']) }}">
+                                                    Дата и Время <i class="feather icon-arrow-up"></i>
+                                                </a>
+                                            @endif
+                                        </th>
                                         <th>Статус</th>
                                         <th>Действия</th>
                                     </tr>
