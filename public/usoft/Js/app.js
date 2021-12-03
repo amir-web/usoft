@@ -48,13 +48,13 @@ $(document).ready(function ($) {
   $.mask.definitions['9'] = '';
   $.mask.definitions['n'] = '[0-9]';
   $(function () {
-      $(".phone-number-input").mask("+998 nn nnn nn nn");
+      $(".phone-number-input").mask("+nnn nn nnn nn nn");
   });
 })
 
 // $('.phone-number-input').mask('+(789) 99 999 9999');
 
- 
+
 
 const header = document.querySelector('.header');
 

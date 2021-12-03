@@ -46,144 +46,84 @@
             <div class="tab-content" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                     <div class="row">
-                        <div class="col-sm-4 pb-4">
-                            <div class="portfolio__inner">
-                                <div class="portfolio__img">
-                                    <img src="/usoft/images/portfolio/1.jpg" alt="">
-                                </div>
-                                <div class="portfolio__text">
-                                    <a href="{{route('show_portfolio', 2)}}"> 24seven.uz</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-8">
+                        <div class="col-sm-12">
                             <div class="row h-100">
-                                <div class="col-6">
-                                    <div class="portfolio__inner">
-                                        <div class="portfolio__img">
-                                            <img src="/usoft/images/projects/1.jpg" alt="">
-                                        </div>
-                                        <div class="portfolio__text">
-                                            <a href="{{route('show_portfolio', 3)}}"> alutex.uz</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" col-6">
-                                    <div class="portfolio__inner">
-                                        <div class="portfolio__img">
-                                            <img src="/usoft/images/projects/2.jpg" alt="">
-                                        </div>
-                                        <div class="portfolio__text">
-                                            <a href="{{route('show_portfolio', 2)}}"> 24seven.uz</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 pt-4">
-                                    <div class="portfolio__inner">
-                                        <div class="portfolio__img">
-                                            <img src="/usoft/images/portfolio/4.png" alt="">
-                                        </div>
-                                        <div class="portfolio__text">
-                                            <a href="{{route('show_portfolio', 3)}}"> alutex.uz</a>
+                                @foreach($web_items as $web)
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6 p-3">
+                                        <div class="portfolio__inner">
+                                            <div class="portfolio__img">
+                                                <img class="pi" src="{{$web->getImage()}}" alt="">
+                                            </div>
+                                            <div class="portfolio__text">
+                                                <a href="{{route('show_portfolio', $web->id)}}">
+                                                    @if(app()->getLocale() == 'ru')
+                                                        {{$web->title_ru}}
+                                                    @elseif(app()->getLocale() == 'uz')
+                                                        {{$web->title_uz}}
+                                                    @else
+                                                        {{$web->title_ru}}
+                                                    @endif
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
                     <div class="row">
-                        <div class="col-sm-8">
+                        <div class="col-sm-12">
                             <div class="row h-100">
-                                <div class=" col-6 px-3 pb-3">
-                                    <div class="portfolio__inner">
-                                        <div class="portfolio__img">
-                                            <img src="/usoft/images/projects/1.jpg" alt="">
-                                        </div>
-                                        <div class="portfolio__text">
-                                            <a href="{{route('show_portfolio', 3)}}"> alutex.uz</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" col-6 px-3 pb-3">
-                                    <div class="portfolio__inner">
-                                        <div class="portfolio__img">
-                                            <img src="/usoft/images/projects/2.jpg" alt="">
-                                        </div>
-                                        <div class="portfolio__text">
-                                            <a href="{{route('show_portfolio', 2)}}"> 24seven.uz</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-12 pt-3 pb-4">
-                                    <div class="portfolio__inner">
-                                        <div class="portfolio__img">
-                                            <img src="/usoft/images/portfolio/4.png" alt="">
-                                        </div>
-                                        <div class="portfolio__text">
-                                            <a href="{{route('show_portfolio', 3)}}"> alutex.uz</a>
+                                @foreach($mob_items as $mob)
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6 p-3">
+                                        <div class="portfolio__inner">
+                                            <div class="portfolio__img">
+                                                <img class="pi" src="{{$mob->getImage()}}" alt="">
+                                            </div>
+                                            <div class="portfolio__text">
+                                                <a href="{{route('show_portfolio', $mob->id)}}">
+                                                    @if(app()->getLocale() == 'ru')
+                                                        {{$mob->title_ru}}
+                                                    @elseif(app()->getLocale() == 'uz')
+                                                        {{$mob->title_uz}}
+                                                    @else
+                                                        {{$mob->title_ru}}
+                                                    @endif
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-sm-4 px-3 mb-sm-0 mb-4">
-                            <div class="portfolio__inner">
-                                <div class="portfolio__img">
-                                    <img src="/usoft/images/portfolio/1.jpg" alt="">
-                                </div>
-                                <div class="portfolio__text">
-                                    <a href="{{route('show_portfolio', 2)}}"> 24seven.uz</a>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
                     <div class="row">
-                        <div class="col-sm-8">
+                        <div class="col-sm-12">
                             <div class="row h-100">
-                                <div class="col-12 p-3 pb-4">
-                                    <div class="portfolio__inner">
-                                        <div class="portfolio__img">
-                                            <img src="/usoft/images/portfolio/4.png" alt="">
-                                        </div>
-                                        <div class="portfolio__text">
-                                            <a href="{{route('show_portfolio', 3)}}"> alutex.uz</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" col-6 px-3 pb-3">
-                                    <div class="portfolio__inner">
-                                        <div class="portfolio__img">
-                                            <img src="/usoft/images/projects/1.jpg" alt="">
-                                        </div>
-                                        <div class="portfolio__text">
-                                            <a href="{{route('show_portfolio', 3)}}"> alutex.uz</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class=" col-6 px-3 pb-3">
-                                    <div class="portfolio__inner">
-                                        <div class="portfolio__img">
-                                            <img src="/usoft/images/projects/2.jpg" alt="">
-                                        </div>
-                                        <div class="portfolio__text">
-                                            <a href="{{route('show_portfolio', 2)}}"> 24seven.uz</a>
+                                @foreach($dis_items as $dis)
+                                    <div class="col-lg-4 col-md-6 col-sm-6 col-6 p-3">
+                                        <div class="portfolio__inner">
+                                            <div class="portfolio__img">
+                                                <img class="pi" src="{{$dis->getImage()}}" alt="">
+                                            </div>
+                                            <div class="portfolio__text">
+                                                <a href="{{route('show_portfolio', $dis->id)}}">
+                                                    @if(app()->getLocale() == 'ru')
+                                                        {{$dis->title_ru}}
+                                                    @elseif(app()->getLocale() == 'uz')
+                                                        {{$dis->title_uz}}
+                                                    @else
+                                                        {{$dis->title_ru}}
+                                                    @endif
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class=" col-sm-4 px-3 pt-3 mb-sm-0 mb-4">
-                            <div class="portfolio__inner">
-                                <div class="portfolio__img">
-                                    <img src="/usoft/images/portfolio/1.jpg" alt="">
-                                </div>
-                                <div class="portfolio__text">
-                                    <a href="{{route('show_portfolio', 2)}}"> 24seven.uz</a>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>

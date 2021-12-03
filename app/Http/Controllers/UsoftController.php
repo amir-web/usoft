@@ -58,9 +58,12 @@ class UsoftController extends Controller
     }
 
     public function portfolio(){
+        $web_items = Portfolio::where('category','Веб-разработка')->get();
+        $mob_items = Portfolio::where('category','Разработка мобильных приложений')->get();
+        $dis_items = Portfolio::where('category','Дизайн')->get();
         $portfolio = Portfolio::where('id', '>', 1)->with('images')->get();
         $portfolio_title = Portfolio::find(1);
-        return view('usoft.portfolio', compact('portfolio', 'portfolio_title'));
+        return view('usoft.portfolio', compact('portfolio', 'portfolio_title','web_items','mob_items', 'dis_items'));
     }
 
     public function contact(){
