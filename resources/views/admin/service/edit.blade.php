@@ -83,7 +83,7 @@
                                                         <div><label for="first-name-vertical">Баннер на главной</label></div>
                                                         <div>
                                                             <img id="image1" width="150" height="100"
-                                                                 style="object-fit: cover; margin-bottom: 10px;" src="/storage/uploads/{{$img1->filename}}" alt="">
+                                                                 style="object-fit:contain;margin-bottom: 10px;" src="/storage/uploads/{{$img1->filename}}" alt="">
                                                         </div>
                                                         <input onchange="readURL1(this);" type="file" class="form-control-file" name="image1" id="basicInputFile" multiple>
                                                         @if($errors->has('image1'))
@@ -96,7 +96,7 @@
                                                         <div><label for="first-name-vertical">Баннер внутренней</label></div>
                                                         <div>
                                                             <img id="image2" width="150" height="100"
-                                                                 style="object-fit: cover; margin-bottom: 10px;" src="/storage/uploads/{{$img2->filename}}" alt="">
+                                                                 style="object-fit: contain; margin-bottom: 10px;" src="/storage/uploads/{{$img2->filename}}" alt="">
                                                         </div>
                                                         <input onchange="readURL2(this);" type="file" class="form-control-file" name="image2" id="basicInputFile" multiple>
                                                         @if($errors->has('image2'))

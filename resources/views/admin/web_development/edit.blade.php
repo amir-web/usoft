@@ -67,7 +67,7 @@
                                                 <div><label for="first-name-vertical">Изображение</label></div>
                                                 <div>
                                                     <img id="image" width="150" height="100"
-                                                         style="object-fit: cover; margin-bottom: 10px;" src="/storage/uploads/{{$img->filename}}" alt="">
+                                                         style="object-fit: contain; margin-bottom: 10px;" src="/storage/uploads/{{$img->filename}}" alt="">
                                                 </div>
                                                 <input onchange="readURL(this);" type="file" class="form-control-file" name="image3" id="basicInputFile" multiple>
                                                 @if($errors->has('image'))

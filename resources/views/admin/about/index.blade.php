@@ -73,7 +73,7 @@
                                             <div><label for="first-name-vertical">Изображение</label></div>
                                             <div>
                                                 <img id="image" width="150" height="100"
-                                                     style="object-fit: cover; margin-bottom: 10px;" src="{{$about->getImage()}}" alt="">
+                                                     style="object-fit: contain; margin-bottom: 10px;" src="{{$about->getImage()}}" alt="">
                                             </div>
                                             <input onchange="readURL(this);" type="file" class="form-control-file" name="about_image" id="basicInputFile" multiple>
                                         </div>
