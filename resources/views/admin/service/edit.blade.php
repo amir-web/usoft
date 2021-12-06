@@ -98,7 +98,7 @@
                                                             <img width="150" height="100"
                                                                  style="object-fit: cover; margin-bottom: 10px;" src="/storage/uploads/{{$img2->filename}}" alt="">
                                                         </div>
-                                                        <input type="file" class="form-control-file" name="image" id="basicInputFile" multiple>
+                                                        <input type="file" class="form-control-file" name="image2" id="basicInputFile" multiple>
                                                         @if($errors->has('image2'))
                                                             <span class="text-danger error-text">{{$errors->first('image2')}}</span>
                                                         @endif
