@@ -330,8 +330,8 @@
                 <a href="{{route('bid.index')}}">
                     <i class="feather icon-users"></i>
                     <span class="menu-title">Заявки</span>
-                    @if(count(\App\Models\Bid::all()))
-                    <span class="badge badge badge-pill badge-success float-right mr-2">{{count(\App\Models\Bid::all())}}</span>
+                    @if(count(\App\Models\Bid::where('status', 'Новый клиент')->get()))
+                    <span class="badge badge badge-pill badge-success float-right mr-2">{{count(\App\Models\Bid::where('status', 'Новый клиент')->get())}}</span>
                     @endif
                 </a>
             </li>
