@@ -70,8 +70,12 @@
                                     </div>
                                     <div class="col-4">
                                         <div class="form-group">
-                                            <label for="first-name-vertical">Изображение</label>
-                                            <input type="file" class="form-control-file" name="about_image" id="basicInputFile" multiple>
+                                            <div><label for="first-name-vertical">Изображение</label></div>
+                                            <div>
+                                                <img id="image" width="150" height="100"
+                                                     style="object-fit: cover; margin-bottom: 10px;" src="{{$about->getImage()}}" alt="">
+                                            </div>
+                                            <input onchange="readURL(this);" type="file" class="form-control-file" name="about_image" id="basicInputFile" multiple>
                                         </div>
                                     </div>
                                     <div class="col-8 text-right">
@@ -108,5 +112,21 @@
             .catch( error => {
                 console.error( error );
             } );
+
+
+        /* image change onload input */
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#image')
+                        .attr('src', e.target.result)
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 @endsection

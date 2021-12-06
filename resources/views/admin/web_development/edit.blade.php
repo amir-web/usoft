@@ -66,10 +66,10 @@
                                             <div class="form-group">
                                                 <div><label for="first-name-vertical">Изображение</label></div>
                                                 <div>
-                                                    <img width="150" height="100"
+                                                    <img id="image" width="150" height="100"
                                                          style="object-fit: cover; margin-bottom: 10px;" src="/storage/uploads/{{$img->filename}}" alt="">
                                                 </div>
-                                                <input type="file" class="form-control-file" name="image3" id="basicInputFile" multiple>
+                                                <input onchange="readURL(this);" type="file" class="form-control-file" name="image3" id="basicInputFile" multiple>
                                                 @if($errors->has('image'))
                                                     <span class="text-danger error-text">{{$errors->first('image')}}</span>
                                                 @endif
@@ -89,4 +89,20 @@
         <!-- Borderless table end -->
 
     </div>
+
+    <script>
+        /* image change onload input */
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#image')
+                        .attr('src', e.target.result)
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 @endsection

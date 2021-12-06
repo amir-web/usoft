@@ -63,8 +63,14 @@
                                                 @endif
                                             </div>
                                             <div class="form-group">
-                                                <label for="first-name-vertical">Изображение</label>
-                                                <input type="file" class="form-control-file" name="image" id="basicInputFile">
+                                                <div>
+                                                    <label for="first-name-vertical">Изображение</label>
+                                                </div>
+                                                <div>
+                                                    <img id="image" width="150" height="100"
+                                                         style="object-fit: cover; margin-bottom: 10px;" src="#" alt="">
+                                                </div>
+                                                <input onchange="readURL(this);" type="file" class="form-control-file" name="image" id="basicInputFile">
                                                 @if($errors->has('images'))
                                                     <span class="text-danger error-text">{{$errors->first('images')}}</span>
                                                 @endif
@@ -84,4 +90,20 @@
         <!-- Borderless table end -->
 
     </div>
+
+    <script>
+        /* image change onload input */
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#image')
+                        .attr('src', e.target.result)
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 @endsection

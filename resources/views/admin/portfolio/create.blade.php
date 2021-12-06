@@ -110,8 +110,14 @@
                                             <div class="row">
                                                 <div class="col-4">
                                                     <div class="form-group">
-                                                        <label for="first-name-vertical">Изображение 1</label>
-                                                        <input type="file" class="form-control-file" name="image1" id="basicInputFile">
+                                                        <div>
+                                                            <label for="first-name-vertical">Изображение 1</label>
+                                                        </div>
+                                                        <div>
+                                                            <img id="image1" width="150" height="100"
+                                                                 style="object-fit: cover; margin-bottom: 10px;" src="#" alt="">
+                                                        </div>
+                                                        <input onchange="readURL1(this);" type="file" class="form-control-file" name="image1" id="basicInputFile">
                                                         @if($errors->has('image1'))
                                                             <span class="text-danger error-text">{{$errors->first('image1')}}</span>
                                                         @endif
@@ -119,8 +125,14 @@
                                                 </div>
                                                 <div class="col-4">
                                                     <div class="form-group">
-                                                        <label for="first-name-vertical">Изображение 2</label>
-                                                        <input type="file" class="form-control-file" name="image2" id="basicInputFile" multiple>
+                                                        <div>
+                                                            <label for="first-name-vertical">Изображение 2</label>
+                                                        </div>
+                                                        <div>
+                                                            <img id="image2" width="150" height="100"
+                                                                 style="object-fit: cover; margin-bottom: 10px;" src="#" alt="">
+                                                        </div>
+                                                        <input onchange="readURL2(this);" type="file" class="form-control-file" name="image2" id="basicInputFile" multiple>
                                                         @if($errors->has('image2'))
                                                             <span class="text-danger error-text">{{$errors->first('image2')}}</span>
                                                         @endif
@@ -128,8 +140,14 @@
                                                 </div>
                                                 <div class="col-4">
                                                     <div class="form-group">
-                                                        <label for="first-name-vertical">Изображение 3</label>
-                                                        <input type="file" class="form-control-file" name="image3" id="basicInputFile" multiple>
+                                                        <div>
+                                                            <label for="first-name-vertical">Изображение 3</label>
+                                                        </div>
+                                                        <div>
+                                                            <img id="image3" width="150" height="100"
+                                                                 style="object-fit: cover; margin-bottom: 10px;" src="#" alt="">
+                                                        </div>
+                                                        <input onchange="readURL3(this);" type="file" class="form-control-file" name="image3" id="basicInputFile" multiple>
                                                         @if($errors->has('image3'))
                                                             <span class="text-danger error-text">{{$errors->first('image3')}}</span>
                                                         @endif
@@ -192,5 +210,46 @@
             .catch( error => {
                 console.error( error );
             } );
+
+
+        /* image change onload input */
+        function readURL1(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#image1')
+                        .attr('src', e.target.result)
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function readURL2(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#image2')
+                        .attr('src', e.target.result)
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        function readURL3(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#image3')
+                        .attr('src', e.target.result)
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
     </script>
 @endsection
