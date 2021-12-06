@@ -28,7 +28,7 @@ class WebDevelopmentRequest extends FormRequest
             'title_uz' => 'required',
             'description_ru' => 'required',
             'description_uz' => 'required',
-            'image' => 'required|mimes:jpg,jpeg,png,svg'
+            //'image' => 'required|mimes:jpg,jpeg,png,svg'
         ];
     }
 }

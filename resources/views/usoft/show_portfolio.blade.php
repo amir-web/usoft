@@ -98,9 +98,13 @@
 
     <div class="container">
         <div class="row">
-            @foreach($image2 as $item)
-            <a href="{{$portfolio->link}}" target="blank"><img class="w-100 alutex__img col-md-12" src="/storage/uploads/{{$item->filename}}" alt=""></a>
-            @endforeach
+            @if(isset($image3))
+                @foreach($image3 as $item)
+                <a href="{{$portfolio->link}}" target="blank"><img class="w-100 alutex__img col-md-12" src="/storage/uploads/{{$item->filename}}" alt=""></a>
+                @endforeach
+            @else
+            <p>Кортинка нету!</p>
+            @endif
         </div>
     </div>
 
