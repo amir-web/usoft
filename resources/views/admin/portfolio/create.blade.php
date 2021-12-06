@@ -111,7 +111,7 @@
                                                 <div class="col-4">
                                                     <div class="form-group">
                                                         <div>
-                                                            <label for="first-name-vertical">Изображение 1</label>
+                                                            <label for="first-name-vertical">Баннер на главной</label>
                                                         </div>
                                                         <div>
                                                             <img id="image1" width="150" height="100"
@@ -126,7 +126,7 @@
                                                 <div class="col-4">
                                                     <div class="form-group">
                                                         <div>
-                                                            <label for="first-name-vertical">Изображение 2</label>
+                                                            <label for="first-name-vertical">Баннер внутренней</label>
                                                         </div>
                                                         <div>
                                                             <img id="image2" width="150" height="100"

@@ -110,7 +110,7 @@
                                             <div class="row">
                                                 <div class="col-4">
                                                     <div class="form-group">
-                                                        <div><label for="first-name-vertical">Изображение 1</label></div>
+                                                        <div><label for="first-name-vertical">Баннер на главной</label></div>
                                                         <div>
                                                             <img id="image1" width="150" height="100"
                                                                  style="object-fit: cover; margin-bottom: 10px;" src="/storage/uploads/{{$img1->filename}}" alt="">
@@ -124,7 +124,7 @@
                                                 </div>
                                                 <div class="col-4">
                                                     <div class="form-group">
-                                                        <div><label for="first-name-vertical">Изображение 2</label></div>
+                                                        <div><label for="first-name-vertical">Баннер внутренней</label></div>
                                                         <div>
                                                             <img id="image2" width="150" height="100"
                                                                  style="object-fit: cover; margin-bottom: 10px;" src="/storage/uploads/{{$img2->filename}}" alt="">
