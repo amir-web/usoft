@@ -156,7 +156,7 @@ class UsoftController extends Controller
 
     public function portfolio_show($id){
         $portfolio = Portfolio::find($id);
-        $image3 = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image3')->get();
+        $image2 = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image2')->get();
         return view('usoft.show_portfolio', compact('portfolio','image3'));
     }
 

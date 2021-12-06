@@ -98,8 +98,8 @@
 
     <div class="container">
         <div class="row">
-            @if(isset($image3))
-                @foreach($image3 as $item)
+            @if(isset($image2))
+                @foreach($image2 as $item)
                 <a href="{{$portfolio->link}}" target="blank"><img class="w-100 alutex__img col-md-12" src="/storage/uploads/{{$item->filename}}" alt=""></a>
                 @endforeach
             @else

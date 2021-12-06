@@ -135,19 +135,6 @@
                                                         @endif
                                                     </div>
                                                 </div>
-                                                <div class="col-4">
-                                                    <div class="form-group">
-                                                        <div><label for="first-name-vertical">Изображение 3</label></div>
-                                                        <div>
-                                                            <img id="image3" width="150" height="100"
-                                                                 style="object-fit: cover; margin-bottom: 10px;" src="/storage/uploads/{{$img3->filename}}" alt="">
-                                                        </div>
-                                                        <input onchange="readURL3(this);" type="file" class="form-control-file" name="image3" id="basicInputFile" multiple>
-                                                        @if($errors->has('image3'))
-                                                            <span class="text-danger error-text">{{$errors->first('image3')}}</span>
-                                                        @endif
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="col-12">
@@ -235,17 +222,6 @@
             }
         }
 
-        function readURL3(input) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
 
-                reader.onload = function (e) {
-                    $('#image3')
-                        .attr('src', e.target.result)
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
     </script>
 @endsection
