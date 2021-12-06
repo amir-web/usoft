@@ -132,9 +132,9 @@ class ServiceController extends Controller
         if ($request->hasFile('image1')){
             $polymorph = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image1')->first();
             if (is_file('storage/uploads/'.$polymorph->filename)) {
-                foreach ($polymorph as $item){
-                    unlink(public_path('storage/uploads/' . $item->filename));
-                }
+                //foreach ($polymorph as $item){
+                    unlink(public_path('storage/uploads/' . $polymorph->filename));
+                //}
             }
 
             $path = $image1->store('uploads');
@@ -146,9 +146,9 @@ class ServiceController extends Controller
         if ($request->hasFile('image2')){
             $polymorph = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image2')->first();
             if (is_file('storage/uploads/'.$polymorph->filename)) {
-                foreach ($polymorph as $item){
-                    unlink(public_path('storage/uploads/' . $item->filename));
-                }
+                //foreach ($polymorph as $item){
+                    unlink(public_path('storage/uploads/' . $polymorph->filename));
+                //}
             }
 
             $path = $image2->store('uploads');
