@@ -53,7 +53,7 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label for="first-name-vertical">Описание на русском</label>
-                                            <textarea class="form-control" id="tab1_ru" name="description_ru" placeholder="Описание на русском" rows="4" cols="50">{{$about->description_uz}}</textarea>
+                                            <textarea class="form-control" id="tab1_ru" name="description_ru" placeholder="Описание на русском" rows="4" cols="50">{{$about->description_ru}}</textarea>
                                             @if($errors->has('description_ru'))
                                                 <span class="text-danger error-text">{{$errors->first('description_ru')}}</span>
                                             @endif
