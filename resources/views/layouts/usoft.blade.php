@@ -172,15 +172,15 @@
                 <div class="footer__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fames.</div>
                 <div class="footer__icon">
                     @if(!$contact->facebook == '')
-                    <a href="{{$contact->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                    <a target="blink" href="{{$contact->facebook}}"><i class="fab fa-facebook-f"></i></a>
                     @else
                     @endif
                     @if(!$contact->linkedIn == '')
-                    <a href="{{$contact->linkedIn}}"><i class="fab fa-linkedin-in"></i></a>
+                    <a target="blink" href="{{$contact->linkedIn}}"><i class="fab fa-linkedin-in"></i></a>
                     @else
                     @endif
                     @if(!$contact->instagram == '')
-                    <a href="{{$contact->instagram}}"><i class="fab fa-instagram"></i></a>
+                    <a target="blink" href="{{$contact->instagram}}"><i class="fab fa-instagram"></i></a>
                     @else
                     @endif
                 </div>
