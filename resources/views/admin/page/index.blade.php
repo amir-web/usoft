@@ -4,11 +4,11 @@
         <div class="content-header-left col-md-9 col-12 mb-2">
             <div class="row breadcrumbs-top">
                 <div class="col-12">
-                    <h2 class="content-header-title float-left mb-0">Разработка сайтов</h2>
+                    <h2 class="content-header-title float-left mb-0">Страницы сайта</h2>
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('index')}}">Главная</a></li>
-                            <li class="breadcrumb-item active">Разработка сайтов</li>
+                            <li class="breadcrumb-item active">Страницы сайта</li>
                         </ol>
                     </div>
                 </div>
@@ -30,44 +30,34 @@
                 <div class="card">
                     <div class="card-header" style="display: flex;justify-content: flex-end;">
                         {{--<h4 class="card-title">Borderless Table</h4>--}}
-                        <a href="{{route('service.create')}}" class="btn btn-success mb-1 waves-effect waves-light"><i class="feather icon-plus"></i> Добавить</a>
+                        {{--<a href="{{route('page.create')}}" class="btn btn-success mb-1 waves-effect waves-light"><i class="feather icon-plus"></i> Добавить</a>--}}
                     </div>
                     <div class="card-content">
                         <div class="card-body">
                         </div>
                         <div class="table-responsive">
-                            @if($service->count() >= 1)
+                            @if(count($page))
                                 <table class="table table-borderless mb-0">
                                     <thead>
                                     <tr>
                                         <th>№</th>
                                         <th>Название RU</th>
                                         <th>Название UZ</th>
-                                        <th>Категория</th>
                                         <th>Изображение</th>
-                                        <th>Действия</th>
+                                        <th style="text-align: center">Действия</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($service as $item)
+                                    @foreach($page as $item)
                                         <tr>
                                             <th scope="row">{{$item->id}}</th>
                                             <th>{{$item->title_ru}}</th>
                                             <th>{{$item->title_uz}}</th>
-                                            <th>
-                                                {{$item->getCategory()}}
-                                            </th>
                                             <td>
                                                 <img width="122" src="{{$item->getImage() }}" alt="">
                                             </td>
-                                            <td style="display:flex;flex-wrap:wrap;width:190px;align-items: center;height: 168px;">
-                                                <a href="{{route('service.show', $item->id)}}" class="btn btn-icon btn-sm btn-success mr-1 mb-1 waves-effect waves-light"><i class="feather icon-edit icon-eye"></i></a>
-                                                <a href="{{route('service.edit', $item->id)}}" class="btn btn-icon btn-sm btn-warning mr-1 mb-1 waves-effect waves-light"><i class="feather icon-edit"></i></a>
-                                                <form action="{{route('service.destroy',$item->id)}}" method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit" class="btn btn-icon btn-sm btn-danger mr-1 mb-1 waves-effect waves-light"><i class="feather icon-trash-2"></i></button>
-                                                </form>
+                                            <td style="display:flex;justify-content: center;width:190px;align-items: center;height: 168px;">
+                                                <a href="{{route('page.edit', $item->id)}}" class="btn btn-icon btn-sm btn-warning mr-1 mb-1 waves-effect waves-light"><i class="feather icon-edit"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -86,7 +76,7 @@
         <div class="bottom">
             <div class="actions"></div>
             <div class="dataTables_paginate paging_simple_numbers" id="DataTables_Table_0_paginate">
-                {{$service->links('vendor.pagination.my_paginate')}}
+                {{$page->links('vendor.pagination.my_paginate')}}
             </div>
         </div>
 

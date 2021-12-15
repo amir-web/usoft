@@ -57,7 +57,31 @@
                                 {{$show->text_uz}}
                             </div>
                             <br>
+                            <div class="sec_con_title">Стек название на русском</div>
+                            <h4 class="card-title">{{$show->stack_title_ru}}</h4><br>
+                            <div class="sec_con_title">Стек название на узбекском</div>
+                            <h4 class="card-title">{{$show->stack_title_uz}}</h4><br>
+                            <div class="sec_con_title">Стек описание работы на узбекском</div>
+                            <div>
+                                {{$show->stack_text_ru}}
+                            </div>
+                            <br>
+                            <div class="sec_con_title">Стек описание работы на узбекском</div>
+                            <div>
+                                {{$show->stack_text_uz}}
+                            </div>
+                            <br>
+                            <div class="sec_con_title">Иконки</div>
+                            <div class="row">
+                                @foreach($show->icons as $item)
+                                    <div class="col-2">
+                                        <div class="sec_con_title">{{$item->title}}</div>
+                                        <img class="card-img-bottom img-fluid w-100" src="{{$item->getImage()}}" alt="Card image cap">
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
+
 
                         <div class="row" style="padding: 15px">
                             @foreach($image1 as $item)

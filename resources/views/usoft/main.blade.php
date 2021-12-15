@@ -6,23 +6,39 @@
         <div class="container">
             <div class="intro">
                 <div class="intro__content col-6">
-                    <div class="intro__title" style="font-size: 39px">{{__('main.banner_title')}}</div>
+                    <div class="intro__title" style="font-size: 39px">
+                        @if(app()->getLocale() == 'ru')
+                            {!! $main_content->title_ru !!}
+                        @elseif(app()->getLocale() == 'uz')
+                            {!! $main_content->title_uz !!}
+                        @else
+                            {!! $main_content->title_ru !!}
+                        @endif
+                    </div>
                     <div class="  col-11">
 
                         <div class="swiper mySwiper card__width">
                             <div class="swiper-wrapper">
+                                @foreach($main_services as $item)
                                 <div class="swiper-slide">
                                     <div class="new__btn">
-                                        <a href="{{route('service_show',3)}}" class="new__item">
+                                        <a href="{{route('service_show',$item->id)}}" class="new__item">
                                             <div class="new__title">
-                                                {{__('main.slide1')}}
+                                                @if(app()->getLocale() == 'ru')
+                                                    {{$item->title_ru}}
+                                                @elseif(app()->getLocale() == 'uz')
+                                                    {{$item->title_uz}}
+                                                @else
+                                                    {{$item->title_ru}}
+                                                @endif
                                             </div>
-                                            <img class="new__img" src="/usoft/images/btn/1.svg" alt="">
+                                            <img class="new__img" src="{{$item->getImage()}}" alt="">
                                         </a>
 
                                     </div>
                                 </div>
-                                <div class="swiper-slide">
+                                @endforeach
+                                {{--<div class="swiper-slide">
                                     <div class="new__btn">
                                         <a href="{{route('service_show',4)}}" class="new__item">
                                             <div class="new__title">
@@ -43,7 +59,7 @@
                                         </a>
 
                                     </div>
-                                </div>
+                                </div>--}}
 
                             </div>
                             <div class="swiper-pagination"></div>
@@ -214,20 +230,20 @@
     <div class="container">
         <div class="section__title">
             @if(app()->getLocale() == 'ru')
-                {{$section_portfolio->title_ru}}
+                {{$portfolio_content->title_ru}}
             @elseif(app()->getLocale() == 'uz')
-                {{$section_portfolio->title_uz}}
+                {{$portfolio_content->title_uz}}
             @else
-                {{$section_portfolio->title_ru}}
+                {{$portfolio_content->title_ru}}
             @endif
         </div>
         <div class="section__text">
             @if(app()->getLocale() == 'ru')
-                {{$section_portfolio->tab1_ru}}
+                {!! $portfolio_content->description_ru !!}
             @elseif(app()->getLocale() == 'uz')
-                {{$section_portfolio->tab1_uz}}
+                {!! $portfolio_content->description_uz !!}
             @else
-                {{$section_portfolio->tab1_ru}}
+                {!! $portfolio_content->description_ru !!}
             @endif
         </div>
     </div>
@@ -339,14 +355,253 @@
     <div class="container">
         <div class="section__title">
             @if(app()->getLocale() == 'ru')
-                {{$section_service_title->title_ru}}
+                {{$service_title->title_ru}}
             @elseif(app()->getLocale() == 'uz')
-                {{$section_service_title->title_uz}}
+                {{$service_title->title_uz}}
             @else
-                {{$section_service_title->title_ru}}
+                {{$service_title->title_ru}}
             @endif
         </div>
-        <div class="team__inner row justify-content-md-center">
+        <div class="swiper mySwiper1 swiper-initialized swiper-horizontal swiper-pointer-events">
+            <div class="swiper-wrapper" id="swiper-wrapper-987b37212cf3a1e2" aria-live="off" style="transform: translate3d(-4392px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide sldier--services swiper-slide-duplicate" data-swiper-slide-index="15" role="group" aria-label="16 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/3/4.svg" alt="">
+                            <div class="secvices__card__text">
+                                Высокая производительность
+                            </div>
+                        </div>
+                    </a>
+                </div><div class="swiper-slide sldier--services swiper-slide-duplicate" data-swiper-slide-index="16" role="group" aria-label="17 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/3/5.svg" alt="">
+                            <div class="secvices__card__text">
+                                Соответствие требованиям SEO
+                            </div>
+                        </div>
+                    </a>
+                </div><div class="swiper-slide sldier--services swiper-slide-duplicate" data-swiper-slide-index="17" role="group" aria-label="18 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/3/6.svg" alt="">
+                            <div class="secvices__card__text">
+                                Широкий функционал
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="0" role="group" aria-label="1 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/2.svg" alt="">
+                            <div class="secvices__card__text">
+                                Анализ
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="1" role="group" aria-label="2 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/5.svg" alt="">
+                            <div class="secvices__card__text">
+                                Подготовка прототипа
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="2" role="group" aria-label="3 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/3.svg" alt="">
+                            <div class="secvices__card__text">
+                                Составление ТЗ
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="3" role="group" aria-label="4 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/6.svg" alt="">
+                            <div class="secvices__card__text">
+                                Разработка дизайна и интерфейса.
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="4" role="group" aria-label="5 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/4.svg" alt="">
+                            <div class="secvices__card__text">
+                                Верстка и программирование
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="5" role="group" aria-label="6 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/7.svg" alt="">
+                            <div class="secvices__card__text">
+                                Обучение
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="6" role="group" aria-label="7 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/2/1.svg" alt="">
+                            <div class="secvices__card__text">
+                                Разработка с учетом SEO
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="7" role="group" aria-label="8 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/2/4.svg" alt="">
+                            <div class="secvices__card__text">
+                                Удобная система управления контентом
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services swiper-slide-prev" data-swiper-slide-index="8" role="group" aria-label="9 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/2/2.svg" alt="">
+                            <div class="secvices__card__text">
+                                Удобство для пользователя
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services swiper-slide-active" data-swiper-slide-index="9" role="group" aria-label="10 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/2/5.svg" alt="">
+                            <div class="secvices__card__text">
+                                Яркий, оригинальный дизайн
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services swiper-slide-next" data-swiper-slide-index="10" role="group" aria-label="11 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/2/3.svg" alt="">
+                            <div class="secvices__card__text">
+                                Способность выдерживать высокие нагрузки
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="11" role="group" aria-label="12 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/2/6.svg" alt="">
+                            <div class="secvices__card__text">
+                                Наполнение контентом
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="12" role="group" aria-label="13 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/3/1.svg" alt="">
+                            <div class="secvices__card__text">
+                                Безопасность
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="13" role="group" aria-label="14 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/3/2.svg" alt="">
+                            <div class="secvices__card__text">
+                                Удобство управления
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="14" role="group" aria-label="15 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/3/3.svg" alt="">
+                            <div class="secvices__card__text">
+                                Техническая поддержка
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="15" role="group" aria-label="16 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/3/4.svg" alt="">
+                            <div class="secvices__card__text">
+                                Высокая производительность
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="16" role="group" aria-label="17 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/3/5.svg" alt="">
+                            <div class="secvices__card__text">
+                                Соответствие требованиям SEO
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services" data-swiper-slide-index="17" role="group" aria-label="18 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/3/6.svg" alt="">
+                            <div class="secvices__card__text">
+                                Широкий функционал
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="swiper-slide sldier--services swiper-slide-duplicate" data-swiper-slide-index="0" role="group" aria-label="1 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/2.svg" alt="">
+                            <div class="secvices__card__text">
+                                Анализ
+                            </div>
+                        </div>
+                    </a>
+                </div><div class="swiper-slide sldier--services swiper-slide-duplicate" data-swiper-slide-index="1" role="group" aria-label="2 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/5.svg" alt="">
+                            <div class="secvices__card__text">
+                                Подготовка прототипа
+                            </div>
+                        </div>
+                    </a>
+                </div><div class="swiper-slide sldier--services swiper-slide-duplicate" data-swiper-slide-index="2" role="group" aria-label="3 / 18" style="width: 336px; margin-right: 30px;">
+                    <a href="#" class="services__card my-3 d-block">
+                        <div class="secvices__card__inner">
+                            <img src="./usoft/images/webPhoto/3.svg" alt="">
+                            <div class="secvices__card__text">
+                                Составление ТЗ
+                            </div>
+                        </div>
+                    </a>
+                </div></div>
+            <div class="swiper-pagination pogi swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal"><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 4"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 5"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 6"></span></div>
+            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+        {{--<div class="team__inner row justify-content-md-center">
             @foreach($section_service as $item)
             <a href="{{route('service_show', $item->id)}}" class="team__item col-lg-4 col-md-6 col-12 ">
                 <div class="team__img"><img src="{{$item->getImage()}}" alt=""></div>
@@ -370,7 +625,7 @@
                 </div>
             </a>
             @endforeach
-            {{--<a href="{{route('mobile_app')}}" class="team__item col-lg-4 col-md-6 col-12">
+            --}}{{--<a href="{{route('mobile_app')}}" class="team__item col-lg-4 col-md-6 col-12">
                 <div class="team__img"><img src="/usoft/images/team/2.svg" alt=""></div>
                 <div class="team__title">
                     {{__('main.ser_title2')}}
@@ -385,8 +640,8 @@
                 <div class="team__text">
                     {{__('main.ser_desc3')}}
                 </div>
-            </a>--}}
-        </div>
+            </a>--}}{{--
+        </div>--}}
 
     </div><!-- container -->
 

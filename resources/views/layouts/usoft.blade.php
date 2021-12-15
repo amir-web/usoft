@@ -228,7 +228,7 @@
     </div>
 </section>
 
-
+<a id="myBtn" title="Go to top"><i class="fas fa-arrow-circle-up"></i></a>
 
 <footer class="copyright">
     ©Usoft 2009-2021

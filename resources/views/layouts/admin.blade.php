@@ -41,6 +41,10 @@
 
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="/vuexy/assets/css/style.css">
+
+    <link rel="stylesheet" type="text/css" href="/vuexy/app-assets/vendors/css/forms/select/select2.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <style>
         .tippy-popper{
             display: none!important;
@@ -326,7 +330,7 @@
     <div class="shadow-bottom"></div>
     <div class="main-menu-content">
         <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
-            <li class=" nav-item {{request()->is('') == 'admin/bid' ? 'active' : ''}}">
+            <li class=" nav-item {{request()->is('admin/bid*') ? 'active' : ''}}">
                 <a href="{{route('bid.index')}}">
                     <i class="feather icon-users"></i>
                     <span class="menu-title">Заявки</span>
@@ -338,27 +342,39 @@
             {{--<li class=" nav-item {{request()->path() == 'admin/portfolio-category' ? 'active' : ''}}">
                 <a href="{{route('portfolio-category.index')}}"><i class="feather icon-list"></i><span class="menu-title">Категории</span></a>
             </li>--}}
-            <li class="nav-item has-sub">
+            {{--<li class="nav-item has-sub">
 
                 <a href="#"><i class="feather icon-credit-card"></i>
-                    <span class="menu-title" data-i18n="Ecommerce">Главная</span></a>
+                    <span class="menu-title" data-i18n="Ecommerce">Страницы</span></a>
                 <ul class="menu-content">
-                    <li class="nav-item {{request()->is('admin/portfolio*') ? 'active' : ''}}">
-                        <a href="{{route('portfolio.index')}}"><i class="feather icon-circle"></i><span class="menu-title">Портфолио</span></a>
-                    </li>
-                    <li class="nav-item {{request()->is('admin/web-development*') ? 'active' : ''}}">
-                        <a href="{{route('web-development.index')}}"><i class="feather icon-circle"></i><span class="menu-title">Разработка сайтов</span></a>
-                    </li>
-                    <li class="nav-item {{request()->is('admin/benefit*') ? 'active' : ''}}">
-                        <a href="{{route('benefit.index')}}"><i class="feather icon-circle"></i><span class="menu-title">Только у нас</span></a>
-                    </li>
-                    <li class="nav-item {{request()->is('admin/service*') ? 'active' : ''}}">
-                        <a href="{{route('service.index')}}"><i class="feather icon-circle"></i><span class="menu-title">Наши услуги</span></a>
+                    <li class="nav-item {{request()->is('admin/about*') ? 'active' : ''}}">
+                        <a href="{{route('about.index')}}">--}}{{--<i class="feather icon-credit-card"></i>--}}{{--<span class="menu-title">О компании</span></a>
                     </li>
                 </ul>
+            </li>--}}
+
+
+            <li class="nav-item {{request()->is('admin/page*') ? 'active' : ''}}">
+                <a href="{{route('page.index')}}"><i class="feather icon-credit-card"></i><span class="menu-title">Страницы</span></a>
             </li>
-            <li class="nav-item {{request()->is('admin/about*') ? 'active' : ''}}">
-                <a href="{{route('about.index')}}"><i class="feather icon-credit-card"></i><span class="menu-title">О компании</span></a>
+
+            <li class="nav-item {{request()->is('admin/portfolio*') ? 'active' : ''}}">
+                <a href="{{route('portfolio.index')}}"><i class="feather icon-briefcase"></i><span class="menu-title">Портфолио</span></a>
+            </li>
+            <li class="nav-item {{request()->is('admin/web-development*') ? 'active' : ''}}">
+                <a href="{{route('web-development.index')}}"><i class="feather icon-globe"></i><span class="menu-title">Разработка сайтов</span></a>
+            </li>
+            <li class="nav-item {{request()->is('admin/benefit*') ? 'active' : ''}}">
+                <a href="{{route('benefit.index')}}"><i class="feather icon-award"></i><span class="menu-title">Только у нас</span></a>
+            </li>
+            {{--<li class="nav-item {{request()->is('admin/benefit*') ? 'active' : ''}}">
+                <a href="{{route('benefit.index')}}"><i class="feather icon-copy"></i><span class="menu-title">Стеки</span></a>
+            </li>--}}
+            <li class="nav-item {{request()->is('admin/icon*') ? 'active' : ''}}">
+                <a href="{{route('icon.index')}}"><i class="feather icon-eye"></i><span class="menu-title">Иконки</span></a>
+            </li>
+            <li class="nav-item {{request()->is('admin/service*') ? 'active' : ''}}">
+                <a href="{{route('service.index')}}"><i class="feather icon-check-square"></i><span class="menu-title">Наши услуги</span></a>
             </li>
            {{-- <li class="nav-item has-sub">
 
@@ -722,7 +738,15 @@
 <!-- BEGIN: Page JS-->
 <script src="/vuexy/app-assets/js/scripts/pages/dashboard-analytics.js"></script>
 <script src="/vuexy/app-assets/js/scripts/my_script.js"></script>
-<!-- END: Page JS-->
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('.multiple_select').select2();
+    });
+</script>
+
 
 </body>
 <!-- END: Body-->

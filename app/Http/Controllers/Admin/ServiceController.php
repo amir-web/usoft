@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Icon;
+use App\Models\ServiceIcon;
 use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\Image;
+use Illuminate\Support\Arr;
 
 class ServiceController extends Controller
 {
@@ -16,9 +19,8 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $main_item = Service::find(1);
-        $service = Service::where('id', '>', 1)->with('image')->paginate(9);
-        return view('admin.service.index', compact('main_item', 'service'));
+        $service = Service::with('image')->paginate(9);
+        return view('admin.service.index', compact('service'));
     }
 
     /**
@@ -28,7 +30,9 @@ class ServiceController extends Controller
      */
     public function create()
     {
-        return view('admin.service.create');
+        $all_service = Service::all();
+        $icon = Icon::all();
+        return view('admin.service.create', compact('all_service', 'icon'));
     }
 
     /**
@@ -39,6 +43,7 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
+
         $store = Service::create([
             'title_ru' => $request->title_ru,
             'title_uz' => $request->title_uz,
@@ -46,7 +51,24 @@ class ServiceController extends Controller
             'description_uz' => $request->description_uz,
             'text_ru' => $request->text_ru,
             'text_uz' => $request->text_uz,
+            'stack_title_ru' => $request->stack_title_ru,
+            'stack_title_uz' => $request->stack_title_uz,
+            'stack_text_ru' => $request->stack_text_ru,
+            'stack_text_uz' => $request->stack_text_uz,
+            'parent_id' => $request->parent_id,
         ]);
+
+        if ($request->icons != ''){
+            $icons = $request->icons;
+
+            foreach ($icons as $item){
+                $icon = ServiceIcon::create([
+                    'service_id' => $store->id,
+                    'icon_id' => $item,
+                ]);
+            }
+        }
+
 
         $image1 = $request->file('image1');
         $image2 = $request->file('image2');
@@ -103,7 +125,12 @@ class ServiceController extends Controller
         $edit = Service::find($id);
         $img1 = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image1')->first();
         $img2 = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image2')->first();
-        return view('admin.service.edit' , compact('edit', 'img1', 'img2'));
+        $get_category = Service::find($edit->parent_id);
+        $all_service = Service::where('id', '!=', $id)->get();
+        $all_icons = Icon::all();
+        $checked = ServiceIcon::where('service_id', $id)->get();
+        $checked_array = $checked->pluck('icon_id')->toArray();
+        return view('admin.service.edit' , compact('edit', 'img1', 'img2', 'all_service', 'get_category', 'all_icons', 'checked_array'));
     }
 
     /**
@@ -124,7 +151,30 @@ class ServiceController extends Controller
             'description_uz' => $request->description_uz,
             'text_ru' => $request->text_ru,
             'text_uz' => $request->text_uz,
+            'stack_title_ru' => $request->stack_title_ru,
+            'stack_title_uz' => $request->stack_title_uz,
+            'stack_text_ru' => $request->stack_text_ru,
+            'stack_text_uz' => $request->stack_text_uz,
+            'parent_id' => $request->parent_id,
         ]);
+
+        $checked = ServiceIcon::where('service_id', $id)->get();
+        foreach ($checked as $check)
+        {
+            $check->delete();
+        }
+
+        if ($request->icons != ''){
+            $icons = $request->icons;
+
+            foreach ($icons as $item){
+                $icon = ServiceIcon::create([
+                    'service_id' => $update->id,
+                    'icon_id' => $item,
+                ]);
+            }
+        }
+
 
         $image1 = $request->file('image1');
         $image2 = $request->file('image2');
@@ -182,6 +232,11 @@ class ServiceController extends Controller
      */
     public function destroy($id)
     {
+        $checked = ServiceIcon::where('service_id', $id)->get();
+        foreach ($checked as $check)
+        {
+            $check->delete();
+        }
         $delete = Service::find($id);
         $polymorph = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id);
         foreach ($delete->image as $item){

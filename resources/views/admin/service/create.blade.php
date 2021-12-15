@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 @section('content')
+
+
     <div class="content-header row">
         <div class="content-header-left col-md-12 col-12 mb-12">
             <div class="row breadcrumbs-top">
@@ -29,7 +31,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form action="{{route('service.store')}}" method="post" class="form form-vertical" enctype="multipart/form-data">
+                            <form action="{{route('service.store')}}" method="post" class="form form-vertical" enctype="multipart/form-data" id="service_create">
                                 @csrf
                                 <div class="form-body">
                                     <div class="row">
@@ -76,6 +78,53 @@
                                                     <span class="text-danger error-text">{{$errors->first('description_uz')}}</span>
                                                 @endif
                                             </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Стек название на русском</label>
+                                                <input type="text" id="first-name-vertical" class="form-control" name="stack_title_ru" placeholder="Стек название на русском">
+                                                @if($errors->has('title_uz'))
+                                                    <span class="text-danger error-text">{{$errors->first('title_uz')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Стек название на узбекском</label>
+                                                <input type="text" id="first-name-vertical" class="form-control" name="stack_title_uz" placeholder="Стек название на русском">
+                                                @if($errors->has('title_uz'))
+                                                    <span class="text-danger error-text">{{$errors->first('title_uz')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Стек описание на русском</label>
+                                                <textarea class="form-control" name="stack_text_ru" placeholder="Стек описание на русском" rows="7" cols="50"></textarea>
+                                                @if($errors->has('stack_title_ru'))
+                                                    <span class="text-danger error-text">{{$errors->first('stack_title_ru')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Стек описание на узбекском</label>
+                                                <textarea class="form-control" name="stack_text_uz" placeholder="Стек описание на узбекском" rows="7" cols="50"></textarea>
+                                                @if($errors->has('stack_title_uz'))
+                                                    <span class="text-danger error-text">{{$errors->first('stack_title_uz')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Категория</label>
+                                                <select  class="form-control" name="parent_id" form="service_create">
+                                                    <option value="0">Основной</option>
+                                                    @foreach($all_service as $item)
+                                                        <option value="{{$item->id}}">{{$item->title_ru}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Иконки</label>
+                                                <select class="multiple_select form-control" name="icons[]" multiple="multiple" form="service_create">
+                                                    @foreach($icon as $item)
+                                                    <option value="{{$item->id}}">{{$item->title}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
                                             <div class="row">
                                                 <div class="col-4">
                                                     <div class="form-group">
@@ -92,6 +141,10 @@
                                                         @endif
                                                     </div>
                                                 </div>
+
+
+
+
                                                 <div class="col-4">
                                                     <div class="form-group">
                                                         <div>
@@ -125,6 +178,18 @@
     </div>
 
 
+    <style>
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+            left: -6px!important;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover, .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:focus {
+            background-color: #7367F0 !important;
+            color: #333;
+            outline: none;
+        }
+    </style>
+
     <script>
         /* image change onload input */
         function readURL1(input) {
@@ -152,5 +217,13 @@
                 reader.readAsDataURL(input.files[0]);
             }
         }
+
     </script>
+
+
+
+
+
+
+
 @endsection

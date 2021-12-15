@@ -6,25 +6,25 @@
                 <div class="intro__content col-7">
                     <div class="intro__title">
                         @if(app()->getLocale() == 'ru')
-                            {{$about->title_ru}}
+                            {{$about_content->title_ru}}
                         @elseif(app()->getLocale() == 'uz')
-                            {{$about->title_uz}}
+                            {{$about_content->title_uz}}
                         @else
-                            {{$about->title_ru}}
+                            {{$about_content->title_ru}}
                         @endif
                     </div>
                     <div class="intro__text col-12">
                         @if(app()->getLocale() == 'ru')
-                            {!! $about->description_ru !!}
+                            {!! $about_content->description_ru !!}
                         @elseif(app()->getLocale() == 'uz')
-                            {!! $about->description_uz !!}
+                            {!! $about_content->description_uz !!}
                         @else
-                            {!! $about->description_ru !!}
+                            {!! $about_content->description_ru !!}
                         @endif
                     </div>
                 </div>
                 <div class="intro__img  col-5">
-                    <img src="{{$about->getImage()}}" alt="">
+                    <img src="{{$about_content->getImage()}}" alt="">
                 </div>
 
             </div><!-- intro -->

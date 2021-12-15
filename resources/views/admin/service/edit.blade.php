@@ -29,7 +29,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form action="{{route('service.update', $edit->id)}}" method="post" class="form form-vertical" enctype="multipart/form-data">
+                            <form action="{{route('service.update', $edit->id)}}" method="post" class="form form-vertical" id="service_update" enctype="multipart/form-data" id="service_update">
                                 @csrf
                                 @method('put')
                                 <div class="form-body">
@@ -77,13 +77,68 @@
                                                     <span class="text-danger error-text">{{$errors->first('description_uz')}}</span>
                                                 @endif
                                             </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Стек название на русском</label>
+                                                <input type="text" id="first-name-vertical" class="form-control" name="stack_title_ru" placeholder="Стек название на русском" value="{{$edit->stack_title_ru}}">
+                                                @if($errors->has('title_uz'))
+                                                    <span class="text-danger error-text">{{$errors->first('title_uz')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Стек название на узбекском</label>
+                                                <input type="text" id="first-name-vertical" class="form-control" name="stack_title_uz" placeholder="Стек название на русском" value="{{$edit->stack_title_uz}}">
+                                                @if($errors->has('title_uz'))
+                                                    <span class="text-danger error-text">{{$errors->first('title_uz')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Стек описание на русском</label>
+                                                <textarea class="form-control" name="stack_text_ru" placeholder="Стек описание на русском" rows="7" cols="50">{{$edit->stack_title_ru}}</textarea>
+                                                @if($errors->has('stack_title_ru'))
+                                                    <span class="text-danger error-text">{{$errors->first('stack_title_ru')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Стек описание на узбекском</label>
+                                                <textarea class="form-control" name="stack_text_uz" placeholder="Стек описание на узбекском" rows="7" cols="50">{{$edit->stack_title_uz}}</textarea>
+                                                @if($errors->has('stack_title_uz'))
+                                                    <span class="text-danger error-text">{{$errors->first('stack_title_uz')}}</span>
+                                                @endif
+                                            </div>
+                                            <div class="form-group">
+                                                <select  class="form-control" name="parent_id" form="service_update">
+                                                    @if($edit->parent_id == 0)
+                                                        <option value="0">Основной</option>
+                                                    @else
+                                                        <option value="{{$get_category->id}}">{{$get_category->title_ru}}</option>
+                                                    @endif
+                                                    @foreach($all_service as $item)
+                                                        <option value="{{$item->id}}">{{$item->title_ru}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="first-name-vertical">Иконки</label>
+                                                <select class="multiple_select form-control" name="icons[]" multiple="multiple" form="service_update">
+                                                    @foreach($all_icons as $item)
+                                                        <option @if (in_array($item->id, $checked_array)) selected @endif value="{{$item->id}}">{{$item->title}}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+
                                             <div class="row">
                                                 <div class="col-4">
                                                     <div class="form-group">
                                                         <div><label for="first-name-vertical">Баннер на главной</label></div>
                                                         <div>
-                                                            <img id="image1" width="150" height="100"
+                                                            @if(isset($img1))
+                                                                <img id="image1" width="150" height="100"
                                                                  style="object-fit:contain;margin-bottom: 10px;" src="/storage/uploads/{{$img1->filename}}" alt="">
+                                                            @else
+                                                                <img id="image1" width="150" height="100"
+                                                                     style="object-fit:contain;margin-bottom: 10px;" src="#" alt="">
+                                                            @endif
                                                         </div>
                                                         <input onchange="readURL1(this);" type="file" class="form-control-file" name="image1" id="basicInputFile" multiple>
                                                         @if($errors->has('image1'))
@@ -95,8 +150,13 @@
                                                     <div class="form-group">
                                                         <div><label for="first-name-vertical">Баннер внутренней</label></div>
                                                         <div>
-                                                            <img id="image2" width="150" height="100"
+                                                            @if(isset($img2))
+                                                                <img id="image2" width="150" height="100"
                                                                  style="object-fit: contain; margin-bottom: 10px;" src="/storage/uploads/{{$img2->filename}}" alt="">
+                                                            @else
+                                                                <img id="image2" width="150" height="100"
+                                                                     style="object-fit: contain; margin-bottom: 10px;" src="#" alt="">
+                                                            @endif
                                                         </div>
                                                         <input onchange="readURL2(this);" type="file" class="form-control-file" name="image2" id="basicInputFile" multiple>
                                                         @if($errors->has('image2'))
@@ -120,6 +180,18 @@
         <!-- Borderless table end -->
 
     </div>
+
+    <style>
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+            left: -6px!important;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover, .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:focus {
+            background-color: #7367F0 !important;
+            color: #333;
+            outline: none;
+        }
+    </style>
 
     <script>
         /* image change onload input */

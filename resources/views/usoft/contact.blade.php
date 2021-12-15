@@ -4,14 +4,23 @@
         <div class="container">
             <div class="intro intro--mobile">
                 <div class="intro__content intro__content--mobile col-md-6 ">
-                    <div class="intro__title intro__title--mobile">{{__('contact.title')}}</div>
+                    <div class="intro__title intro__title--mobile">
+                        @if(app()->getLocale() == 'ru')
+                            {{$contact_content->title_ru}}
+                        @elseif(app()->getLocale() == 'uz')
+                            {{$contact_content->title_uz}}
+                        @else
+                            {{$contact_content->title_ru}}
+                        @endif
+                    </div>
                     <div class="intro__text intro--text--mobile col-12  ">
-                          {{__('contact.email')}} <a
-                            href="mailto:{{$contact->email}}">info@usoft.uz</a>
-                        <p>
-                            {{__('contact.phone')}}
-                            <a href="tel:{{$contact->phone}}"> {{$contact->phone}}</a>
-                        </p>
+                        @if(app()->getLocale() == 'ru')
+                            {!! $contact_content->description_ru !!}
+                        @elseif(app()->getLocale() == 'uz')
+                            {!! $contact_content->description_uz !!}
+                        @else
+                            {!! $contact_content->description_ru !!}
+                        @endif
                         <p>
                             @if(app()->getLocale() == 'ru')
                                 {{$contact->mode_ru}}
@@ -26,7 +35,7 @@
 
                 </div>
                 <div class="intro__img intro__img--mobile col-6">
-                    <img src="/usoft/images/cuate.svg" alt="">
+                    <img src="{{$contact_content->getImage()}}" alt="">
                 </div>
 
             </div><!-- intro -->

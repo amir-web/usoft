@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AboutController;
+use App\Http\Controllers\Admin\IconController;
+use App\Http\Controllers\Admin\PageController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\UsoftController;
 use Illuminate\Support\Facades\Route;
@@ -67,4 +69,6 @@ Route::prefix('admin')->middleware('admin')->group(function (){
     ('bid_filter');
     Route::resource('portfolio-category', PortfolioCategoryController::class);
     Route::resource('about', AboutController::class);
+    Route::resource('page', PageController::class);
+    Route::resource('icon', IconController::class);
 });

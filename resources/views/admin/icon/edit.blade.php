@@ -9,7 +9,7 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="{{route('index')}}">Главная</a>
                             </li>
-                            <li class="breadcrumb-item"><a href="{{route('web-development.index')}}">Разработка сайтов</a>
+                            <li class="breadcrumb-item"><a href="{{route('icon.index')}}">Разработка сайтов</a>
                             </li>
                             <li class="breadcrumb-item active">Изменить
                             </li>
@@ -29,38 +29,17 @@
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form action="{{route('web-development.update', $edit->id)}}" method="post" class="form form-vertical" enctype="multipart/form-data">
+                            <form action="{{route('icon.update', $edit->id)}}" method="post" class="form form-vertical" enctype="multipart/form-data">
                                 @csrf
                                 @method('put')
                                 <div class="form-body">
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label for="first-name-vertical">Название на русском</label>
-                                                <input type="text" id="first-name-vertical" class="form-control" name="title_ru" placeholder="Название на русском" value="{{$edit->title_ru}}">
-                                                @if($errors->has('title_ru'))
-                                                    <span class="text-danger error-text">{{$errors->first('title_ru')}}</span>
-                                                @endif
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="first-name-vertical">Название на узбекском</label>
-                                                <input type="text" id="first-name-vertical" class="form-control" name="title_uz" placeholder="Название на узбекском" value="{{$edit->title_uz}}">
-                                                @if($errors->has('title_uz'))
-                                                    <span class="text-danger error-text">{{$errors->first('title_uz')}}</span>
-                                                @endif
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="first-name-vertical">Описание на русском</label>
-                                                <textarea class="form-control" name="description_ru" placeholder="Описание на русском" rows="7" cols="50">{{$edit->description_ru}}</textarea>
-                                                @if($errors->has('description_ru'))
-                                                    <span class="text-danger error-text">{{$errors->first('description_ru')}}</span>
-                                                @endif
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="first-name-vertical">Описание на узбекском</label>
-                                                <textarea class="form-control" name="description_uz" placeholder="Описание на узбекском" rows="7" cols="50">{{$edit->description_uz}}</textarea>
-                                                @if($errors->has('description_uz'))
-                                                    <span class="text-danger error-text">{{$errors->first('description_uz')}}</span>
+                                                <label for="first-name-vertical">Название</label>
+                                                <input type="text" id="first-name-vertical" class="form-control" name="title" placeholder="Название на русском" value="{{$edit->title}}">
+                                                @if($errors->has('title'))
+                                                    <span class="text-danger error-text">{{$errors->first('title')}}</span>
                                                 @endif
                                             </div>
                                             <div class="form-group">
