@@ -26,7 +26,7 @@ class UsoftController extends Controller
         $section_benefit = Benefit::where('id', '>', 1)->with('image')->get();
         $portfolio_content = Page::find(3);
         $main_services = Service::where('parent_id', 0)->with('image')->get();
-        //$section_service_title = Service::find(1);
+        $other_service = Service::where('id','>', 3)->get();
         $service_title = Page::find(2);
 
         $web_items = Portfolio::where('category','Веб-разработка')->limit(6)->get();
@@ -44,7 +44,8 @@ class UsoftController extends Controller
             'web_items',
             'mob_items',
             'dis_items',
-            'main_content'
+            'main_content',
+            'other_service'
         ));
     }
 
@@ -65,18 +66,34 @@ class UsoftController extends Controller
     public function portfolio(Request $request){
         $portfolio_content = Page::find(4);
         $web_items = Portfolio::where('category','Веб-разработка')->paginate(3);
-        $mob_items = Portfolio::where('category','Разработка мобильных приложений')->get();
-        $dis_items = Portfolio::where('category','Дизайн')->get();
+        $mob_items = Portfolio::where('category','Разработка мобильных приложений')->paginate(3);
+        $dis_items = Portfolio::where('category','Дизайн')->paginate(3);
         $portfolio = Portfolio::where('id', '>', 1)->with('images')->get();
         $portfolio_title = Portfolio::find(1);
         /*for ($i = 1; $i < $web_items->lastPage(); $i++) {
             $links[] = 'portfolio?page=' . $i;
         }*/
-        if ($request->ajax()){
-            $view = view('usoft.ajax.portfolio_item_ajax', compact('web_items'))->render();
+        /*if ($request->ajax()){
+            $view = view('usoft.ajax.portfolio.web', compact('web_items'))->render();
             return response()->json(['html'=>$view]);
+        }*/
+
+        if ($request->ajax()){
+            if ($request->type == 'web'){
+                $view = view('usoft.ajax.portfolio.web', compact('web_items'))->render();
+                return response()->json(['html'=>$view]);
+            }
+            if ($request->type == 'mobile'){
+                $view = view('usoft.ajax.portfolio.mobile', compact('mob_items'))->render();
+                return response()->json(['html'=>$view]);
+            }
+            if ($request->type == 'design'){
+                $view = view('usoft.ajax.portfolio.design', compact('dis_items'))->render();
+                return response()->json(['html'=>$view]);
+            }
         }
         return view('usoft.portfolio', compact('portfolio', 'portfolio_title','web_items','mob_items', 'dis_items', 'portfolio_content'));
+
     }
 
     public function contact(){
@@ -188,10 +205,16 @@ class UsoftController extends Controller
 
     public function service_show($id){
         $show = Service::find($id);
+        $main_service = Service::where('parent_id', 0)->where('id','!=', $id)->get();
+        $children = Service::where('parent_id', $id)->get();
         $section_service = Service::where('id', '>', 1)->with('image')->get();
-        $section_service_title = Service::find(1);
+        $section_service_title = Page::find(2);
+        $portfolio = Page::find(4);
+        $web = Portfolio::where('category', 'Веб-разработка')->limit(3)->get();
+        $mobile = Portfolio::where('category', 'Разработка мобильных приложений')->limit(3)->get();
+        $design = Portfolio::where('category', 'Дизайн')->limit(3)->get();
         $image2 = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image2')->get();
-        return view('usoft.service_show', compact('show', 'section_service_title','section_service', 'image2'));
+        return view('usoft.service_show', compact('show', 'section_service_title','section_service', 'image2', 'main_service', 'children', 'portfolio', 'web', 'mobile', 'design'));
     }
 
 

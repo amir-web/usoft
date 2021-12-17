@@ -22,10 +22,10 @@ class CreateServicesTable extends Migration
             $table->text('description_uz');
             $table->text('text_ru');
             $table->text('text_uz');
-            $table->string('stack_title_ru');
-            $table->string('stack_title_uz');
-            $table->text('stack_text_ru');
-            $table->text('stack_text_uz');
+            $table->string('stack_title_ru')->nullable();
+            $table->string('stack_title_uz')->nullable();
+            $table->text('stack_text_ru')->nullable();
+            $table->text('stack_text_uz')->nullable();
             $table->timestamps();
         });
 

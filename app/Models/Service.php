@@ -47,5 +47,18 @@ class Service extends Model
         return $this->belongsToMany(Icon::class,'service_icon','service_id','icon_id');
     }
 
+    public function parent($id){
+        if ($id > 0){
+            $parent = Service::find($id);
+            if (app()->getLocale() == 'ru'){
+                return $parent->title_ru;
+            }elseif (app()->getLocale() == 'uz'){
+                return $parent->title_uz;
+            }else{
+                return $parent->title_ru;
+            }
+        }
+    }
+
 
 }

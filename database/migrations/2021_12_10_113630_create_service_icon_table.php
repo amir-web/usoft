@@ -16,10 +16,12 @@ class CreateServiceIconTable extends Migration
         Schema::dropIfExists('service_icon');
         Schema::create('service_icon', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('service_id')->constrained();
-            $table->foreignId('icon_id')->constrained();
+            $table->foreignId('service_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('icon_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
+
+
     }
 
     /**
