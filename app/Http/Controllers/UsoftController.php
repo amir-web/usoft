@@ -31,7 +31,7 @@ class UsoftController extends Controller
 
         $web_items = Portfolio::where('category','Веб-разработка')->limit(6)->get();
         $mob_items = Portfolio::where('category','Разработка мобильных приложений')->limit(6)->get();
-        $dis_items = Portfolio::where('category','Дизайн')->limit(6)->get();
+        $aut_items = Portfolio::where('category','Автоматизация бизнеса')->limit(6)->get();
 
         return view('usoft.main', compact(
     'section_website_title',
@@ -43,7 +43,7 @@ class UsoftController extends Controller
             'service_title',
             'web_items',
             'mob_items',
-            'dis_items',
+            'aut_items',
             'main_content',
             'other_service'
         ));
@@ -67,7 +67,7 @@ class UsoftController extends Controller
         $portfolio_content = Page::find(4);
         $web_items = Portfolio::where('category','Веб-разработка')->paginate(3);
         $mob_items = Portfolio::where('category','Разработка мобильных приложений')->paginate(3);
-        $dis_items = Portfolio::where('category','Дизайн')->paginate(3);
+        $dis_items = Portfolio::where('category','Автоматизация бизнеса')->paginate(3);
         $portfolio = Portfolio::where('id', '>', 1)->with('images')->get();
         $portfolio_title = Portfolio::find(1);
         /*for ($i = 1; $i < $web_items->lastPage(); $i++) {
@@ -103,23 +103,6 @@ class UsoftController extends Controller
     }
 
     public function bid(Request $request){
-        /*$validation = $request->validate([
-            'name'   => 'required',
-            'number' => 'required|unique',
-        ]);
-
-        if ($validation->fails()){
-            return response()->json([
-                'status' => 400,
-                'errors' => $validation->messages()
-            ]);
-        }
-
-        Bid::create([
-            'name' => $request->name,
-            'number' => $request->number,
-            'status' => 'Новый клиент'
-        ]);*/
 
         if ($request->ajax()){
             $validation = Validator::make($request->all(), [
@@ -212,9 +195,9 @@ class UsoftController extends Controller
         $portfolio = Page::find(4);
         $web = Portfolio::where('category', 'Веб-разработка')->limit(3)->get();
         $mobile = Portfolio::where('category', 'Разработка мобильных приложений')->limit(3)->get();
-        $design = Portfolio::where('category', 'Дизайн')->limit(3)->get();
+        $autobi = Portfolio::where('category', 'Автоматизация бизнеса')->limit(3)->get();
         $image2 = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image2')->get();
-        return view('usoft.service_show', compact('show', 'section_service_title','section_service', 'image2', 'main_service', 'children', 'portfolio', 'web', 'mobile', 'design'));
+        return view('usoft.service_show', compact('show', 'section_service_title','section_service', 'image2', 'main_service', 'children', 'portfolio', 'web', 'mobile', 'autobi'));
     }
 
 

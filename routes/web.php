@@ -71,4 +71,8 @@ Route::prefix('admin')->middleware('admin')->group(function (){
     Route::resource('about', AboutController::class);
     Route::resource('page', PageController::class);
     Route::resource('icon', IconController::class);
+
+    Route::get('/portfolio-web', [PortfolioController::class, 'web'])->name('portfolio.web');
+    Route::get('/portfolio-mobile', [PortfolioController::class, 'mobile'])->name('portfolio.mobile');
+    Route::get('/portfolio-business', [PortfolioController::class, 'business'])->name('portfolio.business');
 });

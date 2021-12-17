@@ -212,18 +212,6 @@
                                 <i class="feather icon-user"></i>
                                 Профиль
                             </a>
-                            {{--<a class="dropdown-item" href="app-email.html">
-                                <i class="feather icon-mail"></i>
-                                My Inbox
-                            </a>
-                            <a class="dropdown-item" href="app-todo.html">
-                                <i class="feather icon-check-square"></i>
-                                Task
-                            </a>
-                            <a class="dropdown-item" href="app-chat.html">
-                                <i class="feather icon-message-square"></i>
-                                Chats
-                            </a>--}}
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="{{route('logout')}}">
                                 <i class="feather icon-power"></i>
@@ -339,28 +327,28 @@
                     @endif
                 </a>
             </li>
-            {{--<li class=" nav-item {{request()->path() == 'admin/portfolio-category' ? 'active' : ''}}">
-                <a href="{{route('portfolio-category.index')}}"><i class="feather icon-list"></i><span class="menu-title">Категории</span></a>
-            </li>--}}
-            {{--<li class="nav-item has-sub">
 
-                <a href="#"><i class="feather icon-credit-card"></i>
-                    <span class="menu-title" data-i18n="Ecommerce">Страницы</span></a>
-                <ul class="menu-content">
-                    <li class="nav-item {{request()->is('admin/about*') ? 'active' : ''}}">
-                        <a href="{{route('about.index')}}">--}}{{--<i class="feather icon-credit-card"></i>--}}{{--<span class="menu-title">О компании</span></a>
-                    </li>
-                </ul>
-            </li>--}}
 
 
             <li class="nav-item {{request()->is('admin/page*') ? 'active' : ''}}">
                 <a href="{{route('page.index')}}"><i class="feather icon-credit-card"></i><span class="menu-title">Страницы</span></a>
             </li>
 
-            <li class="nav-item {{request()->is('admin/portfolio*') ? 'active' : ''}}">
+            <li class="nav-item has-sub">
                 <a href="{{route('portfolio.index')}}"><i class="feather icon-briefcase"></i><span class="menu-title">Портфолио</span></a>
+                <ul class="menu-content">
+                    <li class="nav-item {{request()->is('admin/portfolio-web*') ? 'active' : ''}}">
+                        <a href="{{route('portfolio.web')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Shop">Веб-разработка</span></a>
+                    </li>
+                    <li class="nav-item {{request()->is('admin/portfolio-mobile*') ? 'active' : ''}}">
+                        <a href="{{route('portfolio.mobile')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Details">Разработка мобильных приложений</span></a>
+                    </li>
+                    <li class="nav-item {{request()->is('admin/portfolio-business*') ? 'active' : ''}}">
+                        <a href="{{route('portfolio.business')}}"><i class="feather icon-circle"></i><span class="menu-item" data-i18n="Wish List">Автоматизация бизнеса</span></a>
+                    </li>
+                </ul>
             </li>
+
             <li class="nav-item {{request()->is('admin/web-development*') ? 'active' : ''}}">
                 <a href="{{route('web-development.index')}}"><i class="feather icon-globe"></i><span class="menu-title">Разработка сайтов</span></a>
             </li>
@@ -740,6 +728,8 @@
 <script src="/vuexy/app-assets/js/scripts/my_script.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+
 
 <script>
     $(document).ready(function() {

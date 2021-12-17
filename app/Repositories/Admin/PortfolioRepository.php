@@ -64,25 +64,7 @@ class PortfolioRepository
             $store->images()->save($img);
         }
 
-        //path = $image->storeAs('uploads',$request->title_ru.'.'.$image->getClientOriginalExtension());
 
-
-        /*$images = $request->file('images');
-//        $store->images()->create([
-//            'filename' => $filename,
-//        ]);
-
-        foreach ($images as $image){
-//            $filename = $request->title_ru.'.'.$request->file('images')->getClientOriginalExtension();
-
-            $path = $image->store('uploads');
-            $img = new Image([
-                'path' => $path,
-                'filename' => basename($path)
-            ]);
-
-            $store->images()->save($img);
-        }*/
 
         return $store;
     }
@@ -143,31 +125,6 @@ class PortfolioRepository
                 'filename' => basename($path)
             ]);
         }
-
-        /*if ($request->hasFile('images'))
-        {
-            $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id);
-            $polymorph->delete();
-
-
-
-            $images = $request->file('images');
-//        $store->images()->create([
-//            'filename' => $filename,
-//        ]);
-
-            foreach ($images as $image){
-//            $filename = $request->title_ru.'.'.$request->file('images')->getClientOriginalExtension();
-
-                $path = $image->store('uploads');
-                $img = new Image([
-                    'path' => $path,
-                    'filename' => basename($path)
-                ]);
-
-                $update->images()->save($img);
-            }
-        }*/
 
         return $update;
     }

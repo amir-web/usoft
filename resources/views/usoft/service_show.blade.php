@@ -131,20 +131,20 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="row h-100">
-                                                @foreach($mobile as $mobile_item)
+                                                @foreach($autobi as $auto_item)
                                                     <div class="col-lg-4 col-md-6 col-sm-6 col-6 p-3">
                                                         <div class="portfolio__inner">
                                                             <div class="portfolio__img">
-                                                                <img class="pi" src="{{$mobile_item->getImage()}}" alt="">
+                                                                <img class="pi" src="{{$auto_item->getImage()}}" alt="">
                                                             </div>
                                                             <div class="portfolio__text">
-                                                                <a href="{{route('show_portfolio', $mobile_item->id)}}">
+                                                                <a href="{{route('show_portfolio', $auto_item->id)}}">
                                                                     @if(app()->getLocale() == 'ru')
-                                                                        {{$mobile_item->title_ru}}
+                                                                        {{$auto_item->title_ru}}
                                                                     @elseif(app()->getLocale() == 'uz')
-                                                                        {{$mobile_item->title_uz}}
+                                                                        {{$auto_item->title_uz}}
                                                                     @else
-                                                                        {{$mobile_item->title_ru}}
+                                                                        {{$auto_item->title_ru}}
                                                                     @endif
                                                                 </a>
                                                             </div>
@@ -166,20 +166,20 @@
                                     <div class="row">
                                         <div class="col-sm-12">
                                             <div class="row h-100">
-                                                @foreach($design as $design_item)
+                                                @foreach($mobile as $mobile_item)
                                                     <div class="col-lg-4 col-md-6 col-sm-6 col-6 p-3">
                                                         <div class="portfolio__inner">
                                                             <div class="portfolio__img">
-                                                                <img class="pi" src="{{$design_item->getImage()}}" alt="">
+                                                                <img class="pi" src="{{$mobile_item->getImage()}}" alt="">
                                                             </div>
                                                             <div class="portfolio__text">
-                                                                <a href="{{route('show_portfolio', $design_item->id)}}">
+                                                                <a href="{{route('show_portfolio', $mobile_item->id)}}">
                                                                     @if(app()->getLocale() == 'ru')
-                                                                        {{$design_item->title_ru}}
+                                                                        {{$mobile_item->title_ru}}
                                                                     @elseif(app()->getLocale() == 'uz')
-                                                                        {{$design_item->title_uz}}
+                                                                        {{$mobile_item->title_uz}}
                                                                     @else
-                                                                        {{$design_item->title_ru}}
+                                                                        {{$mobile_item->title_ru}}
                                                                     @endif
                                                                 </a>
                                                             </div>

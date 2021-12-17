@@ -95,9 +95,9 @@
                                             </div>
                                             <div class="form-group">
                                                 <select  class="form-control" name="category" form="portfolio_create">
-                                                    <option value="Разработка мобильных приложений">Разработка мобильных приложений</option>
                                                     <option value="Веб-разработка">Веб-разработка</option>
-                                                    <option value="Дизайн">Дизайн</option>
+                                                    <option value="Автоматизация бизнеса">Автоматизация бизнеса</option>
+                                                    <option value="Разработка мобильных приложений">Разработка мобильных приложений</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">

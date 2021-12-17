@@ -95,9 +95,9 @@
                                             </div>
                                             <div class="form-group">
                                                 <select  class="form-control" name="category" form="portfolio_edit">
-                                                    <option value="Разработка мобильных приложений" @if ($edit->category == "Разработка мобильных приложений") selected @endif>Разработка мобильных приложений</option>
                                                     <option value="Веб-разработка" @if ($edit->category == "Веб-разработка") selected @endif>Веб-разработка</option>
-                                                    <option value="Дизайн" @if ($edit->category == "Дизайн") selected @endif>Дизайн</option>
+                                                    <option value="Автоматизация бизнеса" @if ($edit->category == "Автоматизация бизнеса") selected @endif>Автоматизация бизнеса</option>
+                                                    <option value="Разработка мобильных приложений" @if ($edit->category == "Разработка мобильных приложений") selected @endif>Разработка мобильных приложений</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">

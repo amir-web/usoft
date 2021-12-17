@@ -40,15 +40,15 @@
                 <div class="nav nav-tabs servisec__btn" id="nav-tab" role="tablist">
                     <button class="nav-link active servisec__btn__item--red" id="nav-home-tab" data-bs-toggle="tab"
                             data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home"
-                            aria-selected="true" data-url="{{route('portfolio')}}" onclick="changeTab('web')">Веб-разработка
+                            aria-selected="true" data-url="{{route('portfolio')}}" onclick="changeTab('web')">{{ __('buttons.web_dev') }}
                     </button>
                     <button class="nav-link servisec__btn__item--yellow" id="btn2 nav-profile-tab" data-bs-toggle="tab"
                             data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile"
-                            aria-selected="false" data-url="{{route('portfolio')}}" onclick="changeTab('mobile')">Разработка мобильных приложений
+                            aria-selected="false" data-url="{{route('portfolio')}}" onclick="changeTab('mobile')">{{ __('buttons.mobile_app') }}
                     </button>
                     <button class="nav-link servisec__btn__item--orchid" id="nav-contact-tab" data-bs-toggle="tab"
                             data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact"
-                            aria-selected="false" data-url="{{route('portfolio')}}" onclick="changeTab('design')">Дизайн
+                            aria-selected="false" data-url="{{route('portfolio')}}" onclick="changeTab('design')">{{ __('buttons.design') }}
                     </button>
                 </div>
             </nav>

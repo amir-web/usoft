@@ -322,7 +322,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="row h-100">
-                            @foreach($dis_items as $dis)
+                            @foreach($aut_items as $dis)
                                 <div class="col-lg-4 col-md-6 col-sm-6 col-6 p-3">
                                     <div class="portfolio__inner">
                                         <div class="portfolio__img">
