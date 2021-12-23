@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html class="loading" lang="en" data-textdirection="ltr">
 <!-- BEGIN: Head-->
 
@@ -349,9 +350,7 @@
                 </ul>
             </li>
 
-            <li class="nav-item {{request()->is('admin/web-development*') ? 'active' : ''}}">
-                <a href="{{route('web-development.index')}}"><i class="feather icon-globe"></i><span class="menu-title">Разработка сайтов</span></a>
-            </li>
+
             <li class="nav-item {{request()->is('admin/benefit*') ? 'active' : ''}}">
                 <a href="{{route('benefit.index')}}"><i class="feather icon-award"></i><span class="menu-title">Только у нас</span></a>
             </li>
