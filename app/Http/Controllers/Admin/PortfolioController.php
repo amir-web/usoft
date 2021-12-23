@@ -95,7 +95,7 @@ class PortfolioController extends Controller
     public function update(PortfolioRequest $request, $id)
     {
 
-        $update = (new PortfolioRepository())->update($request);
+        $update = (new PortfolioRepository())->update($request, $id);
 
 
         if ($update->category == 'Веб-разработка'){
