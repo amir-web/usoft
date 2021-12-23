@@ -50,7 +50,7 @@ class UsoftController extends Controller
     }
 
     public function service(){
-        $section_service = Service::where('parent_id', 0)->with('image')->get();
+        $section_service = Service::where('parent_id', 0)->get();
         $section_service_title = Page::find(2);
         return view('usoft.service',compact('section_service','section_service_title'));
     }

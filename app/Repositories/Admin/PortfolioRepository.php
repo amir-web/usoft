@@ -22,6 +22,7 @@ class PortfolioRepository
             'tab3_uz' => $request->tab3_uz,
             'link' => $request->link,
             'category' => $request->category,
+            'position' => Portfolio::max('position') +1,
         ]);
 
         $image1 = $request->file('image1');
@@ -92,7 +93,7 @@ class PortfolioRepository
 
         if ($request->hasFile('image1')){
             $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image1')->first();
-            if (is_file('storage/uploads/'.$polymorph->filename)) {
+            if (is_file('./storage/app/public/uploads/'.$polymorph->filename)) {
                     unlink(public_path('storage/uploads/' . $polymorph->filename));
             }
 
@@ -104,7 +105,7 @@ class PortfolioRepository
 
         if ($request->hasFile('image2')){
             $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image2')->first();
-            if (is_file('storage/uploads/'.$polymorph->filename)) {
+            if (is_file('./storage/app/public/uploads/'.$polymorph->filename)) {
                 unlink(public_path('storage/uploads/' . $polymorph->filename));
             }
 
@@ -116,7 +117,7 @@ class PortfolioRepository
 
         if ($request->hasFile('image3')){
             $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id)->where('position', 'image3')->first();
-            if (is_file('storage/uploads/'.$polymorph->filename)) {
+            if (is_file('./storage/app/public/uploads/'.$polymorph->filename)) {
                 unlink(public_path('storage/uploads/' . $polymorph->filename));
             }
 
@@ -131,8 +132,11 @@ class PortfolioRepository
 
     public function delete($id){
         $delete = Portfolio::find($id);
+
         foreach ($delete->images as $img){
-            unlink(public_path('storage/uploads/'.$img->filename));
+            if (is_file('./storage/app/public/uploads/'.$img->filename)) {
+                unlink(public_path('storage/uploads/' . $img->filename));
+            }
         }
 
         $polymorph = Image::where('imageable_type','=','App\Models\Portfolio')->where('imageable_id', $id);

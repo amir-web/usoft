@@ -78,7 +78,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div id="bid_container" class="card-content">
                         @if(count($bid))

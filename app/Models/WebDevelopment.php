@@ -7,9 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class WebDevelopment extends Model
 {
+    protected $casts = [
+        'title' => 'object',
+        'description' => 'object',
+    ];
     use HasFactory;
 
-    protected $fillable = ['title_ru','title_uz', 'description_ru','description_uz',];
+    protected $guarded = ['id'];
 
     public function image()
     {

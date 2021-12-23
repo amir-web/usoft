@@ -18,7 +18,7 @@ class WebDevelopmentController extends Controller
     public function index()
     {
         $main_item = WebDevelopment::find(1);
-        $web_dev = WebDevelopment::where('id', '>', 1)->with('image')->paginate(9);
+        $web_dev = WebDevelopment::where('id', '>', 2)->with('image')->paginate(9);
         return view('admin.web_development.index', compact('main_item', 'web_dev'));
     }
 
@@ -40,23 +40,24 @@ class WebDevelopmentController extends Controller
      */
     public function store(WebDevelopmentRequest $request)
     {
-        //dd($request->file('image')->store('usoft'));
         $store = WebDevelopment::create([
-            'title_ru' => $request->title_ru,
-            'title_uz' => $request->title_uz,
-            'description_ru' => $request->description_ru,
-            'description_uz' => $request->description_uz,
+            'title' => $request->title,
+            'description' => $request->description,
         ]);
 
-        $image = $request->file('image');
+        if ($request->hasFile('image')){
+            $image = $request->file('image');
 
-        $path = $image->store('uploads');
-        $img = new Image([
-            'path' => $path,
-            'filename' => basename($path)
-        ]);
+            $path = $image->store('uploads');
+            $img = new Image([
+                'path' => $path,
+                'filename' => basename($path)
+            ]);
 
-        $store->image()->save($img);
+            $store->image()->save($img);
+        }
+
+
 
         return redirect(route('web-development.index'));
     }
@@ -99,17 +100,15 @@ class WebDevelopmentController extends Controller
         $update = WebDevelopment::find($id);
 
         $update->update([
-            'title_ru' => $request->title_ru,
-            'title_uz' => $request->title_uz,
-            'description_ru' => $request->description_ru,
-            'description_uz' => $request->description_uz,
+            'title' => $request->title,
+            'description' => $request->description,
         ]);
 
         $image = $request->file('image');
 
         if ($request->hasFile('image')){
             $polymorph = Image::where('imageable_type','=','App\Models\WebDevelopment')->where('imageable_id', $id)->first();
-            if (is_file('storage/uploads/'.$polymorph->filename)) {
+            if (is_file('./storage/app/public/uploads/'.$polymorph->filename)) {
                 unlink(public_path('storage/uploads/' . $polymorph->filename));
             }
 

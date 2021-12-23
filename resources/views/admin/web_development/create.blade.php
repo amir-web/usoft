@@ -36,30 +36,30 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label for="first-name-vertical">Название на русском</label>
-                                                <input type="text" id="first-name-vertical" class="form-control" name="title_ru" placeholder="Название на русском">
-                                                @if($errors->has('title_ru'))
-                                                    <span class="text-danger error-text">{{$errors->first('title_ru')}}</span>
+                                                <input type="text" id="first-name-vertical" class="form-control" name="title[ru]" placeholder="Название на русском">
+                                                @if($errors->has('title.ru'))
+                                                    <span class="text-danger error-text">{{$errors->first('title.ru')}}</span>
                                                 @endif
                                             </div>
                                             <div class="form-group">
                                                 <label for="first-name-vertical">Название на узбекском</label>
-                                                <input type="text" id="first-name-vertical" class="form-control" name="title_uz" placeholder="Название на узбекском">
-                                                @if($errors->has('title_uz'))
-                                                    <span class="text-danger error-text">{{$errors->first('title_uz')}}</span>
+                                                <input type="text" id="first-name-vertical" class="form-control" name="title[uz]" placeholder="Название на узбекском">
+                                                @if($errors->has('title.uz'))
+                                                    <span class="text-danger error-text">{{$errors->first('title.uz')}}</span>
                                                 @endif
                                             </div>
                                             <div class="form-group">
                                                 <label for="first-name-vertical">Описание на русском</label>
-                                                <textarea class="form-control" name="description_ru" placeholder="Описание на русском" rows="7" cols="50"></textarea>
-                                                @if($errors->has('description_ru'))
-                                                    <span class="text-danger error-text">{{$errors->first('description_ru')}}</span>
+                                                <textarea class="form-control" name="description[ru]" placeholder="Описание на русском" rows="7" cols="50"></textarea>
+                                                @if($errors->has('description.ru'))
+                                                    <span class="text-danger error-text">{{$errors->first('description.ru')}}</span>
                                                 @endif
                                             </div>
                                             <div class="form-group">
                                                 <label for="first-name-vertical">Описание на узбекском</label>
-                                                <textarea class="form-control" name="description_uz" placeholder="Описание на узбекском" rows="7" cols="50"></textarea>
-                                                @if($errors->has('description_uz'))
-                                                    <span class="text-danger error-text">{{$errors->first('description_uz')}}</span>
+                                                <textarea class="form-control" name="description[uz]" placeholder="Описание на узбекском" rows="7" cols="50"></textarea>
+                                                @if($errors->has('description.uz'))
+                                                    <span class="text-danger error-text">{{$errors->first('description.uz')}}</span>
                                                 @endif
                                             </div>
                                             <div class="form-group">

@@ -181,7 +181,7 @@ class ServiceController extends Controller
 
         if ($request->hasFile('image1')){
             $polymorph = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image1')->first();
-            if (is_file('storage/uploads/'.$polymorph->filename)) {
+            if (is_file('./storage/app/public/uploads/'.$polymorph->filename)) {
                 //foreach ($polymorph as $item){
                     unlink(public_path('storage/uploads/' . $polymorph->filename));
                 //}
@@ -195,7 +195,7 @@ class ServiceController extends Controller
 
         if ($request->hasFile('image2')){
             $polymorph = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image2')->first();
-            if (is_file('storage/uploads/'.$polymorph->filename)) {
+            if (is_file('./storage/app/public/uploads/'.$polymorph->filename)) {
                 //foreach ($polymorph as $item){
                     unlink(public_path('storage/uploads/' . $polymorph->filename));
                 //}
@@ -207,19 +207,6 @@ class ServiceController extends Controller
             ]);
         }
 
-        /*if ($request->hasFile('image')){
-            $polymorph = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id',$id);
-            foreach ($update->image as $item){
-                unlink('storage/uploads/'.$item->filename);
-            }
-
-
-            $image = $request->file('image');
-            $path = $image->store('uploads');
-            $polymorph->update([
-                'filename' => basename($path)
-            ]);
-        }*/
 
         return redirect(route('service.index'));
     }

@@ -15,10 +15,8 @@ class CreateWebDevelopmentsTable extends Migration
     {
         Schema::create('web_developments', function (Blueprint $table) {
             $table->id();
-            $table->string('title_ru');
-            $table->string('title_uz');
-            $table->text('description_ru');
-            $table->text('description_uz');
+            $table->json('title');
+            $table->json('description');
             $table->timestamps();
         });
     }

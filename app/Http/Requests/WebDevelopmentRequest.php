@@ -24,10 +24,10 @@ class WebDevelopmentRequest extends FormRequest
     public function rules()
     {
         return [
-            'title_ru' => 'required',
-            'title_uz' => 'required',
-            'description_ru' => 'required',
-            'description_uz' => 'required',
+            'title.ru' => 'required',
+            'title.uz' => 'required',
+            'description.ru' => 'required',
+            'description.uz' => 'required',
             //'image' => 'required|mimes:jpg,jpeg,png,svg'
         ];
     }

@@ -75,8 +75,8 @@
                                 @foreach($web_dev as $item)
                                     <tr>
                                         <th scope="row">{{$item->id}}</th>
-                                        <th>{{$item->title_ru}}</th>
-                                        <th>{{$item->title_uz}}</th>
+                                        <th>{{$item->title->ru}}</th>
+                                        <th>{{$item->title->uz}}</th>
                                         <td>
                                             <img width="122" src="{{$item->getImage() }}" alt="">
                                         </td>

@@ -75,4 +75,8 @@ Route::prefix('admin')->middleware('admin')->group(function (){
     Route::get('/portfolio-web', [PortfolioController::class, 'web'])->name('portfolio.web');
     Route::get('/portfolio-mobile', [PortfolioController::class, 'mobile'])->name('portfolio.mobile');
     Route::get('/portfolio-business', [PortfolioController::class, 'business'])->name('portfolio.business');
+
+    Route::get('websort', [PortfolioController::class, 'web_sort'])->name('web_sort');
+    Route::get('businesssort', [PortfolioController::class, 'business_sort'])->name('business_sort');
+    Route::get('mobilesort', [PortfolioController::class, 'mobile_sort'])->name('mobile_sort');
 });

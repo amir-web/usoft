@@ -25,6 +25,7 @@ class CreatePortfoliosTable extends Migration
             $table->text('tab3_uz');
             $table->string('link');
             $table->string('category')->nullable();
+            $table->integer('position')->nullable();
             $table->timestamps();
         });
     }

@@ -11,6 +11,7 @@ class Portfolio extends Model
 
     protected $guarded = ['id'];
     //protected $fillable = ['title_ru','title_uz', 'description_ru','description_uz', 'link'];
+    protected $casts = ['title' => 'object'];
 
     public function images()
     {

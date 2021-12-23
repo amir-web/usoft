@@ -109,7 +109,7 @@ class PageController extends Controller
 
         if ($request->hasFile('image')){
             $polymorph = Image::where('imageable_type','=','App\Models\Page')->where('imageable_id', $id)->first();
-            if (is_file('storage/uploads/'.$polymorph->filename)) {
+            if (is_file('./storage/app/public/uploads/'.$polymorph->filename)) {
                 unlink(public_path('storage/uploads/' . $polymorph->filename));
             }
 
