@@ -24,7 +24,7 @@ class UsoftController extends Controller
         $section_website = WebDevelopment::where('id', '>', 1)->with('image')->get();
         $section_benefit_title = Benefit::find(1);
         $section_benefit = Benefit::where('id', '>', 1)->with('image')->get();
-        $portfolio_content = Page::find(3);
+        $portfolio_content = Page::find(4);
         $main_services = Service::where('parent_id', 0)->with('image')->get();
         $other_service = Service::where('id','>', 3)->get();
         $service_title = Page::find(2);
