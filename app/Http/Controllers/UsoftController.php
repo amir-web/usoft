@@ -28,6 +28,7 @@ class UsoftController extends Controller
         $main_services = Service::where('parent_id', 0)->with('image')->get();
         $other_service = Service::where('id','>', 3)->get();
         $service_title = Page::find(2);
+        $web_service = Service::where('parent_id', 1)->limit(3)->get();
 
         $web_items = Portfolio::where('category','Веб-разработка')->limit(6)->get();
         $mob_items = Portfolio::where('category','Разработка мобильных приложений')->limit(6)->get();
@@ -45,7 +46,8 @@ class UsoftController extends Controller
             'mob_items',
             'aut_items',
             'main_content',
-            'other_service'
+            'other_service',
+            'web_service',
         ));
     }
 
@@ -65,9 +67,9 @@ class UsoftController extends Controller
 
     public function portfolio(Request $request){
         $portfolio_content = Page::find(4);
-        $web_items = Portfolio::where('category','Веб-разработка')->paginate(3);
-        $mob_items = Portfolio::where('category','Разработка мобильных приложений')->paginate(3);
-        $dis_items = Portfolio::where('category','Автоматизация бизнеса')->paginate(3);
+        $web_items = Portfolio::where('category','Веб-разработка')->orderBy('position')->paginate(3);
+        $mob_items = Portfolio::where('category','Разработка мобильных приложений')->orderBy('position')->paginate(3);
+        $dis_items = Portfolio::where('category','Автоматизация бизнеса')->orderBy('position')->paginate(3);
         $portfolio = Portfolio::where('id', '>', 1)->with('images')->get();
         $portfolio_title = Portfolio::find(1);
         /*for ($i = 1; $i < $web_items->lastPage(); $i++) {
@@ -193,9 +195,9 @@ class UsoftController extends Controller
         $section_service = Service::where('id', '>', 1)->with('image')->get();
         $section_service_title = Page::find(2);
         $portfolio = Page::find(4);
-        $web = Portfolio::where('category', 'Веб-разработка')->limit(3)->get();
-        $mobile = Portfolio::where('category', 'Разработка мобильных приложений')->limit(3)->get();
-        $autobi = Portfolio::where('category', 'Автоматизация бизнеса')->limit(3)->get();
+        $web = Portfolio::where('category', 'Веб-разработка')->orderBy('position')->limit(3)->get();
+        $mobile = Portfolio::where('category', 'Разработка мобильных приложений')->orderBy('position')->limit(3)->get();
+        $autobi = Portfolio::where('category', 'Автоматизация бизнеса')->orderBy('position')->limit(3)->get();
         $image2 = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image2')->get();
         return view('usoft.service_show', compact('show', 'section_service_title','section_service', 'image2', 'main_service', 'children', 'portfolio', 'web', 'mobile', 'autobi'));
     }

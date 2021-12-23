@@ -90,39 +90,33 @@
 
 <section class="section section__bottom">
     <div class="container">
-        <div class="section__title">
-            @if(app()->getLocale() == 'ru')
-                {{$section_website_title->title_ru}}
-            @elseif(app()->getLocale() == 'uz')
-                {{$section_website_title->title_uz}}
-            @else
-                {{$section_website_title->title_ru}}
-            @endif
-        </div>
 
         <div class="team__inner row justify-content-md-center">
-            @foreach($section_website as $item)
-            <div class="team__item col-lg-4 col-md-6 col-12 ">
-                <div class="team__img"><img src="{{$item->getImage()}}" alt=""></div>
-                <div class="team__title">
-                    @if(app()->getLocale() == 'ru')
-                        {{$item->title_ru}}
-                    @elseif(app()->getLocale() == 'uz')
-                        {{$item->title_uz}}
-                    @else
-                        {{$item->title_ru}}
-                    @endif
+            @foreach($web_service as $item)
+                <div class="team__item col-lg-4 col-md-6 col-12 ">
+                    <a href="{{route('service_show', $item->id)}}">
+                    <div class="team__img"><img src="{{$item->getImage()}}" alt=""></div>
+                    <div class="team__title">
+                        @if(app()->getLocale() == 'ru')
+                            {{$item->title_ru}}
+                        @elseif(app()->getLocale() == 'uz')
+                            {{$item->title_uz}}
+                        @else
+                            {{$item->title_ru}}
+                        @endif
+                    </div>
+                    <div class="team__text">
+                        @if(app()->getLocale() == 'ru')
+                            {{$item->description_ru}}
+                        @elseif(app()->getLocale() == 'uz')
+                            {{$item->description_uz}}
+                        @else
+                            {{$item->description_ru}}
+                        @endif
+                    </div>
+                    </a>
                 </div>
-                <div class="team__text">
-                    @if(app()->getLocale() == 'ru')
-                        {{$item->description_ru}}
-                    @elseif(app()->getLocale() == 'uz')
-                        {{$item->description_uz}}
-                    @else
-                        {{$item->description_ru}}
-                    @endif
-                </div>
-            </div>
+
             @endforeach
             {{--<div class="team__item col-lg-4 col-md-6 col-12">
                 <div class="team__img"><img src="/usoft/images/team/2.svg" alt=""></div>
