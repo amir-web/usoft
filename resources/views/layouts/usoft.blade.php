@@ -189,7 +189,7 @@ $main_services = \App\Models\Service::where('parent_id', 0)->with('image')->get(
                 <div class="footer__title ">{{__('usoft.links_title')}}</div>
                 @foreach($main_services as $link)
                 <p>
-                    <a href="{{route('show_portfolio', $link->id)}}">
+                    <a href="{{route('service_show', $link->id)}}">
                         @if(app()->getLocale() == 'ru')
                             {{$link->title_ru}}
                         @elseif(app()->getLocale() == 'uz')
