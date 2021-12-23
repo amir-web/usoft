@@ -126,7 +126,8 @@
 
 
 <?php
-    $contact = \App\Models\Contact::find(1);
+$contact = \App\Models\Contact::find(1);
+$main_services = \App\Models\Service::where('parent_id', 0)->with('image')->get();
 ?>
 
 <section class="project">
@@ -169,7 +170,6 @@
         <div class="footer__inner">
             <div class="footer__item">
                 <div class="footer__logo"><img src="/usoft/images/logo-black.svg" alt=""></div>
-                <div class="footer__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fames.</div>
                 <div class="footer__icon">
                     @if(!$contact->facebook == '')
                     <a target="blink" href="{{$contact->facebook}}"><i class="fab fa-facebook-f"></i></a>
@@ -187,15 +187,19 @@
             </div>
             <div class="footer__item">
                 <div class="footer__title ">{{__('usoft.links_title')}}</div>
+                @foreach($main_services as $link)
                 <p>
-                    <a href="{{route('website')}}">{{__('usoft.foot_link1')}}</a>
+                    <a href="{{route('show_portfolio', $link->id)}}">
+                        @if(app()->getLocale() == 'ru')
+                            {{$link->title_ru}}
+                        @elseif(app()->getLocale() == 'uz')
+                            {{$link->title_uz}}
+                        @else
+                            {{$link->title_ru}}
+                        @endif
+                    </a>
                 </p>
-                <p>
-                    <a href="{{route('mobile_app')}}">{{__('usoft.foot_link2')}}</a>
-                </p>
-                <p>
-                    <a href="{{route('automation')}}">{{__('usoft.foot_link3')}}</a>
-                </p>
+                @endforeach
 
             </div>
             <div class="footer__item footer__item--phone">

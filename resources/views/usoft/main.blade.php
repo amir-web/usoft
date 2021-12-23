@@ -360,7 +360,7 @@
             <div class="swiper-wrapper">
                 @foreach($other_service as $service)
                     <div class="swiper-slide sldier--services">
-                        <a href="#" class="services__card my-3 d-block">
+                        <a href="{{route('show_portfolio', $service->id)}}" class="services__card my-3 d-block">
                             <div class="secvices__card__inner">
                                 <img src="{{$service->getImage()}}" alt="">
                                 <div class="secvices__card__text">
