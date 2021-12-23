@@ -94,10 +94,17 @@ class PortfolioController extends Controller
      */
     public function update(PortfolioRequest $request, $id)
     {
-        $update = new PortfolioRepository();
-        $update->update($request, $id);
 
-        return redirect(route('portfolio.index'));
+        $update = (new PortfolioRepository())->update($request);
+
+
+        if ($update->category == 'Веб-разработка'){
+            return redirect(route('portfolio.web'));
+        }elseif ($update->category == 'Автоматизация бизнеса'){
+            return redirect(route('portfolio.business'));
+        }elseif ($update->category == 'Разработка мобильных приложений'){
+            return redirect(route('portfolio.mobile'));
+        }
     }
 
     /**
@@ -108,9 +115,16 @@ class PortfolioController extends Controller
      */
     public function destroy($id)
     {
-        $delete = new PortfolioRepository();
-        $delete->delete($id);
-        return redirect(route('portfolio.index'));
+        $delete = (new PortfolioRepository())->delete($id);
+
+
+        if ($delete->category == 'Веб-разработка'){
+            return redirect(route('portfolio.web'));
+        }elseif ($delete->category == 'Автоматизация бизнеса'){
+            return redirect(route('portfolio.business'));
+        }elseif ($delete->category == 'Разработка мобильных приложений'){
+            return redirect(route('portfolio.mobile'));
+        }
     }
 
     public function main_item(Request $request){
