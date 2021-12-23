@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Models\Service;
 use App\Models\Image;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Storage;
 
 class ServiceController extends Controller
 {
@@ -142,6 +143,27 @@ class ServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         $update = Service::find($id);
 
         $update->update([
@@ -195,16 +217,33 @@ class ServiceController extends Controller
 
         if ($request->hasFile('image2')){
             $polymorph = Image::where('imageable_type','=','App\Models\Service')->where('imageable_id', $id)->where('position', 'image2')->first();
-            if (is_file('./storage/app/public/uploads/'.$polymorph->filename)) {
-                //foreach ($polymorph as $item){
-                    unlink(public_path('storage/uploads/' . $polymorph->filename));
-                //}
-            }
+            if ($polymorph == null){
+                $image2 = $request->file('image2');
 
-            $path = $image2->store('uploads');
-            $polymorph->update([
-                'filename' => basename($path)
-            ]);
+                if ($request->hasFile('image2')){
+
+                    $path = $image2->store('uploads');
+                    $img = new Image([
+                        'path' => $path,
+                        'position' => 'image2',
+                        'filename' => basename($path),
+                    ]);
+
+                    $update->image()->save($img);
+                }
+            }
+            if ($polymorph != null){
+                if (is_file('./storage/app/public/uploads/'.$polymorph->filename)) {
+                    //foreach ($polymorph as $item){
+                    unlink(public_path('storage/uploads/' . $polymorph->filename));
+                    //}
+                }
+
+                $path = $image2->store('uploads');
+                $polymorph->update([
+                    'filename' => basename($path)
+                ]);
+            }
         }
 
 
